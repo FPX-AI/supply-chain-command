@@ -3999,7 +3999,7 @@ export const REPORTS = [
     unlocked: false,
     tagline: "The metal bottleneck behind every AI campus",
     desc: "How copper scarcity, power infrastructure, and optics intersect to create a layered infrastructure investment stack",
-    color: "#ff6d00",
+    color: "#d4a017",
     stages: [
       {
         id: "cu-mining",
