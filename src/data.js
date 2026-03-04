@@ -799,8 +799,10 @@ export const REPORTS = [
     color: "#ff0066",
     chips: [
         {
+          id: "rb-gpu",
           name: "Rubin GPU",
-          codename: "undefined",
+          label: "GPU",
+          desc: "4nm compute die with 288 GB HBM4 per GPU. CoWoS-L interposer. The centerpiece of NVL72.",
           stages: [
             {
               id: "rb-gpu-hbm",
@@ -1097,8 +1099,10 @@ export const REPORTS = [
           ]
         },
         {
+          id: "rb-cpu",
           name: "Vera CPU",
-          codename: "undefined",
+          label: "CPU",
+          desc: "72-core ARM server CPU. SOCAMM memory modules. Grace-to-Vera software compatibility.",
           stages: [
             {
               id: "rb-cpu-arch",
@@ -1159,8 +1163,10 @@ export const REPORTS = [
           ]
         },
         {
+          id: "rb-connectx",
           name: "ConnectX-9 SuperNIC",
-          codename: "undefined",
+          label: "ConnectX",
+          desc: "4x OSFP/QSFP, 112Gbaud SerDes per lane. PCB laminates = the constraint.",
           stages: [
             {
               id: "rb-cx-pcb",
@@ -1417,8 +1423,10 @@ export const REPORTS = [
           ]
         },
         {
+          id: "rb-nvlink",
           name: "NVLink 6 Switch",
-          codename: "undefined",
+          label: "NVLINK",
+          desc: "260 TB/s rack-scale bandwidth. 72 GPUs interconnected. Signal integrity is everything.",
           stages: [
             {
               id: "rb-nv-design",
@@ -1547,8 +1555,10 @@ export const REPORTS = [
           ]
         },
         {
+          id: "rb-spectrum",
           name: "Spectrum-X / CPO",
-          codename: "undefined",
+          label: "SpectrumX",
+          desc: "First co-packaged optics switch. Photonics regime change from pluggable to on-package.",
           stages: [
             {
               id: "rb-sp-cpo",
@@ -1601,8 +1611,10 @@ export const REPORTS = [
           ]
         },
         {
+          id: "rb-dpu",
           name: "BlueField-4 DPU",
-          codename: "undefined",
+          label: "DPU",
+          desc: "Programmable data processing unit. NVMe/virtio offload. Infrastructure-on-a-chip.",
           stages: [
             {
               id: "rb-dpu-board",
