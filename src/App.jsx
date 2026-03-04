@@ -8,6 +8,8 @@ import {
   updatePricesFromJSON,
 } from "./data";
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 // ─── MOBILE HOOK ──────────────────────────────────────────────────────────────
 const useIsMobile = (breakpoint = 768) => {
   const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < breakpoint);
@@ -244,7 +246,7 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate }) => {
       {!unlocked && (
         <div style={{ position: "absolute", inset: 0, zIndex: 5, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", background: "rgba(5,8,10,0.88)" }}>
           <div style={{ fontFamily: "var(--display)", fontSize: "0.65rem", color: "#ff3344", letterSpacing: "0.2em", marginBottom: 6, animation: "blink 1.5s infinite" }}>◆ CLEARANCE REQUIRED ◆</div>
-          <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", background: "#0d1117", border: "1px solid #1a222e", borderRadius: 3, padding: "6px 14px", marginBottom: 8 }}>DECRYPTION HALTED AT 15%</div>
+          <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", background: "#0d1117", border: "1px solid #1a222e", borderRadius: 3, padding: "6px 14px", marginBottom: 8 }}>UPGRADE TO COMPLETE DECRYPTION</div>
           <div style={{ width: 100, height: 3, background: "#1a222e", borderRadius: 2, overflow: "hidden" }}>
             <div style={{ width: "15%", height: "100%", background: color, borderRadius: 2 }} />
           </div>
@@ -540,10 +542,107 @@ const WorldMap = ({ report }) => {
   );
 };
 
-// ─── DECRYPTION PAYWALL ─────────────────────────────────────────────────────
-const DecryptionPaywall = ({ report }) => {
+// ─── LOGIN MODAL ────────────────────────────────────────────────────────────
+const LoginModal = ({ onClose, onSuccess, color }) => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle | checking | sent | error | not_found
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+
+    // Dev bypass: type "devpro" to simulate pro access locally
+    if (email === 'devpro') {
+      onSuccess({ email: 'dev@test.com', tier: 'pro' });
+      return;
+    }
+
+    setStatus('checking');
+    setMessage('');
+    try {
+      const res = await fetch(`${API_URL}/api/auth/request-access`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('sent');
+        setMessage(data.message);
+      } else {
+        setStatus('not_found');
+        setMessage(data.message || 'No active subscription found.');
+      }
+    } catch {
+      setStatus('error');
+      setMessage('Connection error. Try again.');
+    }
+  };
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(6px)' }} onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{ background: '#0a0e12', border: `1px solid ${color}44`, borderRadius: 8, padding: 32, maxWidth: 420, width: '90%', position: 'relative' }}>
+        <button onClick={onClose} style={{ position: 'absolute', top: 12, right: 14, background: 'none', border: 'none', color: '#556070', fontSize: '1rem', cursor: 'pointer' }}>✕</button>
+        <div style={{ fontFamily: "var(--display)", fontSize: '0.5rem', color, letterSpacing: '0.3em', marginBottom: 6 }}>CLEARANCE VERIFICATION</div>
+        <div style={{ fontFamily: "var(--mono)", fontSize: '0.95rem', color: '#e0e6ed', fontWeight: 700, marginBottom: 6 }}>Verify Substack Pro Access</div>
+        <div style={{ fontFamily: "var(--mono)", fontSize: '0.6rem', color: '#556070', marginBottom: 24, lineHeight: 1.5 }}>
+          Enter the email linked to your Substack Pro subscription. We'll send a magic link to verify your access.
+        </div>
+
+        {status === 'sent' ? (
+          <div style={{ textAlign: 'center', padding: '20px 0' }}>
+            <div style={{ fontSize: '2rem', marginBottom: 12 }}>📧</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: '0.75rem', color: '#39ff14', marginBottom: 8 }}>Magic link sent!</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: '0.6rem', color: '#8a9bb0', lineHeight: 1.5 }}>Check your email and click the link to activate COMMAND access. You can close this window.</div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text" value={email} onChange={e => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              style={{
+                width: '100%', padding: '12px 14px', background: '#05080a', border: '1px solid #1a222e',
+                borderRadius: 4, color: '#e0e6ed', fontFamily: "var(--mono)", fontSize: '0.75rem',
+                outline: 'none', marginBottom: 12,
+              }}
+              onFocus={e => e.target.style.borderColor = color}
+              onBlur={e => e.target.style.borderColor = '#1a222e'}
+            />
+            <button type="submit" disabled={status === 'checking'}
+              style={{
+                width: '100%', padding: '12px 0', background: status === 'checking' ? '#1a222e' : color,
+                border: 'none', borderRadius: 4, fontFamily: "var(--mono)", fontSize: '0.7rem',
+                fontWeight: 700, color: '#05080a', cursor: status === 'checking' ? 'wait' : 'pointer',
+                letterSpacing: '0.1em',
+              }}>
+              {status === 'checking' ? 'VERIFYING CLEARANCE...' : 'VERIFY ACCESS →'}
+            </button>
+            {message && (
+              <div style={{ marginTop: 12, fontFamily: "var(--mono)", fontSize: '0.6rem', color: status === 'not_found' ? '#ff6600' : '#ff3344', lineHeight: 1.5 }}>
+                {message}
+                {status === 'not_found' && (
+                  <a href="https://fpxai.substack.com/subscribe" target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'block', color, marginTop: 8, textDecoration: 'none' }}>
+                    Subscribe at fpxai.substack.com →
+                  </a>
+                )}
+              </div>
+            )}
+          </form>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ─── PRICING GATE ───────────────────────────────────────────────────────────
+const PricingGate = ({ report, mob, onVerify }) => {
+  const [showPricing, setShowPricing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [started, setStarted] = useState(false);
+  const [hoverFree, setHoverFree] = useState(false);
+  const [hoverPro, setHoverPro] = useState(false);
 
   useEffect(() => {
     if (!started || progress >= 15) return;
@@ -551,41 +650,175 @@ const DecryptionPaywall = ({ report }) => {
     return () => clearTimeout(timer);
   }, [started, progress]);
 
+  useEffect(() => {
+    if (progress >= 15) {
+      const t = setTimeout(() => setShowPricing(true), 400);
+      return () => clearTimeout(t);
+    }
+  }, [progress]);
+
   const pwStages = report.chips ? report.chips.flatMap(c => c.stages) : report.stages;
   const allCos = pwStages.flatMap(s => s.companies);
-  const avgG = allCos.reduce((a, c) => a + parseFloat(pct(c.start, c.now)), 0) / allCos.length;
-  const best = allCos.reduce((b, c) => parseFloat(pct(c.start, c.now)) > parseFloat(pct(b.start, b.now)) ? c : b);
+  const freeReports = REPORTS.filter(r => r.unlocked);
+  const proReports = REPORTS.filter(r => !r.unlocked);
 
-  return (
-    <div style={{ background: `linear-gradient(135deg, ${report.color}05, #0a0e12)`, border: `1px solid ${report.color}22`, borderRadius: 6, padding: 32, textAlign: "center", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, background: `repeating-linear-gradient(45deg, transparent, transparent 20px, ${report.color}03 20px, ${report.color}03 40px)` }} />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <WireframeChip color={report.color} size={64} />
-        <div style={{ fontFamily: "var(--display)", fontSize: "0.7rem", color: report.color, letterSpacing: "0.25em", margin: "16px 0 8px" }}>{report.codename} · {report.classification}</div>
-        <div style={{ fontFamily: "var(--mono)", fontSize: "1rem", color: "#e0e6ed", fontWeight: 700, marginBottom: 8 }}>{report.name}</div>
-        <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", marginBottom: 20, lineHeight: 1.6 }}>
-          {allCos.length} companies · {pwStages.length} stages · Avg: +{avgG.toFixed(1)}% · Best: +{parseFloat(pct(best.start, best.now)).toFixed(1)}%
+  const freeFeatures = [
+    { label: `${freeReports.length} Declassified Reports`, enabled: true },
+    { label: "Stock Price Tracking", enabled: true },
+    { label: "Basic Supply Chain Maps", enabled: true },
+    { label: "Company Dossiers", enabled: true },
+    { label: "Weekly Email Briefings", enabled: true },
+  ];
+  const proFeatures = [
+    { label: "All Reports Unlocked", enabled: true },
+    { label: `${proReports.length}+ Classified Reports`, enabled: true },
+    { label: "Real-Time Price Alerts", enabled: true },
+    { label: "Deep Supply Chain Analysis", enabled: true },
+    { label: "Predictive Risk Signals", enabled: true },
+    { label: "Early Access to New Intel", enabled: true },
+    { label: "Priority Briefings", enabled: true },
+  ];
+
+  // Decryption attempt phase
+  if (!showPricing) {
+    return (
+      <div style={{ background: `linear-gradient(135deg, ${report.color}05, #0a0e12)`, border: `1px solid ${report.color}22`, borderRadius: 6, padding: mob ? 20 : 32, textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: `repeating-linear-gradient(45deg, transparent, transparent 20px, ${report.color}03 20px, ${report.color}03 40px)` }} />
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <WireframeChip color={report.color} size={mob ? 48 : 64} />
+          <div style={{ fontFamily: "var(--display)", fontSize: "0.7rem", color: report.color, letterSpacing: "0.25em", margin: "16px 0 8px" }}>{report.codename} · {report.classification}</div>
+          <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "0.85rem" : "1rem", color: "#e0e6ed", fontWeight: 700, marginBottom: 8 }}>{report.name}</div>
+          <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", marginBottom: 20, lineHeight: 1.6 }}>
+            {allCos.length} companies · {pwStages.length} stages
+          </div>
+          {!started ? (
+            <button onClick={() => setStarted(true)} style={{ fontFamily: "var(--mono)", background: "transparent", border: `1px solid ${report.color}55`, color: report.color, padding: "10px 28px", borderRadius: 3, fontSize: "0.7rem", cursor: "pointer", letterSpacing: "0.15em", transition: "all 0.2s" }}
+              onMouseEnter={e => { e.target.style.background = report.color + "15"; }} onMouseLeave={e => { e.target.style.background = "transparent"; }}>
+              ▶ ATTEMPT DECRYPTION
+            </button>
+          ) : progress < 15 ? (
+            <div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "0.65rem", color: report.color, marginBottom: 8, animation: "blink 0.3s infinite" }}>DECRYPTING... {progress}%</div>
+              <div style={{ width: 200, height: 4, background: "#1a222e", borderRadius: 2, margin: "0 auto", overflow: "hidden" }}>
+                <div style={{ width: `${progress}%`, height: "100%", background: report.color, borderRadius: 2, transition: "width 0.06s" }} />
+              </div>
+            </div>
+          ) : (
+            <div style={{ fontFamily: "var(--mono)", fontSize: "0.7rem", color: "#ff3344", animation: "blink 0.5s 2" }}>✖ ACCESS DENIED — CLEARANCE UPGRADE REQUIRED</div>
+          )}
         </div>
-        {!started ? (
-          <button onClick={() => setStarted(true)} style={{ fontFamily: "var(--mono)", background: "transparent", border: `1px solid ${report.color}55`, color: report.color, padding: "10px 28px", borderRadius: 3, fontSize: "0.7rem", cursor: "pointer", letterSpacing: "0.15em", transition: "all 0.2s" }}
-            onMouseEnter={e => { e.target.style.background = report.color + "15"; }} onMouseLeave={e => { e.target.style.background = "transparent"; }}>
-            ▶ ATTEMPT DECRYPTION
-          </button>
-        ) : progress < 15 ? (
-          <div>
-            <div style={{ fontFamily: "var(--mono)", fontSize: "0.65rem", color: report.color, marginBottom: 8, animation: "blink 0.3s infinite" }}>DECRYPTING... {progress}%</div>
-            <div style={{ width: 200, height: 4, background: "#1a222e", borderRadius: 2, margin: "0 auto", overflow: "hidden" }}>
-              <div style={{ width: `${progress}%`, height: "100%", background: report.color, borderRadius: 2, transition: "width 0.06s" }} />
+      </div>
+    );
+  }
+
+  // Pricing comparison phase
+  return (
+    <div style={{ position: "relative", overflow: "hidden", animation: "fadeSlideUp 0.5s ease both" }}>
+      {/* Header */}
+      <div style={{ textAlign: "center", marginBottom: mob ? 16 : 24 }}>
+        <div style={{ fontFamily: "var(--display)", fontSize: "0.55rem", color: "#ff3344", letterSpacing: "0.3em", marginBottom: 6 }}>CLEARANCE UPGRADE REQUIRED</div>
+        <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "0.9rem" : "1.1rem", color: "#e0e6ed", fontWeight: 700, marginBottom: 6 }}>Choose Your Access Level</div>
+        <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070" }}>Unlock classified supply chain intelligence</div>
+      </div>
+
+      {/* Pricing Cards */}
+      <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 12 : 16 }}>
+        {/* FREE TIER */}
+        <div
+          onMouseEnter={() => setHoverFree(true)} onMouseLeave={() => setHoverFree(false)}
+          style={{
+            background: hoverFree ? "#0d1218" : "#0a0e12",
+            border: "1px solid #1a222e",
+            borderRadius: 8, padding: mob ? 20 : 24, position: "relative", overflow: "hidden",
+            transition: "all 0.3s",
+          }}>
+          <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(45deg, transparent, transparent 30px, #ffffff02 30px, #ffffff02 60px)" }} />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <div style={{ fontFamily: "var(--display)", fontSize: "0.5rem", color: "#3d4a5a", letterSpacing: "0.3em", marginBottom: 8 }}>CLEARANCE LEVEL 1</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "1.1rem" : "1.3rem", color: "#8a9bb0", fontWeight: 700 }}>RECON</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "1.8rem" : "2.2rem", fontWeight: 700, color: "#e0e6ed", margin: "12px 0 4px" }}>
+              $0<span style={{ fontSize: "0.7rem", color: "#556070" }}>/mo</span>
+            </div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: "0.55rem", color: "#556070", marginBottom: 20 }}>Basic intelligence access</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {freeFeatures.map((f, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "var(--mono)", fontSize: "0.6rem" }}>
+                  <span style={{ color: "#39ff14", fontSize: "0.7rem", width: 14, flexShrink: 0 }}>✓</span>
+                  <span style={{ color: "#8a9bb0" }}>{f.label}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop: 20, padding: "10px 0", textAlign: "center", fontFamily: "var(--mono)", fontSize: "0.65rem", color: "#3d4a5a", border: "1px solid #1a222e", borderRadius: 4, letterSpacing: "0.1em" }}>
+              CURRENT ACCESS
             </div>
           </div>
-        ) : (
-          <div>
-            <div style={{ fontFamily: "var(--mono)", fontSize: "0.7rem", color: "#ff3344", marginBottom: 16 }}>✖ ACCESS DENIED — CLEARANCE LEVEL 2 REQUIRED</div>
-            <button style={{ fontFamily: "var(--mono)", background: report.color, color: "#05080a", border: "none", padding: "12px 32px", borderRadius: 3, fontSize: "0.75rem", fontWeight: 700, cursor: "pointer", letterSpacing: "0.1em", boxShadow: `0 0 20px ${report.color}33, 0 0 40px ${report.color}15` }}>
-              UPGRADE TO LEVEL 2 → $29/mo
-            </button>
+        </div>
+
+        {/* PRO TIER */}
+        <div
+          onMouseEnter={() => setHoverPro(true)} onMouseLeave={() => setHoverPro(false)}
+          style={{
+            background: hoverPro ? `${report.color}0a` : `${report.color}05`,
+            border: `1px solid ${report.color}44`,
+            borderRadius: 8, padding: mob ? 20 : 24, position: "relative", overflow: "hidden",
+            transition: "all 0.3s",
+            boxShadow: `0 0 30px ${report.color}08, 0 0 60px ${report.color}04`,
+          }}>
+          {/* Recommended badge */}
+          <div style={{ position: "absolute", top: 12, right: 12, fontFamily: "var(--display)", fontSize: "0.4rem", color: "#05080a", background: report.color, padding: "3px 8px", borderRadius: 2, letterSpacing: "0.15em", fontWeight: 700 }}>RECOMMENDED</div>
+          <div style={{ position: "absolute", inset: 0, background: `repeating-linear-gradient(45deg, transparent, transparent 30px, ${report.color}03 30px, ${report.color}03 60px)` }} />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <div style={{ fontFamily: "var(--display)", fontSize: "0.5rem", color: report.color, letterSpacing: "0.3em", marginBottom: 8 }}>CLEARANCE LEVEL 2</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "1.1rem" : "1.3rem", color: report.color, fontWeight: 700 }}>COMMAND</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "1.8rem" : "2.2rem", fontWeight: 700, color: "#e0e6ed", margin: "12px 0 4px" }}>
+              $50<span style={{ fontSize: "0.7rem", color: "#556070" }}>/mo</span>
+            </div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: "0.55rem", color: "#556070", marginBottom: 20 }}>Full operational intelligence</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {proFeatures.map((f, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "var(--mono)", fontSize: "0.6rem" }}>
+                  <span style={{ color: report.color, fontSize: "0.7rem", width: 14, flexShrink: 0 }}>✓</span>
+                  <span style={{ color: "#c8d6e5" }}>{f.label}</span>
+                </div>
+              ))}
+            </div>
+            <a
+              href="https://fpxai.substack.com/subscribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block", marginTop: 20, padding: "12px 0", textAlign: "center", fontFamily: "var(--mono)",
+                fontSize: "0.7rem", fontWeight: 700, color: "#05080a", background: report.color, border: "none",
+                borderRadius: 4, letterSpacing: "0.1em", cursor: "pointer", textDecoration: "none",
+                boxShadow: `0 0 20px ${report.color}33, 0 0 40px ${report.color}15`,
+                transition: "all 0.2s",
+              }}>
+              UPGRADE ACCESS →
+            </a>
           </div>
-        )}
+        </div>
+      </div>
+
+      {/* Already a subscriber */}
+      <div style={{ marginTop: mob ? 16 : 20, textAlign: "center", padding: "16px 20px", background: "#0a0e12", border: "1px solid #111820", borderRadius: 6 }}>
+        <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", marginBottom: 8 }}>Already a Substack Pro subscriber?</div>
+        <button
+          onClick={onVerify}
+          style={{ fontFamily: "var(--mono)", fontSize: "0.65rem", color: report.color, cursor: "pointer", background: "none", letterSpacing: "0.1em", border: `1px solid ${report.color}33`, padding: "8px 20px", borderRadius: 3 }}>
+          VERIFY CLEARANCE →
+        </button>
+      </div>
+
+      {/* What you're unlocking */}
+      <div style={{ marginTop: mob ? 12 : 16, padding: "14px 16px", background: `${report.color}05`, border: `1px solid ${report.color}15`, borderRadius: 6 }}>
+        <div style={{ fontFamily: "var(--display)", fontSize: "0.45rem", color: report.color, letterSpacing: "0.25em", marginBottom: 10 }}>CLASSIFIED REPORTS YOU'LL UNLOCK</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {proReports.map(r => (
+            <div key={r.id} style={{ fontFamily: "var(--mono)", fontSize: "0.5rem", padding: "4px 10px", background: "#0a0e12", border: `1px solid ${r.color}33`, borderRadius: 3, color: r.color }}>
+              {r.codename}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -637,6 +870,53 @@ export default function WarRoom() {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [view, setView] = useState("grid");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [user, setUser] = useState(null); // { email, tier } or null
+  const [showLogin, setShowLogin] = useState(false);
+  const isPro = user?.tier === 'pro';
+
+  // Check for magic link token in URL or existing session
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    if (token) {
+      // Magic link callback — verify token
+      fetch(`${API_URL}/api/auth/verify?token=${encodeURIComponent(token)}`)
+        .then(r => r.json())
+        .then(data => {
+          if (data.success) {
+            localStorage.setItem('scc_token', data.sessionToken);
+            setUser({ email: data.email, tier: data.tier });
+          }
+          // Clean URL
+          window.history.replaceState({}, '', window.location.pathname);
+        })
+        .catch(() => {
+          window.history.replaceState({}, '', window.location.pathname);
+        });
+    } else {
+      // Check existing session
+      const saved = localStorage.getItem('scc_token');
+      if (saved) {
+        fetch(`${API_URL}/api/auth/status`, {
+          headers: { Authorization: `Bearer ${saved}` },
+        })
+          .then(r => r.json())
+          .then(data => {
+            if (data.authenticated) {
+              setUser({ email: data.email, tier: data.tier });
+            } else {
+              localStorage.removeItem('scc_token');
+            }
+          })
+          .catch(() => {});
+      }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('scc_token');
+    setUser(null);
+  };
 
   const [pricesUpdated, setPricesUpdated] = useState(null);
 
@@ -693,6 +973,7 @@ export default function WarRoom() {
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
         @keyframes cardIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-track { background: #05080a; }
         ::-webkit-scrollbar-thumb { background: #1a222e; }
@@ -716,8 +997,19 @@ export default function WarRoom() {
           <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "0.5rem" : "0.6rem", color: "#3d4a5a" }}>
             <span style={{ color: "#39ff14", animation: "blink 2s infinite" }}>●</span> LIVE {time.toLocaleTimeString("en-US", { hour12: false })}
           </div>
-          {!mob && <div style={{ fontFamily: "var(--mono)", fontSize: "0.55rem", padding: "4px 10px", border: "1px solid #39ff1433", color: "#39ff14", borderRadius: 3 }}>CLEARANCE: LEVEL 1</div>}
-          <button style={{ fontFamily: "var(--display)", background: "#39ff14", color: "#05080a", border: "none", padding: mob ? "5px 10px" : "8px 18px", borderRadius: 3, fontSize: mob ? "0.55rem" : "0.65rem", fontWeight: 700, cursor: "pointer", letterSpacing: "0.15em", boxShadow: "0 0 16px #39ff1433" }}>UPGRADE ⚡</button>
+          {!mob && (
+            <div style={{ fontFamily: "var(--mono)", fontSize: "0.55rem", padding: "4px 10px", border: `1px solid ${isPro ? '#ff660033' : '#39ff1433'}`, color: isPro ? '#ff6600' : '#39ff14', borderRadius: 3 }}>
+              CLEARANCE: {isPro ? 'LEVEL 2' : 'LEVEL 1'}
+            </div>
+          )}
+          {isPro ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontFamily: "var(--mono)", fontSize: '0.55rem', color: '#8a9bb0' }}>{user.email}</span>
+              <button onClick={handleLogout} style={{ fontFamily: "var(--mono)", background: 'none', border: '1px solid #1a222e', color: '#556070', padding: mob ? '4px 8px' : '6px 12px', borderRadius: 3, fontSize: '0.55rem', cursor: 'pointer' }}>LOGOUT</button>
+            </div>
+          ) : (
+            <button onClick={() => setShowLogin(true)} style={{ fontFamily: "var(--display)", background: "#39ff14", color: "#05080a", border: "none", padding: mob ? "5px 10px" : "8px 18px", borderRadius: 3, fontSize: mob ? "0.55rem" : "0.65rem", fontWeight: 700, cursor: "pointer", letterSpacing: "0.15em", boxShadow: "0 0 16px #39ff1433" }}>UPGRADE</button>
+          )}
         </div>
       </header>
 
@@ -736,8 +1028,8 @@ export default function WarRoom() {
             }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: r.color, display: "inline-block", boxShadow: activeReportId === r.id ? `0 0 8px ${r.color}55` : "none" }} />
             {r.name}
-            {!r.unlocked && <span style={{ fontSize: "0.5rem", opacity: 0.5 }}>🔒</span>}
-            {r.unlocked && <span style={{ fontSize: "0.45rem", background: "#39ff1422", color: "#39ff14", padding: "1px 6px", borderRadius: 2, letterSpacing: "0.1em" }}>FREE</span>}
+            {!r.unlocked && !isPro && <span style={{ fontSize: "0.5rem", opacity: 0.5 }}>🔒</span>}
+            {(r.unlocked || isPro) && <span style={{ fontSize: "0.45rem", background: isPro && !r.unlocked ? "#ff660022" : "#39ff1422", color: isPro && !r.unlocked ? "#ff6600" : "#39ff14", padding: "1px 6px", borderRadius: 2, letterSpacing: "0.1em" }}>{r.unlocked ? "FREE" : "PRO"}</span>}
           </button>
         ))}
       </div>
@@ -812,6 +1104,10 @@ export default function WarRoom() {
               <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "0.55rem" : "0.65rem", color: "#556070", marginTop: 4 }}>
                 {stage.desc} · {stage.companies.length} tracked {stage.companies.length === 1 ? "company" : "companies"}
               </div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "0.55rem", color: "#3d4a5a", marginTop: 6, display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{ color: report.color, fontSize: "0.4rem" }}>■</span>
+                PUBLISHED {new Date(report.date + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }).toUpperCase()}
+              </div>
             </div>
             <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
               {/* View toggle */}
@@ -828,14 +1124,14 @@ export default function WarRoom() {
                   </button>
                 ))}
               </div>
-              {!mob && <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", padding: "5px 12px", border: `1px solid ${report.unlocked ? "#39ff1433" : "#ff334433"}`, color: report.unlocked ? "#39ff14" : "#ff3344", borderRadius: 3, letterSpacing: "0.15em" }}>
+              {!mob && <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", padding: "5px 12px", border: `1px solid ${(report.unlocked || isPro) ? "#39ff1433" : "#ff334433"}`, color: (report.unlocked || isPro) ? "#39ff14" : "#ff3344", borderRadius: 3, letterSpacing: "0.15em" }}>
                 {report.classification}
               </div>}
             </div>
           </div>
 
-          {/* Gauges for unlocked reports */}
-          {report.unlocked && view === "grid" && (
+          {/* Gauges — always visible */}
+          {view === "grid" && (
             mob ? (
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, padding: "12px 14px", background: "#0a0e12", border: "1px solid #111820", borderRadius: 6 }}>
                 <div style={{ textAlign: "center" }}>
@@ -877,7 +1173,7 @@ export default function WarRoom() {
           {/* GRID VIEW */}
           {view === "grid" && (
             <>
-              {report.unlocked ? (
+              {(report.unlocked || isPro) ? (
                 <div style={{ maxHeight: mob ? "none" : "calc(100vh - 340px)", overflowY: mob ? "visible" : "auto", paddingRight: mob ? 0 : 4 }}>
                   <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 8 : 10 }}>
                     {stage.companies.map((c, i) => (
@@ -895,21 +1191,21 @@ export default function WarRoom() {
                       ))}
                     </div>
                   </div>
-                  <DecryptionPaywall report={report} />
+                  <PricingGate report={report} mob={mob} onVerify={() => setShowLogin(true)} />
                 </div>
               )}
             </>
           )}
 
           {/* Alert teaser for locked */}
-          {!report.unlocked && (
+          {!(report.unlocked || isPro) && (
             <div style={{ marginTop: 20, padding: "12px 16px", background: "#0a0e12", border: "1px solid #ff334422", borderRadius: 4, fontFamily: "var(--mono)", fontSize: "0.65rem" }}>
               <span style={{ color: "#ff3344", animation: "blink 1s infinite" }}>⚠</span>
               <span style={{ color: "#ff3344" }}> ALERT:</span>
               <span style={{ color: "#8a9bb0" }}> Supply chain constraint detected → downstream impact on </span>
               <span style={{ color: "#556070", background: "#1a222e", padding: "1px 6px", borderRadius: 2 }}>████████</span>
               <span style={{ color: "#556070" }}> · </span>
-              <span style={{ color: report.color, cursor: "pointer" }}>Unlock to reveal →</span>
+              <span style={{ color: report.color, cursor: "pointer" }} onClick={() => setShowLogin(true)}>Unlock to reveal →</span>
             </div>
           )}
 
@@ -933,6 +1229,9 @@ export default function WarRoom() {
 
       {/* COMPANY MODAL */}
       {selectedCompany && <CompanyDossier company={selectedCompany} color={report.color} onClose={() => setSelectedCompany(null)} reportDate={report.date} />}
+
+      {/* LOGIN MODAL */}
+      {showLogin && <LoginModal color={report.color} onClose={() => setShowLogin(false)} onSuccess={(u) => { setUser(u); setShowLogin(false); }} />}
 
       {/* FOOTER */}
       <footer style={{ padding: mob ? "10px 12px" : "12px 28px", borderTop: "1px solid #111820", textAlign: "center" }}>
