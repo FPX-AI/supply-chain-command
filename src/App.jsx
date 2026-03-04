@@ -843,6 +843,14 @@ const PricingGate = ({ report, mob, onVerify }) => {
 };
 
 // ─── CHIP SELECTOR (Rubin NVL72) ──────────────────────────────────────────
+const CHIP_IMAGES = {
+  "rb-gpu": "/rubin/gpu.png",
+  "rb-cpu": "/rubin/cpu.png",
+  "rb-connectx": "/rubin/connectx.png",
+  "rb-nvlink": "/rubin/nvlink.png",
+  "rb-spectrum": "/rubin/spectrumx.png",
+  "rb-dpu": "/rubin/bluefield.png",
+};
 const ChipSelector = ({ chips, activeChipId, onSelect, color, mob }) => (
   <div style={{ padding: mob ? "8px 10px" : "12px 28px", borderBottom: "1px solid #111820", background: "#070a0e", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
     <div style={{ fontFamily: "var(--display)", fontSize: "0.4rem", color: "#3d4a5a", letterSpacing: "0.3em", marginBottom: 8 }}>
@@ -851,17 +859,21 @@ const ChipSelector = ({ chips, activeChipId, onSelect, color, mob }) => (
     <div style={{ display: "flex", gap: 6 }}>
       {chips.map(chip => {
         const isActive = chip.id === activeChipId;
-        const isShared = chip.id.includes("shared");
         const chipCos = chip.stages.reduce((a, s) => a + s.companies.length, 0);
+        const chipImg = CHIP_IMAGES[chip.id];
         return (
           <div key={chip.id} onClick={() => onSelect(chip.id)}
             style={{
-              flex: "0 0 auto", minWidth: isShared ? 110 : 120, background: isActive ? `${color}08` : "#0a0e12",
+              flex: "0 0 auto", minWidth: 120, background: isActive ? `${color}08` : "#0a0e12",
               border: `1px solid ${isActive ? color + "66" : "#1a222e"}`, borderRadius: 6,
               padding: "10px 12px", cursor: "pointer", transition: "all 0.25s", textAlign: "center",
               boxShadow: isActive ? `0 0 12px ${color}22, inset 0 0 20px ${color}05` : "none",
             }}>
-            <WireframeChip color={isActive ? color : "#3d4a5a"} size={36} />
+            {chipImg ? (
+              <img src={chipImg} alt={chip.label} style={{ width: 44, height: 44, objectFit: "contain", opacity: isActive ? 1 : 0.45, filter: isActive ? "none" : "grayscale(0.6)", transition: "all 0.25s" }} />
+            ) : (
+              <WireframeChip color={isActive ? color : "#3d4a5a"} size={36} />
+            )}
             <div style={{ fontFamily: "var(--display)", fontSize: "0.6rem", fontWeight: 700, color: isActive ? color : "#8a9bb0", marginTop: 6, letterSpacing: "0.1em" }}>
               {chip.label}
             </div>
@@ -1005,7 +1017,7 @@ export default function WarRoom() {
       {/* HEADER */}
       <header style={{ padding: mob ? "10px 12px" : "14px 28px", display: "flex", justifyContent: "space-between", alignItems: mob ? "flex-start" : "center", borderBottom: "1px solid #111820", background: "#05080acc", flexWrap: "wrap", gap: mob ? 8 : 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 14 }}>
-          {!mob && <WireframeChip color="#39ff14" size={36} />}
+          <img src="/rubin/Adobe Express - file.png" alt="FPX" style={{ height: mob ? 24 : 32, filter: "invert(1)", opacity: 0.9 }} />
           <div>
             <div style={{ fontFamily: "var(--display)", fontWeight: 900, fontSize: mob ? "0.7rem" : "0.85rem", letterSpacing: "0.2em", color: "#e0e6ed" }}>SUPPLY CHAIN COMMAND</div>
             {!mob && <div style={{ fontSize: "0.55rem", color: "#3d4a5a", letterSpacing: "0.25em" }}>AI INFRASTRUCTURE INTELLIGENCE · EST. 2024</div>}
