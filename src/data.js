@@ -821,7 +821,19 @@ export const REPORTS = [
                 { name: "Micron Technology", ticker: "MU", exchange: "NASDAQ", country: "US", sector: "HBM4 / SOCAMM / SSD", start: 365, now: 379.68,
                   role: "HBM4E with TSMC base die. SOCAMM in volume production for Vera CPU. E1.S SSDs for racks.",
                   significance: "Micron wins three ways: HBM4 for GPU, SOCAMM for CPU, E1.S SSDs for storage per rack.",
-                  keyFacts: ["HBM4E base die with TSMC", "SOCAMM volume production", "Triple exposure per NVL72 rack"] }
+                  keyFacts: ["HBM4E base die with TSMC", "SOCAMM volume production", "Triple exposure per NVL72 rack"] },
+                { name: "BE Semiconductor", ticker: "BESI.AS", exchange: "Euronext", country: "NL", sector: "Die Bonding Equipment", start: 191, now: 191,
+                  role: "Die bonding and hybrid bonding-capable tools for HBM4 die stacking. Equipment for building the memory skyscraper.",
+                  significance: "HBM4 stacking requires precision die bonding equipment. Besi is a key supplier of the construction cranes for memory skyscrapers.",
+                  keyFacts: ["Die bonding equipment leader", "Hybrid bonding capability", "Critical for HBM4 stacking"] },
+                { name: "Camtek", ticker: "CAMT", exchange: "NASDAQ", country: "IL", sector: "3D Inspection", start: 165.6, now: 165.6,
+                  role: "3D inspection and metrology for HBM4 stack yield. Detects defects in stacked die assemblies.",
+                  significance: "Stack yield is brutal — one bad die can trash the whole HBM4 stack. Inspection catches defects before costly assembly.",
+                  keyFacts: ["3D stack inspection", "HBM yield enabler", "Defect screening for stacked dies"] },
+                { name: "Onto Innovation", ticker: "ONTO", exchange: "NYSE", country: "US", sector: "3D Metrology", start: 209.33, now: 209.33,
+                  role: "3D metrology and inspection for advanced packaging including HBM4 stacked die assemblies.",
+                  significance: "Metrology ensures alignment and quality across stacked layers. Critical as HBM moves to 12-high stacks.",
+                  keyFacts: ["3D metrology for stacking", "Advanced packaging inspection", "Alignment verification for HBM4"] }
               ]
             },
             {
@@ -869,7 +881,15 @@ export const REPORTS = [
                 { name: "Samsung Electro-Mechanics", ticker: "009150.KS", exchange: "KRX", country: "KR", sector: "Substrates / Passives", start: 292000, now: 370000,
                   role: "IC substrates and passive components (MLCCs). Dual exposure to AI packaging and power.",
                   significance: "Substrate + passive component maker creates unique leverage across multiple AI supply chain nodes.",
-                  keyFacts: ["IC substrates + MLCCs", "Dual AI exposure", "Korean supply chain node"] }
+                  keyFacts: ["IC substrates + MLCCs", "Dual AI exposure", "Korean supply chain node"] },
+                { name: "Shinko Electric (Fujitsu)", ticker: "6702.T", exchange: "TSE", country: "JP", sector: "Substrates", start: 3443, now: 3443,
+                  role: "High-density organic IC package substrate manufacturer. Now a wholly-owned Fujitsu subsidiary after 2024 acquisition.",
+                  significance: "Substrate density and yield is a classic bottleneck for NVIDIA-class packages. Shinko is a top-tier supplier alongside Ibiden.",
+                  keyFacts: ["High-density IC substrates", "CoWoS substrate supplier", "Acquired by Fujitsu 2024"] },
+                { name: "Nagase", ticker: "8012.T", exchange: "TSE", country: "JP", sector: "Underfill / Bonding Materials", start: 4519, now: 4519,
+                  role: "Underfill, NCF, and encapsulation materials for advanced packaging. Mechanical stability for CoWoS and HBM stacks.",
+                  significance: "Underfill is the rebar and shock absorber that keeps stacked silicon from fracturing under thermal cycling.",
+                  keyFacts: ["Underfill and NCF materials", "CoWoS package stability", "Thermal cycling reliability"] }
               ]
             },
             {
@@ -1013,7 +1033,19 @@ export const REPORTS = [
                 { name: "Shin-Etsu Polymer", ticker: "7970.T", exchange: "TSE", country: "JP", sector: "Wafer Carriers", start: 2141, now: 2037,
                   role: "FOUP and FOSB wafer shipping containers. Ultra-clean carriers that transport wafers between fab sites.",
                   significance: "Wafers travel between sites in sealed carriers. Contamination control during transport is essential for yield.",
-                  keyFacts: ["Leading FOUP/FOSB maker", "Ultra-clean wafer transport", "Subsidiary of Shin-Etsu group"] }
+                  keyFacts: ["Leading FOUP/FOSB maker", "Ultra-clean wafer transport", "Subsidiary of Shin-Etsu group"] },
+                { name: "ENEOS", ticker: "5020.T", exchange: "TSE", country: "JP", sector: "Copper Sputter Targets", start: 1332.5, now: 1332.5,
+                  role: "Copper sputter targets and plating materials for semiconductor metal deposition. Targets are ink cartridges for depositing metal in vacuum tools.",
+                  significance: "Sputter targets deposit the copper wiring layers inside chips. ENEOS group is a key supplier of these precision materials.",
+                  keyFacts: ["Copper sputter targets", "Metal deposition materials", "Precision semiconductor supply"] },
+                { name: "Mitsubishi Materials", ticker: "5711.T", exchange: "TSE", country: "JP", sector: "Copper Sputter Targets", start: 5200, now: 5200,
+                  role: "Copper sputter targets and precision metal materials for semiconductor interconnect deposition.",
+                  significance: "Supplies the copper targets used to deposit wiring layers in advanced logic chips at TSMC.",
+                  keyFacts: ["Copper target manufacturing", "Semiconductor metal materials", "Interconnect deposition supply"] },
+                { name: "Kanto Denka", ticker: "4047.T", exchange: "TSE", country: "JP", sector: "Specialty Gases", start: 1570, now: 1570,
+                  role: "WF6 (tungsten hexafluoride) gas production — a key precursor for tungsten contact and via films in advanced nodes.",
+                  significance: "WF6 is essential for depositing tungsten films used in contacts and vias. Highly specialized with few qualified suppliers.",
+                  keyFacts: ["WF6 gas production", "Tungsten deposition precursor", "Few qualified suppliers globally"] }
               ]
             },
             {
@@ -1061,7 +1093,19 @@ export const REPORTS = [
                 { name: "DuPont", ticker: "DD", exchange: "NYSE", country: "US", sector: "Process Chemicals", start: 42.28, now: 48.27,
                   role: "Photoresists, CMP slurries, and specialty chemicals for semiconductor manufacturing.",
                   significance: "Process materials become more sensitive inputs as the industry moves into GAA transistor ramps.",
-                  keyFacts: ["Photoresist supply", "CMP slurry chemicals", "GAA-era sensitivity increase"] }
+                  keyFacts: ["Photoresist supply", "CMP slurry chemicals", "GAA-era sensitivity increase"] },
+                { name: "SCREEN Holdings", ticker: "7735.T", exchange: "TSE", country: "JP", sector: "Resist Processing Equipment", start: 19735, now: 19735,
+                  role: "Coater/developer equipment for resist processing. Dominates resist-processing equipment alongside Tokyo Electron.",
+                  significance: "Japanese firms (TEL/SCREEN) dominate resist-processing equipment — the step that applies and develops photoresist on wafers.",
+                  keyFacts: ["Coater/developer equipment leader", "Dominates resist processing with TEL", "Critical step in EUV lithography flow"] },
+                { name: "Mitsui Chemicals", ticker: "4183.T", exchange: "TSE", country: "JP", sector: "EUV Pellicles", start: 2105, now: 2105,
+                  role: "EUV pellicle production — thin membrane protecting photomasks from particle contamination during exposure.",
+                  significance: "Pellicles protect EUV masks from contamination. Mitsui licensed ASML technology and launched commercial EUV pellicle production.",
+                  keyFacts: ["EUV pellicle commercial production", "Licensed ASML technology", "Mask contamination prevention"] },
+                { name: "Nissan Chemical", ticker: "4021.T", exchange: "TSE", country: "JP", sector: "Photoresists / Anti-Reflective Coatings", start: 6245, now: 6245,
+                  role: "EUV photoresist materials and anti-reflective coatings for advanced lithography processes.",
+                  significance: "Part of the Japanese supplier base that dominates EUV-grade resists with an estimated 70-90% market share.",
+                  keyFacts: ["EUV photoresist supplier", "Anti-reflective coatings", "Part of Japanese resist oligopoly"] }
               ]
             },
             {
@@ -1093,7 +1137,19 @@ export const REPORTS = [
                 { name: "Entegris", ticker: "ENTG", exchange: "NASDAQ", country: "US", sector: "Filtration / CMP", start: 115, now: 126.79,
                   role: "Filtration, CMP materials, and contamination control for semiconductor manufacturing.",
                   significance: "As feature sizes shrink, contamination tolerance drops. Entegris filters are mission-critical.",
-                  keyFacts: ["Contamination control", "CMP materials", "Purity = yield at advanced nodes"] }
+                  keyFacts: ["Contamination control", "CMP materials", "Purity = yield at advanced nodes"] },
+                { name: "Advantest", ticker: "6857.T", exchange: "TSE", country: "JP", sector: "Wafer / Package Test", start: 24500, now: 24500,
+                  role: "Automatic test equipment (ATE) for wafer sort and final package test. Every die must pass electrical test before packaging.",
+                  significance: "Test throughput is a gating function — only passing dies go to expensive CoWoS packaging. Chiplet packaging multiplies test volume.",
+                  keyFacts: ["Leading ATE provider", "Wafer sort + package test", "Test volume scales with chiplet count"] },
+                { name: "Teradyne", ticker: "TER", exchange: "NASDAQ", country: "US", sector: "Wafer / Package Test", start: 305.48, now: 305.48,
+                  role: "Automatic test equipment for semiconductor wafer and package-level electrical testing.",
+                  significance: "Alongside Advantest, forms the ATE duopoly. Final test validates the assembled system-in-a-package.",
+                  keyFacts: ["ATE duopoly with Advantest", "Wafer sort + final test", "Quality gate for advanced packages"] },
+                { name: "FormFactor", ticker: "FORM", exchange: "NASDAQ", country: "US", sector: "Probe Cards", start: 92.92, now: 92.92,
+                  role: "Probe cards for wafer-level electrical test. High-parallel probe interfaces contact thousands of pads simultaneously.",
+                  significance: "Probe throughput matters because chiplet packaging multiplies test volume. Each die must be proven good before assembly.",
+                  keyFacts: ["Probe card leader", "High-parallel probe interfaces", "Critical for known-good-die yield"] }
               ]
             }
           ]
@@ -1158,6 +1214,94 @@ export const REPORTS = [
                   role: "Broad power management IC portfolio for server and datacenter applications.",
                   significance: "300mm fab advantage creates structural cost position in power semiconductors.",
                   keyFacts: ["Broad power IC portfolio", "300mm fab advantage", "Server power management"] }
+              ]
+            },
+            {
+              id: "rb-cpu-board",
+              name: "Board-Level Integration",
+              codename: "BOARD-CPU",
+              desc: "PCB laminates, passives, power VRMs, thermal interface, and connectors for the Vera CPU carrier board",
+              companies: [
+                { name: "Elite Material", ticker: "2383.TW", exchange: "TWSE", country: "TW", sector: "PCB Laminates", start: 2190, now: 2190,
+                  role: "Ultra/extreme low-loss copper-clad laminates (CCL) for high-speed NVLink and PCIe signaling on CPU boards.",
+                  significance: "EMC markets extreme low-loss laminate systems for 112G+ applications. Material quality determines signal integrity ceiling.",
+                  keyFacts: ["Extreme low-loss CCL for 112G+", "Taiwan's leading laminate maker", "Supplies Unimicron and other PCB fabs"] },
+                { name: "Doosan", ticker: "000150.KS", exchange: "KRX", country: "KR", sector: "PCB Laminates", start: 963000, now: 963000,
+                  role: "Korean copper-clad laminate producer for high-speed server and networking PCBs.",
+                  significance: "Korean CCL supply diversifies the laminate chain away from Taiwan-only concentration.",
+                  keyFacts: ["Korean CCL producer", "High-speed server laminates", "Geographic diversification from Taiwan"] },
+                { name: "ITEQ", ticker: "6213.TW", exchange: "TWSE", country: "TW", sector: "PCB Laminates", start: 121.5, now: 121.5,
+                  role: "Taiwanese CCL maker producing low-loss laminates for high-layer-count server and AI boards.",
+                  significance: "Growing share in high-speed laminate market as AI server board demand surges.",
+                  keyFacts: ["Taiwanese low-loss CCL maker", "High-layer server boards", "Growing AI board share"] },
+                { name: "Kingboard Laminates", ticker: "1888.HK", exchange: "HKEX", country: "HK", sector: "PCB Laminates", start: 22.22, now: 22.22,
+                  role: "High-volume copper-clad laminate producer supplying the global PCB fabrication ecosystem.",
+                  significance: "Scale CCL producer providing cost-competitive laminates for standard and mid-range board layers.",
+                  keyFacts: ["High-volume CCL producer", "Global PCB supply chain", "Cost-competitive laminates"] },
+                { name: "Shengyi Technology", ticker: "600183.SS", exchange: "SSE", country: "CN", sector: "PCB Laminates", start: 65.87, now: 65.87,
+                  role: "Chinese copper-clad laminate maker expanding into high-speed server-grade materials.",
+                  significance: "Largest CCL maker in China with growing capability in server-grade low-loss laminates.",
+                  keyFacts: ["China's largest CCL maker", "Expanding into server-grade", "Low-loss laminate development"] },
+                { name: "Nan Ya Plastics", ticker: "1303.TW", exchange: "TWSE", country: "TW", sector: "CCL / Copper Foil", start: 79.3, now: 79.3,
+                  role: "Copper-clad laminates and copper foil for PCB fabrication. Part of the Formosa Plastics Group.",
+                  significance: "Vertically integrated CCL and copper foil supply within Taiwan's PCB ecosystem.",
+                  keyFacts: ["CCL and copper foil producer", "Formosa Plastics Group", "Vertically integrated supply"] },
+                { name: "Sumitomo Bakelite", ticker: "4203.T", exchange: "TSE", country: "JP", sector: "Mold Compounds", start: 5362, now: 5362,
+                  role: "Epoxy mold compounds and encapsulation materials for semiconductor packaging.",
+                  significance: "Mold compounds protect die and wire bonds. Critical for package reliability under thermal stress.",
+                  keyFacts: ["Epoxy mold compounds", "Package encapsulation", "Thermal reliability"] },
+                { name: "Honeywell", ticker: "HON", exchange: "NASDAQ", country: "US", sector: "Thermal Interface", start: 245.23, now: 245.23,
+                  role: "Thermal interface materials (TIM) and phase-change materials between CPU package and cold plate.",
+                  significance: "TIM failure causes throttling and reliability loss. Honeywell PTM products are specified in server thermal stacks.",
+                  keyFacts: ["PTM thermal interface materials", "Phase-change compounds", "Server thermal stack specified"] },
+                { name: "3M", ticker: "MMM", exchange: "NYSE", country: "US", sector: "Thermal / Adhesives", start: 161.3, now: 161.3,
+                  role: "Thermal interface materials, adhesives, and dielectric films used in CPU board-level assembly.",
+                  significance: "Broad materials portfolio applied to thermal management and board-level reliability.",
+                  keyFacts: ["Thermal interface materials", "Dielectric films and adhesives", "Board assembly materials"] },
+                { name: "Rasa Industries", ticker: "4022.T", exchange: "TSE", country: "JP", sector: "Semiconductor Chemicals", start: 8950, now: 8950,
+                  role: "Semiconductor-grade chemical distribution and processing for fab wet chemistry.",
+                  significance: "Chemical distribution infrastructure that ensures fabs receive ultra-pure process chemicals.",
+                  keyFacts: ["Semiconductor chemical distributor", "Wet chemistry processing", "Fab supply chain logistics"] },
+                { name: "Shiny Chemical", ticker: "1773.TW", exchange: "TWSE", country: "TW", sector: "Electronic Chemicals", start: 145.5, now: 145.5,
+                  role: "Electronic-grade chemicals and solvents for semiconductor manufacturing processes.",
+                  significance: "Taiwanese specialty chemical supplier embedded in the TSMC fab ecosystem.",
+                  keyFacts: ["Electronic-grade chemicals", "Semiconductor solvents", "TSMC ecosystem supplier"] },
+                { name: "Wah Lee Industrial", ticker: "3010.TW", exchange: "TWSE", country: "TW", sector: "Chemical Distribution", start: 114.5, now: 114.5,
+                  role: "Distribution of electronic chemicals, specialty materials, and components for semiconductor manufacturing.",
+                  significance: "Key chemical distribution channel connecting global specialty chemical makers to Taiwan's fab ecosystem.",
+                  keyFacts: ["Electronic chemical distribution", "Specialty materials channel", "Taiwan fab ecosystem"] },
+                { name: "BASF", ticker: "BAS.DE", exchange: "XETRA", country: "DE", sector: "Semiconductor Chemicals", start: 46.15, now: 46.15,
+                  role: "CMP slurries, photoresist solvents, and specialty chemicals for semiconductor manufacturing.",
+                  significance: "World's largest chemical company with a growing electronic materials division serving semiconductor fabs.",
+                  keyFacts: ["CMP slurries", "Photoresist solvents", "Electronic materials division"] },
+                { name: "Solvay", ticker: "SOLB.BR", exchange: "EBR", country: "BE", sector: "Specialty Chemicals", start: 26.32, now: 26.32,
+                  role: "Specialty fluorochemicals and hydrogen peroxide for semiconductor cleaning and etching processes.",
+                  significance: "European specialty chemical supplier for advanced fab wet chemistry processes.",
+                  keyFacts: ["Specialty fluorochemicals", "Hydrogen peroxide for fabs", "Wet chemistry supplier"] }
+              ]
+            },
+            {
+              id: "rb-cpu-odm",
+              name: "ODM/EMS & Hyperscalers",
+              codename: "BUILD-CPU",
+              desc: "Final assembly and the hyperscaler customers driving Vera CPU allocation and deployment",
+              companies: [
+                { name: "Microsoft", ticker: "MSFT", exchange: "NASDAQ", country: "US", sector: "Hyperscaler", start: 406.87, now: 406.87,
+                  role: "Azure AI infrastructure buyer. GPU/CPU allocation decisions shape the entire upstream supply chain.",
+                  significance: "Hyperscaler capex plans are the demand signal. MSFT AI spend directly drives NVIDIA rack orders.",
+                  keyFacts: ["Azure AI infrastructure", "Top NVIDIA GPU buyer", "Capex drives supply chain"] },
+                { name: "Amazon", ticker: "AMZN", exchange: "NASDAQ", country: "US", sector: "Hyperscaler", start: 215.42, now: 215.42,
+                  role: "AWS AI infrastructure buyer. Massive GPU cluster deployments drive NVL72 rack demand.",
+                  significance: "AWS GPU instance demand is a direct pull signal for Vera Rubin rack production.",
+                  keyFacts: ["AWS AI clusters", "GPU instance demand", "NVL72 rack deployment"] },
+                { name: "Alphabet", ticker: "GOOGL", exchange: "NASDAQ", country: "US", sector: "Hyperscaler", start: 304.19, now: 304.19,
+                  role: "Google Cloud AI infrastructure buyer. Dual-sources between TPUs and NVIDIA GPUs.",
+                  significance: "Google's NVIDIA GPU purchases complement their own TPU silicon. Both architectures drive supply chain.",
+                  keyFacts: ["GCP AI infrastructure", "NVIDIA + TPU dual source", "Major GPU buyer"] },
+                { name: "Oracle", ticker: "ORCL", exchange: "NYSE", country: "US", sector: "Cloud / Datacenter", start: 152.51, now: 152.51,
+                  role: "OCI GPU cluster buildout. Aggressive AI infrastructure expansion driving NVIDIA rack demand.",
+                  significance: "Oracle Cloud Infrastructure is a growing NVIDIA GPU buyer. CPU qualification cycles gate deployment.",
+                  keyFacts: ["OCI GPU cluster buildout", "NVIDIA platform buyer", "Qualification shapes supplier mix"] }
               ]
             }
           ]
@@ -1605,7 +1749,15 @@ export const REPORTS = [
                 { name: "CommScope", ticker: "COMM", exchange: "NASDAQ", country: "US", sector: "Fiber Cable", start: 18.01, now: 17.41,
                   role: "Fiber-optic cable assemblies and structured cabling infrastructure for AI datacenter scale-out networking.",
                   significance: "Fiber cables connect racks to spine switches. Cable quality and density impact datacenter topology.",
-                  keyFacts: ["Major fiber cable manufacturer", "Structured cabling for datacenters", "Competes with Corning, Prysmian"] }
+                  keyFacts: ["Major fiber cable manufacturer", "Structured cabling for datacenters", "Competes with Corning, Prysmian"] },
+                { name: "Prysmian", ticker: "PRY.MI", exchange: "MIL", country: "IT", sector: "Fiber / Cable", start: 102.2, now: 102.2,
+                  role: "Global fiber-optic cable assemblies for datacenter interconnects. Jacketed, armored, and connectorized fiber for AI clusters at scale.",
+                  significance: "Prysmian is part of the global fiber triad alongside Corning and Sumitomo Electric. Fiber demand scales linearly with AI cluster size.",
+                  keyFacts: ["World's largest cable maker", "Datacenter fiber cable assemblies", "Fiber triad with Corning/Sumitomo"] },
+                { name: "Eoptolink", ticker: "300502.SZ", exchange: "SZSE", country: "CN", sector: "Optical Transceivers", start: 369.37, now: 369.37,
+                  role: "Chinese optical transceiver manufacturer for datacenter and telecom applications. Growing 800G/1.6T product line.",
+                  significance: "Chinese optical transceiver maker with growing AI datacenter exposure and competitive cost structure.",
+                  keyFacts: ["Chinese transceiver maker", "800G/1.6T product line", "Cost-competitive optical modules"] }
               ]
             }
           ]
@@ -1617,10 +1769,98 @@ export const REPORTS = [
           desc: "Programmable data processing unit. NVMe/virtio offload. Infrastructure-on-a-chip.",
           stages: [
             {
+              id: "rb-dpu-arch",
+              name: "DPU Architecture & IP",
+              codename: "ARCH-DPU",
+              desc: "64-core Grace CPU + ConnectX-9 networking on a single 126B transistor SoC — Arm Neoverse V2 lineage",
+              companies: [
+                { name: "Arm Holdings", ticker: "ARM", exchange: "NASDAQ", country: "UK", sector: "CPU ISA / IP", start: 124.63, now: 124.63,
+                  role: "BlueField-4 integrates a 64-core Grace CPU built on Arm Neoverse V2 IP. Arm ISA enables DOCA software compatibility across the Rubin platform.",
+                  significance: "Without Arm licensing, the DPU's CPU complex cannot exist. Per-unit royalty on every BlueField-4 shipped.",
+                  keyFacts: ["Arm Neoverse V2 powers BF-4 Grace CPU", "Enables DOCA software stack compatibility", "Per-unit royalty on every BlueField-4"] }
+              ]
+            },
+            {
+              id: "rb-dpu-mem",
+              name: "DPU Memory (LPDDR)",
+              codename: "MEM-DPU",
+              desc: "High-bandwidth LPDDR for the Grace CPU side — powering inference context memory storage",
+              companies: [
+                { name: "Samsung Electronics", ticker: "005930.KS", exchange: "KRX", country: "KR", sector: "LPDDR / DRAM", start: 172200, now: 172200,
+                  role: "LPDDR memory packages for BlueField-4's integrated Grace CPU. Powers ICMS context storage.",
+                  significance: "Memory bandwidth directly determines how fast the DPU can process network traffic and serve inference context.",
+                  keyFacts: ["LPDDR5X for BF-4 Grace CPU", "Enables ICMS context memory tier", "One of three qualified DRAM suppliers"] },
+                { name: "SK hynix", ticker: "000660.KS", exchange: "KRX", country: "KR", sector: "LPDDR / DRAM", start: 849000, now: 849000,
+                  role: "LPDDR5X memory for BlueField-4's integrated Grace CPU subsystem. Critical for DPU data-plane processing throughput.",
+                  significance: "BF-4 is not just a NIC — it has a 64-core CPU with its own memory system. Memory bandwidth is the DPU's processing ceiling.",
+                  keyFacts: ["LPDDR5X memory supplier", "Memory BW = DPU throughput ceiling", "Part of three-way DRAM oligopoly"] },
+                { name: "Micron Technology", ticker: "MU", exchange: "NASDAQ", country: "US", sector: "LPDDR / DRAM", start: 405.13, now: 405.13,
+                  role: "LPDDR5X memory for BlueField-4. US-based DRAM supply provides geographic diversification.",
+                  significance: "Third qualified LPDDR supplier. BlueField-4 DPU memory demand adds to Micron's datacenter LPDDR revenue stream.",
+                  keyFacts: ["US-based LPDDR5X supplier", "Geographic supply diversification", "Growing datacenter LPDDR revenue"] }
+              ]
+            },
+            {
+              id: "rb-dpu-power",
+              name: "DPU Power & Board",
+              codename: "PWR-DPU",
+              desc: "Power stages, VRMs, connectors, passives, and PCB for the BlueField-4 DPU card/module",
+              companies: [
+                { name: "Monolithic Power Systems", ticker: "MPWR", exchange: "NASDAQ", country: "US", sector: "VRM / Power Stages", start: 1095.86, now: 1095.86,
+                  role: "Power stages and VRMs for BlueField-4 DPU board. 64 CPU cores + networking engine = large, fast load transients.",
+                  significance: "BF-4 has 126B transistors drawing significant power. VRM design is a reliability gate for infrastructure-class DPUs.",
+                  keyFacts: ["VRM power stages for DPU board", "Fast transient response required", "Scales with DPU deployment volume"] },
+                { name: "Infineon", ticker: "IFX.DE", exchange: "XETRA", country: "DE", sector: "VRM / Power", start: 43.95, now: 43.95,
+                  role: "VRM controllers and power stages for BlueField-4 DPU multi-rail power delivery.",
+                  significance: "European power semiconductor leader. DPU power design requires stable multi-rail delivery under dynamic workloads.",
+                  keyFacts: ["VRM controllers for DPU", "Multi-rail power delivery", "European power semi leader"] },
+                { name: "onsemi", ticker: "ON", exchange: "NASDAQ", country: "US", sector: "Power Semiconductors", start: 62.98, now: 62.98,
+                  role: "Power MOSFETs and power stages for BlueField-4 DPU board power delivery.",
+                  significance: "Power semiconductor demand scales with compute density. Each DPU board needs multiple power stages.",
+                  keyFacts: ["Power MOSFETs for DPU", "Scales with DPU deployment", "Complementary to VRM controllers"] },
+                { name: "SiTime", ticker: "SITM", exchange: "NASDAQ", country: "US", sector: "Timing / Oscillators", start: 391.5, now: 391.5,
+                  role: "Low-jitter MEMS timing solutions for BlueField-4's high-speed SerDes links. At 800G speeds, timing jitter directly causes bit errors.",
+                  significance: "BF-4 runs 800Gb/s networking with ConnectX-9 integration. Precision clocking is essential for error-free data transfer.",
+                  keyFacts: ["MEMS timing for DPU SerDes", "Critical for 800G jitter budgets", "Replaces legacy quartz oscillators"] },
+                { name: "Microchip", ticker: "MCHP", exchange: "NASDAQ", country: "US", sector: "Firmware NVM", start: 70.72, now: 70.72,
+                  role: "SPI flash and EEPROM for BlueField-4 firmware storage and board identity/FRU data.",
+                  significance: "Every DPU board needs non-volatile memory for boot firmware and management system identification.",
+                  keyFacts: ["SPI flash for DPU firmware", "EEPROM for board identity", "Essential for DOCA boot process"] },
+                { name: "Murata", ticker: "6981.T", exchange: "TSE", country: "JP", sector: "MLCCs / Passives", start: 3657, now: 3657,
+                  role: "MLCCs and passive components for BlueField-4 DPU board decoupling and filtering.",
+                  significance: "A DPU board can have thousands of MLCCs. These passive components stabilize power and filter noise for high-speed links.",
+                  keyFacts: ["MLCC decoupling for DPU", "Power filtering passives", "Invisible but essential army"] },
+                { name: "TDK", ticker: "6762.T", exchange: "TSE", country: "JP", sector: "Inductors / Passives", start: 2104.5, now: 2104.5,
+                  role: "Inductors and passive components for BlueField-4 DPU board power delivery and signal filtering.",
+                  significance: "Power inductors are the shock absorbers that keep DPU power rails clean under dynamic load.",
+                  keyFacts: ["Power inductors for DPU", "Signal filtering passives", "Complementary to Murata MLCCs"] }
+              ]
+            },
+            {
+              id: "rb-dpu-pcb",
+              name: "DPU PCB & Laminates",
+              codename: "BOARD-PCB-DPU",
+              desc: "High-layer PCB fabrication with controlled impedance for 800G-class DPU board signals",
+              companies: [
+                { name: "TTM Technologies", ticker: "TTMI", exchange: "NASDAQ", country: "US", sector: "High-End PCB", start: 105.42, now: 105.42,
+                  role: "High-speed PCB fabrication with controlled impedance for BlueField-4 DPU boards.",
+                  significance: "PCB fabrication becomes critical when SerDes speeds reach 800G. Material and trace geometry control determines signal integrity.",
+                  keyFacts: ["Controlled impedance PCB for DPU", "High-speed laminate specialist", "800G signal integrity"] },
+                { name: "Panasonic", ticker: "6752.T", exchange: "TSE", country: "JP", sector: "PCB Laminates", start: 2382, now: 2382,
+                  role: "MEGTRON series high-speed, low-loss PCB laminates for BlueField-4 DPU boards.",
+                  significance: "MEGTRON laminates are specified in high-speed networking board designs. Material = signal integrity.",
+                  keyFacts: ["MEGTRON low-loss laminates", "Specified for 800G-class boards", "Signal integrity enabler"] },
+                { name: "Rogers Corporation", ticker: "ROG", exchange: "NYSE", country: "US", sector: "PCB Laminates", start: 109.5, now: 109.5,
+                  role: "Advanced circuit materials and high-frequency laminates for BlueField-4 DPU PCB fabrication.",
+                  significance: "Specialty materials for high-speed PCBs become critical at 800G DPU networking speeds.",
+                  keyFacts: ["High-frequency materials", "Advanced laminate substrates", "800G DPU board critical"] }
+              ]
+            },
+            {
               id: "rb-dpu-board",
-              name: "DPU Board & Test",
+              name: "DPU Probe & Wafer Test",
               codename: "BOARD-DPU",
-              desc: "PCB fabrication, connectors, and testing for DPU NIC boards",
+              desc: "Probe cards and wafer-level testing for BlueField-4 DPU silicon",
               companies: [
                 { name: "FormFactor", ticker: "FORM", exchange: "NASDAQ", country: "US", sector: "Probe Cards", start: 79.4, now: 92.78,
                   role: "Probe cards for wafer-level testing. A single bad die can scrap an entire assembled module.",
@@ -1642,6 +1882,18 @@ export const REPORTS = [
                   role: "Japanese ATE leader for SoC, memory, and HBM testing. Critical for HBM4 qualification.",
                   significance: "HBM4 testing is complex — each stack needs qualification. Advantest dominates memory ATE.",
                   keyFacts: ["Japanese ATE leader", "HBM4 test qualification", "Memory ATE dominance"] }
+              ]
+            },
+            {
+              id: "rb-dpu-sys",
+              name: "DPU System Integration",
+              codename: "SYS-DPU",
+              desc: "BlueField Astra architecture — DPU as infrastructure controller in NVL72 racks",
+              companies: [
+                { name: "Cisco", ticker: "CSCO", exchange: "NASDAQ", country: "US", sector: "Networking Systems", start: 80.16, now: 80.16,
+                  role: "Key BlueField DPU ecosystem partner integrating DPUs into enterprise networking and security platforms.",
+                  significance: "Cisco is a major BlueField ecosystem adopter across server, storage, and security use cases.",
+                  keyFacts: ["BlueField ecosystem partner", "Enterprise networking + security", "DPU integration leader"] }
               ]
             }
           ]
@@ -1832,6 +2084,519 @@ export const REPORTS = [
       },
     ],
   },
+  {
+    id: "memory",
+    name: "The Memory Moat",
+    codename: "SILICON-PANTRY",
+    classification: "CLASSIFIED",
+    date: "2026-03-04",
+    unlocked: false,
+    tagline: "HBM, NAND & HDD — the three memory tiers that gate every AI rack",
+    desc: "Ground-up supply chain map of AI memory: HBM stacks, enterprise SSDs, and nearline HDDs — from minerals to modules",
+    color: "#00bfff",
+    chips: [
+        {
+          id: "mem-hbm",
+          name: "HBM",
+          label: "HBM",
+          desc: "High-Bandwidth Memory — 3D DRAM stacks bonded to GPUs via CoWoS, the cutting board of AI compute",
+          stages: [
+            {
+              id: "hbm-sand",
+              name: "Silicon & Raw Materials",
+              codename: "SAND-ZERO",
+              desc: "High-purity silica, polysilicon, 300mm wafers, and the glass cloth/copper foils that form package substrates",
+              companies: [
+                { name: "Wacker Chemie", ticker: "WCH.DE", exchange: "XETRA", country: "DE", sector: "Polysilicon", start: 73.8, now: 73.8,
+                  role: "Produces semiconductor-grade polysilicon refined from high-purity quartz — the starting material for all DRAM wafers",
+                  significance: "One of the few companies capable of producing electronic-grade polysilicon at scale; expanded capacity in Burghausen and Tennessee",
+                  keyFacts: ["Semiconductor-grade polysilicon producer", "Expanded Burghausen + Tennessee capacity", "Crystal purity sets the ceiling for advanced nodes"] },
+                { name: "Shin-Etsu Chemical", ticker: "4063.T", exchange: "TSE", country: "JP", sector: "Wafers & Resists", start: 5934, now: 5934,
+                  role: "Largest silicon wafer maker globally and key photoresist supplier — dual exposure to front-end DRAM fab",
+                  significance: "Dominates 300mm wafer supply alongside SUMCO; also supplies KrF/ArF photoresists used in DRAM patterning",
+                  keyFacts: ["#1 global 300mm wafer supplier", "Also supplies photoresists for DRAM lithography", "Deep IP in crystal growth and polishing"] },
+                { name: "SUMCO", ticker: "3436.T", exchange: "TSE", country: "JP", sector: "Silicon Wafers", start: 1601.5, now: 1601.5,
+                  role: "Second-largest 300mm silicon wafer supplier — every HBM DRAM die starts on a SUMCO or Shin-Etsu wafer",
+                  significance: "Oligopoly position in semiconductor wafers; crystal growth and defect control are entrenched IP moats",
+                  keyFacts: ["#2 global 300mm wafer producer", "Serves all major DRAM fabs", "Tight capacity vs rising AI wafer demand"] },
+                { name: "GlobalWafers", ticker: "6488.TWO", exchange: "TPEX", country: "TW", sector: "Silicon Wafers", start: 448.5, now: 448.5,
+                  role: "Third major 300mm wafer supplier; building new U.S. capacity to localize supply for CHIPS Act fabs",
+                  significance: "Building Texas wafer plant to de-risk geography; wafers look like commodities but crystal growth is deep IP",
+                  keyFacts: ["Building new U.S. 300mm wafer fab", "Third-largest global wafer supplier", "CHIPS Act beneficiary"] },
+                { name: "Linde", ticker: "LIN", exchange: "NYSE", country: "US", sector: "Industrial Gases", start: 499.19, now: 499.19,
+                  role: "Supplies nitrogen, argon, and neon gases used in DRAM fab purge, process, and EUV lithography",
+                  significance: "Industrial gases are invisible but critical — neon for excimer lasers has been a strategic pinch-point since 2022",
+                  keyFacts: ["Supplies N₂, Ar, Ne for semiconductor fabs", "Neon supply was disrupted in 2022", "Essential for EUV laser operation"] },
+                { name: "Air Liquide", ticker: "AI.PA", exchange: "EPA", country: "FR", sector: "Industrial Gases", start: 172.36, now: 172.36,
+                  role: "Major supplier of ultra-high-purity process gases to DRAM and advanced packaging fabs worldwide",
+                  significance: "Alongside Linde and Air Products, forms the gas oligopoly that every semiconductor fab depends on",
+                  keyFacts: ["Global #2 industrial gas supplier", "UHP gases for DRAM/HBM fabs", "On-site gas plants at major foundries"] },
+                { name: "Air Products", ticker: "APD", exchange: "NYSE", country: "US", sector: "Specialty Gases", start: 274.2, now: 274.2,
+                  role: "Supplies specialty and bulk gases including neon, nitrogen, and argon for DRAM lithography and processing",
+                  significance: "Part of the gas triopoly; also supplies helium and hydrogen for advanced packaging and cooling",
+                  keyFacts: ["Specialty gas supplier to DRAM fabs", "Neon and argon for lithography", "Also in helium supply chain"] },
+                { name: "Entegris", ticker: "ENTG", exchange: "NASDAQ", country: "US", sector: "Filtration & CMP", start: 129, now: 129,
+                  role: "Supplies filtration systems, CMP slurries, and advanced materials that ensure nanometer-level cleanliness in DRAM fabs",
+                  significance: "Contamination at advanced nodes kills yields — Entegris is the clean-room gatekeeper",
+                  keyFacts: ["CMP slurries and filtration for DRAM", "Critical for sub-5nm cleanliness", "Growing with advanced packaging materials"] },
+                { name: "Mitsui Mining & Smelting", ticker: "5706.T", exchange: "TSE", country: "JP", sector: "Copper Foils", start: 32830, now: 32830,
+                  role: "Supplies ultra-flat ED/rolled copper foils for FC-BGA substrates used in GPU+HBM packages",
+                  significance: "Smoother, lower-profile copper foils cut signal loss and warpage — obscure materials that dictate high-speed integrity",
+                  keyFacts: ["Ultra-flat copper foils for FC-BGA", "Critical for HBM package signal integrity", "Low-profile foils reduce warpage"] }
+              ]
+            },
+            {
+              id: "hbm-substrate",
+              name: "ABF Substrates & Packaging Materials",
+              codename: "LAYER-CAKE",
+              desc: "ABF film, low-CTE glass cloth, and FC-BGA substrates — the persistent bottleneck for AI-scale packages",
+              companies: [
+                { name: "Ajinomoto", ticker: "2802.T", exchange: "TSE", country: "JP", sector: "ABF Film", start: 4533, now: 4533,
+                  role: "Inventor and dominant supplier of Ajinomoto Build-up Film (ABF) — the dielectric layer in every high-end GPU+HBM substrate",
+                  significance: "Near-universal adoption at the high end; ABF is a persistent bottleneck for very large AI packages",
+                  keyFacts: ["De-facto standard for AI package substrates", "Near-monopoly on high-end ABF film", "Capacity expansion ongoing but still tight"] },
+                { name: "Unimicron", ticker: "3037.TW", exchange: "TWSE", country: "TW", sector: "IC Substrates", start: 417, now: 417,
+                  role: "Major FC-BGA substrate fabricator — laminates ABF onto glass cloth to build the wiring under GPU+HBM modules",
+                  significance: "One of the big four substrate makers adding capacity; lead times and layer counts keep rising with AI packages",
+                  keyFacts: ["Top FC-BGA substrate maker", "Adding capacity for AI-scale substrates", "Lamination of ABF on glass cloth"] },
+                { name: "Ibiden", ticker: "4062.T", exchange: "TSE", country: "JP", sector: "IC Substrates", start: 7950, now: 7950,
+                  role: "Leading FC-BGA substrate fabricator for Intel, NVIDIA, and AMD — builds the high-layer-count boards under HBM packages",
+                  significance: "Key substrate supplier with deep experience in high-layer FC-BGA; capacity adds ongoing but structurally tight",
+                  keyFacts: ["Major Intel/NVIDIA substrate supplier", "High-layer FC-BGA expertise", "Adding AI substrate lines"] },
+                { name: "Nan Ya PCB", ticker: "8046.TW", exchange: "TWSE", country: "TW", sector: "IC Substrates", start: 450, now: 450,
+                  role: "Fourth major FC-BGA substrate fabricator; expanding capacity to serve growing AI packaging demand",
+                  significance: "Part of the Formosa Plastics group; substrate business is a key growth driver as AI packages get larger",
+                  keyFacts: ["Part of Formosa Plastics group", "Expanding AI substrate capacity", "FC-BGA for GPU+HBM modules"] },
+                { name: "Nittobo", ticker: "3110.T", exchange: "TSE", country: "JP", sector: "Glass Cloth", start: 21740, now: 21740,
+                  role: "Dominant supplier of low-CTE glass cloth laminated into ABF substrates — controls thermal expansion in large AI packages",
+                  significance: "Glass cloth is an overlooked but critical layer; Nittobo's low-CTE material prevents warpage in enormous CoWoS packages",
+                  keyFacts: ["Low-CTE glass cloth for ABF substrates", "Critical for thermal stability in large packages", "Oligopolistic position"] }
+              ]
+            },
+            {
+              id: "hbm-dram",
+              name: "DRAM Fabrication & TSV",
+              codename: "DEEP-WELL",
+              desc: "Front-end DRAM wafer fab at 1β/1γ nodes, EUV lithography, and through-silicon via drilling for HBM stacks",
+              companies: [
+                { name: "SK hynix", ticker: "000660.KS", exchange: "KRX", country: "KR", sector: "HBM Memory", start: 849000, now: 849000,
+                  role: "Global leader in HBM shipments — first to qualify HBM3E with NVIDIA, now prepping HBM4",
+                  significance: "The HBM shipment leader; controls the most advanced DRAM stacking and TSV technology in production",
+                  keyFacts: ["#1 HBM shipper globally", "First HBM3E qualified for NVIDIA H200", "HBM4 in development"] },
+                { name: "Samsung Electronics", ticker: "005930.KS", exchange: "KRX", country: "KR", sector: "HBM Memory", start: 172200, now: 172200,
+                  role: "Second-largest DRAM maker; improving HBM yields after a slower start, pivoting to MR-MUF bonding",
+                  significance: "Massive DRAM capacity but lagged in AI-grade HBM qualification; catching up with process improvements",
+                  keyFacts: ["Largest DRAM capacity globally", "Improving HBM yields (NCF → MR-MUF)", "I-Cube packaging alternative to CoWoS"] },
+                { name: "Micron Technology", ticker: "MU", exchange: "NASDAQ", country: "US", sector: "HBM Memory", start: 400.77, now: 400.77,
+                  role: "Clear #2 in HBM shipments; HBM3E qualified in NVIDIA H200, ramping production rapidly",
+                  significance: "Rose from distant third to strong #2 in HBM; highest content growth per GPU as stacks get taller",
+                  keyFacts: ["HBM3E in production for H200", "Clear #2 in HBM shipments", "Benefits from 8-Hi → 12-Hi content growth"] },
+                { name: "ASML", ticker: "ASML", exchange: "NASDAQ", country: "NL", sector: "EUV Lithography", start: 1399.37, now: 1399.37,
+                  role: "Sole supplier of EUV lithography systems used to pattern advanced DRAM nodes (1β/1γ) for HBM dies",
+                  significance: "Monopoly on EUV tools; every advanced DRAM wafer requires ASML scanners — no alternative exists",
+                  keyFacts: ["Only EUV tool maker globally", "Required for 1β/1γ DRAM nodes", "Tools cost $350-400M each"] },
+                { name: "Lam Research", ticker: "LRCX", exchange: "NASDAQ", country: "US", sector: "Etch & Deposition", start: 222.99, now: 222.99,
+                  role: "Supplies etch and deposition tools for DRAM fab and TSV drilling — critical for HBM vertical interconnects",
+                  significance: "TSV etch is the key enabling step for HBM stacking; Lam's tools drill the 'elevator shafts' through each die",
+                  keyFacts: ["TSV etch tools for HBM stacking", "Also etch/depo for DRAM front-end", "Benefits from taller stacks"] },
+                { name: "Tokyo Electron", ticker: "8035.T", exchange: "TSE", country: "JP", sector: "Etch & Deposition", start: 40690, now: 40690,
+                  role: "Major supplier of etch, deposition, and coating tools for DRAM wafer fabrication",
+                  significance: "Alongside Lam and AMAT, forms the etch/depo triopoly that equips every DRAM fab line",
+                  keyFacts: ["Etch/depo tools for DRAM fabs", "Part of the WFE triopoly", "Benefits from DRAM node shrinks"] },
+                { name: "Applied Materials", ticker: "AMAT", exchange: "NASDAQ", country: "US", sector: "WFE & Bonding", start: 357.76, now: 357.76,
+                  role: "Supplies deposition, etch, and inspection tools for DRAM fab; strategic 9% stake in BESI for hybrid bonding",
+                  significance: "Largest WFE company; strategic investment in BESI positions it for the HBM4-era hybrid bonding transition",
+                  keyFacts: ["Largest WFE company globally", "9% strategic stake in BESI", "Depo/etch tools for DRAM + TSV"] },
+                { name: "KLA Corporation", ticker: "KLAC", exchange: "NASDAQ", country: "US", sector: "Inspection", start: 1475.91, now: 1475.91,
+                  role: "Provides wafer inspection and metrology tools that detect defects in DRAM dies before they enter HBM stacks",
+                  significance: "Defect detection is critical for HBM — a single bad die in a stack wastes all layers; KLA ensures Known-Good-Die",
+                  keyFacts: ["Wafer inspection for DRAM/HBM", "Critical for Known-Good-Die (KGD)", "Monopoly in advanced inspection"] }
+              ]
+            },
+            {
+              id: "hbm-stack",
+              name: "Die Stacking & Bonding",
+              codename: "TOWER-BUILD",
+              desc: "Thinning, TSV reveal, micro-bump/hybrid bonding — turning individual DRAM dies into vertical HBM towers",
+              companies: [
+                { name: "BESI", ticker: "BESI.AS", exchange: "AMS", country: "NL", sector: "Hybrid Bonding", start: 191, now: 191,
+                  role: "Leads hybrid-bonding equipment for next-gen HBM4 stacking — the critical tool for denser, cooler, faster die-to-die bonds",
+                  significance: "AMAT took a strategic 9% stake; hybrid bonding is the key technology transition from micro-bumps to direct Cu-Cu bonds",
+                  keyFacts: ["Leader in hybrid-bonding tools", "AMAT holds 9% strategic stake", "Enables HBM4-era density and thermals"] },
+                { name: "Henkel", ticker: "HEN3.DE", exchange: "XETRA", country: "DE", sector: "Underfill Materials", start: 77.22, now: 77.22,
+                  role: "Supplies underfill epoxies and adhesives used between bonded HBM die layers to prevent warpage and voids",
+                  significance: "Materials chemistry that holds HBM stacks together; one of two dominant underfill suppliers alongside NAMICS",
+                  keyFacts: ["Underfill materials for HBM stacking", "Prevents warpage in tall stacks", "Co-dominant with NAMICS (private)"] },
+                { name: "SUSS MicroTec", ticker: "SMHN.DE", exchange: "XETRA", country: "DE", sector: "Bonding Equipment", start: 57, now: 57,
+                  role: "Supplies precision wafer bonders used in HBM die stacking alongside EV Group (private)",
+                  significance: "Precision alignment and bonding at micron scale; critical for moving from 8-Hi to 12-Hi to 16-Hi stacks",
+                  keyFacts: ["Wafer-level bonding equipment", "Used in HBM die stacking", "Competes with EV Group (private)"] }
+              ]
+            },
+            {
+              id: "hbm-pkg",
+              name: "2.5D Integration & Advanced Packaging",
+              codename: "COWOS-GATE",
+              desc: "CoWoS-S/L interposers, I-Cube, EMIB — the tightest throughput constraint in AI hardware",
+              companies: [
+                { name: "TSMC", ticker: "TSM", exchange: "NYSE", country: "TW", sector: "CoWoS Packaging", start: 357.56, now: 357.56,
+                  role: "Controls CoWoS advanced packaging — the choke point that determines how many GPU+HBM modules can ship per month",
+                  significance: "CoWoS-L capacity is the #1 binding constraint on AI GPU throughput; TSMC doubled to ~70-75k wafers/month in 2025, still not enough",
+                  keyFacts: ["CoWoS-S → CoWoS-L transition for Blackwell", "~70-75k wafers/month in 2025", "The tightest bottleneck in AI hardware"] },
+                { name: "ASE Technology", ticker: "ASX", exchange: "NYSE", country: "TW", sector: "OSAT Packaging", start: 22.09, now: 22.09,
+                  role: "Largest OSAT; expanding advanced packaging lines to absorb CoWoS overflow from TSMC",
+                  significance: "As TSMC's packaging hits capacity, OSATs like ASE pick up overflow — critical for scaling total AI packaging output",
+                  keyFacts: ["Largest OSAT globally", "Building advanced packaging overflow", "CoWoS-compatible assembly lines"] },
+                { name: "Amkor Technology", ticker: "AMKR", exchange: "NASDAQ", country: "US", sector: "OSAT Packaging", start: 45.77, now: 45.77,
+                  role: "Building a large U.S. advanced-packaging campus to onshore capacity and deepen ties with top GPU customers",
+                  significance: "U.S. advanced packaging is strategic — CHIPS Act-backed, de-risks geography for the AI supply chain",
+                  keyFacts: ["U.S. advanced packaging campus (2028+)", "CHIPS Act beneficiary", "Deepening ties with NVIDIA/AMD"] }
+              ]
+            },
+            {
+              id: "hbm-test",
+              name: "Test & Known-Good-Die",
+              codename: "BURN-IN",
+              desc: "HBM requires complex die-level KGD testing before stacking, then stack-level validation — insufficient test parallelism is the next constraint",
+              companies: [
+                { name: "Advantest", ticker: "6857.T", exchange: "TSE", country: "JP", sector: "Memory Testers", start: 24500, now: 24500,
+                  role: "Dominates memory test equipment — HBM is a fast-growing slice of their product mix as stacks get taller and hotter",
+                  significance: "HBM requires more complex and earlier testing (die-level before stacking, then stack-level); Advantest tools are essential",
+                  keyFacts: ["Dominant memory tester vendor", "HBM is fastest-growing segment", "Test parallelism is the next constraint"] },
+                { name: "FormFactor", ticker: "FORM", exchange: "NASDAQ", country: "US", sector: "Probe Cards", start: 92.6, now: 92.6,
+                  role: "Supplies high-parallelism probe cards for wafer-level burn-in and Known-Good-Die testing of HBM DRAM",
+                  significance: "Every HBM stack needs KGD-tested dies to avoid wasting good layers on a bad die; FormFactor enables this at scale",
+                  keyFacts: ["Probe cards for HBM KGD testing", "Wafer-level burn-in tooling", "Scales with taller HBM stacks"] }
+              ]
+            },
+            {
+              id: "hbm-system",
+              name: "GPU Integration & End Product",
+              codename: "FINAL-FORM",
+              desc: "The finished GPU+HBM module — boards, power delivery, liquid cooling, and the hyperscaler buyers",
+              companies: [
+                { name: "NVIDIA", ticker: "NVDA", exchange: "NASDAQ", country: "US", sector: "GPU Design", start: 183.04, now: 183.04,
+                  role: "Designs the GPUs that consume HBM; delivery schedule is gated by HBM stacks and CoWoS packages, not GPU wafers",
+                  significance: "NVIDIA's shipment cadence is set by packaging and memory, not compute die availability — HBM is the toll booth",
+                  keyFacts: ["GPU shipments gated by HBM/CoWoS", "Blackwell requires CoWoS-L + HBM3E", "Rubin will need HBM4"] },
+                { name: "AMD", ticker: "AMD", exchange: "NASDAQ", country: "US", sector: "GPU Design", start: 202.07, now: 202.07,
+                  role: "Second-largest AI GPU designer; MI300X uses HBM3 on advanced packaging, competing for the same CoWoS/HBM supply",
+                  significance: "Competes with NVIDIA for the same scarce HBM and packaging slots — AMD volumes add to total demand pressure",
+                  keyFacts: ["MI300X uses HBM3 on 2.5D package", "Competes for CoWoS and HBM supply", "Growing AI GPU market share"] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "mem-ssd",
+          name: "SSD",
+          label: "SSD",
+          desc: "Solid-State Drives — NAND flash + controllers that stage AI training data, checkpoints, and RAG indexes",
+          stages: [
+            {
+              id: "ssd-quartz",
+              name: "Quartz, Wafers & Mask Blanks",
+              codename: "GLASS-ORIGIN",
+              desc: "High-purity quartz for fused silica, photomask blanks, and 300mm wafers — the glass that starts it all",
+              companies: [
+                { name: "HOYA", ticker: "7741.T", exchange: "TSE", country: "JP", sector: "Mask Blanks", start: 27415, now: 27415,
+                  role: "Dominates EUV/DUV photomask blanks — the ultra-pure glass stencils that pattern every NAND layer",
+                  significance: "Oligopoly with AGC in mask blanks; a single-source disruption would halt lithography across all NAND fabs",
+                  keyFacts: ["Dominant EUV/DUV mask blank supplier", "Oligopoly with AGC", "Critical for NAND lithography"] },
+                { name: "AGC Inc.", ticker: "5201.T", exchange: "TSE", country: "JP", sector: "Mask Blanks", start: 6185, now: 6185,
+                  role: "Second major supplier of EUV/DUV mask blanks alongside HOYA — essential for NAND patterning",
+                  significance: "Together with HOYA forms a duopoly in mask blanks; no alternative suppliers exist at EUV grade",
+                  keyFacts: ["#2 mask blank supplier globally", "EUV-grade fused silica expertise", "Duopoly with HOYA"] },
+                { name: "Tokyo Ohka Kogyo (TOK)", ticker: "4186.T", exchange: "TSE", country: "JP", sector: "Photoresists", start: 8584, now: 8584,
+                  role: "Supplies KrF/ArF/EUV photoresists — the light-sensitive chemicals that transfer circuit patterns onto NAND wafers",
+                  significance: "Photoresist is concentrated in Japan; TOK, Shin-Etsu, and JSR (now private) supply virtually all advanced resists",
+                  keyFacts: ["KrF/ArF photoresist leader", "Japan-concentrated supply chain", "Critical for NAND lithography steps"] }
+              ]
+            },
+            {
+              id: "ssd-nand",
+              name: "3D NAND Front-End Fab",
+              codename: "SKYSCRAPER",
+              desc: "Film stacks, high-aspect-ratio etch, wordline deposition — building the 200+ layer 'skyscrapers' of NAND flash",
+              companies: [
+                { name: "Samsung Electronics", ticker: "005930.KS", exchange: "KRX", country: "KR", sector: "NAND Flash", start: 172200, now: 172200,
+                  role: "Largest NAND flash producer globally; vertically integrated from wafer to finished SSD",
+                  significance: "Sets the pace for layer counts and bit growth; V-NAND technology leader with massive fab capacity",
+                  keyFacts: ["#1 NAND producer globally", "V-NAND technology pioneer", "Vertically integrated wafer → SSD"] },
+                { name: "Micron Technology", ticker: "MU", exchange: "NASDAQ", country: "US", sector: "NAND Flash", start: 400.77, now: 400.77,
+                  role: "Third-largest NAND producer; 232-layer and beyond NAND for enterprise SSDs",
+                  significance: "Only major U.S.-based NAND maker; benefits from CHIPS Act and growing AI enterprise demand",
+                  keyFacts: ["232+ layer NAND in production", "Only major U.S. NAND producer", "Enterprise SSD focus"] },
+                { name: "Western Digital", ticker: "WDC", exchange: "NASDAQ", country: "US", sector: "NAND Flash", start: 261.3, now: 261.3,
+                  role: "Major NAND producer via JV with Kioxia; BiCS FLASH with CBA (CMOS-bonded-to-Array) architecture",
+                  significance: "Kioxia/WDC JV is #2 in NAND bits; CBA bonding tech enables highest-density enterprise SSDs",
+                  keyFacts: ["Kioxia JV partner for NAND fab", "BiCS FLASH with CBA architecture", "Enterprise + consumer SSD maker"] },
+                { name: "SK hynix", ticker: "000660.KS", exchange: "KRX", country: "KR", sector: "NAND Flash", start: 849000, now: 849000,
+                  role: "Fourth-largest NAND producer; Solidigm subsidiary (ex-Intel NAND) adds enterprise SSD capacity",
+                  significance: "Solidigm acquisition gave SK hynix major enterprise SSD presence and QLC NAND leadership",
+                  keyFacts: ["Acquired Intel NAND (now Solidigm)", "QLC NAND leader via Solidigm", "Enterprise SSD growth"] },
+                { name: "Lam Research", ticker: "LRCX", exchange: "NASDAQ", country: "US", sector: "HAR Etch", start: 222.99, now: 222.99,
+                  role: "Dominates high-aspect-ratio (HAR) etch tools — the most critical and time-consuming step in 3D NAND fabrication",
+                  significance: "As NAND adds layers, HAR etch time grows faster than bits/wafer — Lam's tools are the throughput governor",
+                  keyFacts: ["Dominant in HAR etch for 3D NAND", "Etch time grows with layer count", "The throughput governor of NAND fabs"] },
+                { name: "Tokyo Electron", ticker: "8035.T", exchange: "TSE", country: "JP", sector: "Etch & Deposition", start: 40690, now: 40690,
+                  role: "Supplies etch and deposition tools for 3D NAND film stacks, staircase etch, and wordline formation",
+                  significance: "Part of the etch/depo triopoly with Lam and AMAT; critical for NAND scaling beyond 200 layers",
+                  keyFacts: ["Etch/depo for 3D NAND stacks", "Staircase and wordline tools", "Benefits from layer-count increases"] },
+                { name: "Applied Materials", ticker: "AMAT", exchange: "NASDAQ", country: "US", sector: "Deposition", start: 357.76, now: 357.76,
+                  role: "Supplies CVD/PVD deposition tools for NAND film stacks and tungsten wordline fill",
+                  significance: "Tungsten fill via WF₆ CVD is a key bottleneck step; AMAT's deposition tools enable each NAND layer",
+                  keyFacts: ["CVD/PVD for NAND film stacks", "Tungsten wordline deposition", "Benefits from layer scaling"] },
+                { name: "KLA Corporation", ticker: "KLAC", exchange: "NASDAQ", country: "US", sector: "Inspection", start: 1475.91, now: 1475.91,
+                  role: "Provides inline inspection and metrology for 3D NAND fabs — catches defects before they compound through layers",
+                  significance: "In 200+ layer stacks, a defect in early layers wastes all subsequent processing; KLA's tools prevent this",
+                  keyFacts: ["Inline NAND inspection tools", "Defect detection across 200+ layers", "Prevents cascading yield loss"] },
+                { name: "ASML", ticker: "ASML", exchange: "NASDAQ", country: "NL", sector: "DUV Lithography", start: 1399.37, now: 1399.37,
+                  role: "Supplies ArF immersion DUV scanners used for critical NAND patterning layers",
+                  significance: "NAND uses DUV (not EUV) for most layers; ASML dominates the scanner market alongside Nikon",
+                  keyFacts: ["ArF immersion DUV for NAND", "Dominates scanner market", "NAND uses DUV not EUV"] },
+                { name: "Nikon", ticker: "7731.T", exchange: "TSE", country: "JP", sector: "DUV Lithography", start: 1926.5, now: 1926.5,
+                  role: "Second DUV lithography scanner supplier; re-entering with a new ArFi platform for NAND fabs",
+                  significance: "Provides competition to ASML in DUV scanners; new platform could gain share in cost-sensitive NAND lithography",
+                  keyFacts: ["#2 DUV scanner supplier", "New ArFi platform in development", "Alternative to ASML for NAND"] }
+              ]
+            },
+            {
+              id: "ssd-gas",
+              name: "Specialty Gases & Chemicals",
+              codename: "INVISIBLE-FUEL",
+              desc: "NF₃ for chamber cleans, WF₆ for tungsten fill — small concentrated supply chains that throttle NAND output",
+              companies: [
+                { name: "Air Products", ticker: "APD", exchange: "NYSE", country: "US", sector: "Specialty Gases", start: 274.2, now: 274.2,
+                  role: "Supplies NF₃ and WF₆ process gases critical for NAND chamber cleaning and tungsten wordline deposition",
+                  significance: "NF₃ and WF₆ are in small, concentrated supply chains — a single plant incident cuts wafer throughput immediately",
+                  keyFacts: ["NF₃ and WF₆ for NAND fabs", "Concentrated supply chain risk", "Plant incident = immediate output cut"] },
+                { name: "Linde", ticker: "LIN", exchange: "NYSE", country: "US", sector: "Industrial Gases", start: 499.19, now: 499.19,
+                  role: "Major supplier of bulk and specialty gases for NAND fabs including nitrogen, argon, and fluorine chemistries",
+                  significance: "Part of the gas triopoly; supplies the 'invisible consumables' that every NAND wafer step requires",
+                  keyFacts: ["Bulk + specialty gases for NAND", "Part of gas triopoly", "Critical for chamber environments"] },
+                { name: "Air Liquide", ticker: "AI.PA", exchange: "EPA", country: "FR", sector: "Process Gases", start: 172.36, now: 172.36,
+                  role: "Supplies ultra-high-purity process gases to NAND fabs; on-site plants at major memory facilities",
+                  significance: "On-site gas generation at fabs ensures uninterrupted supply; critical during capacity ramp periods",
+                  keyFacts: ["UHP gases for NAND fabs", "On-site gas plants", "Essential during capacity ramps"] },
+                { name: "Merck KGaA / EMD", ticker: "MRK.DE", exchange: "XETRA", country: "DE", sector: "Specialty Chemicals", start: 123.05, now: 123.05,
+                  role: "Supplies specialty chemicals and electronic materials for semiconductor processing including WF₆ precursors",
+                  significance: "EMD Electronics division is a key specialty chemical supplier; concentration risk in WF₆ supply chain",
+                  keyFacts: ["EMD Electronics division", "WF₆ and specialty chemicals", "Concentration risk in supply"] },
+                { name: "Kanto Denka Kogyo", ticker: "4047.T", exchange: "TSE", country: "JP", sector: "NF₃ Gas", start: 1570, now: 1570,
+                  role: "Key NF₃ (nitrogen trifluoride) producer for NAND fab chamber cleaning — a 2025 incident underscored concentration risk",
+                  significance: "NF₃ is consumed in massive quantities for chamber cleans; Kanto Denka is a concentrated single-source risk",
+                  keyFacts: ["Key NF₃ producer for NAND", "2025 incident highlighted risk", "Concentrated supply chain"] }
+              ]
+            },
+            {
+              id: "ssd-bond",
+              name: "Wafer Bonding & String Stacking",
+              codename: "DECK-JOIN",
+              desc: "CBA/CuA wafer-to-wafer bonding for ultra-high-layer NAND — the yield gate for 30-60+ TB enterprise SSDs",
+              companies: [
+                { name: "Tokyo Electron", ticker: "8035.T", exchange: "TSE", country: "JP", sector: "Bonding/Clean", start: 40690, now: 40690,
+                  role: "Supplies bonding, deposition, and cleaning tools for wafer-to-wafer string stacking in high-layer NAND",
+                  significance: "CBA/string stacking inserts new yield modes — TEL's tools are critical for keeping bonding lines clean and precise",
+                  keyFacts: ["Bonding/clean tools for CBA stacking", "Critical for 200+ layer NAND", "Yield gatekeeper for high-cap SSDs"] },
+                { name: "SUSS MicroTec", ticker: "SMHN.DE", exchange: "XETRA", country: "DE", sector: "Wafer Bonders", start: 57, now: 57,
+                  role: "Supplies precision wafer bonders used in NAND string stacking and CMOS-bonded-to-Array processes",
+                  significance: "Wafer bonding precision determines yield for the largest-capacity NAND dies; SUSS is one of few public bonder companies",
+                  keyFacts: ["Precision wafer bonders", "Used in CBA/string stacking", "One of few public bonder companies"] }
+              ]
+            },
+            {
+              id: "ssd-osat",
+              name: "OSAT Assembly & Test",
+              codename: "PACK-TEST",
+              desc: "NAND packaging, burn-in, NVMe/OCP qualification — where schedules actually slip",
+              companies: [
+                { name: "ASE Technology", ticker: "ASX", exchange: "NYSE", country: "TW", sector: "OSAT", start: 22.09, now: 22.09,
+                  role: "Largest OSAT; packages and tests NAND flash dies before they go into enterprise SSDs",
+                  significance: "OSAT capacity and test parallelism are hidden schedule drivers in NAND cycles",
+                  keyFacts: ["Largest OSAT globally", "NAND packaging and test", "Hidden schedule driver"] },
+                { name: "Amkor Technology", ticker: "AMKR", exchange: "NASDAQ", country: "US", sector: "OSAT", start: 45.77, now: 45.77,
+                  role: "Major OSAT for NAND packaging; building U.S. capacity for memory and AI chip assembly",
+                  significance: "U.S.-based advanced packaging capacity is increasingly strategic for supply chain resilience",
+                  keyFacts: ["NAND packaging capability", "Building U.S. capacity", "Supply chain resilience play"] },
+                { name: "Powertech (PTI)", ticker: "6239.TW", exchange: "TWSE", country: "TW", sector: "Memory OSAT", start: 217, now: 217,
+                  role: "Major memory OSAT specializing in DRAM and NAND packaging — key supplier to Micron and SK hynix",
+                  significance: "Handles high-volume memory packaging with deep expertise in thin-die handling and stacking",
+                  keyFacts: ["Memory-focused OSAT", "Key Micron/SK hynix supplier", "Thin-die packaging expertise"] },
+                { name: "JCET Group", ticker: "600584.SS", exchange: "SSE", country: "CN", sector: "OSAT", start: 47.86, now: 47.86,
+                  role: "Third-largest OSAT globally; acquiring Western Digital's Shanghai packaging operations",
+                  significance: "WD Shanghai acquisition deepens NAND packaging ties; growing player in memory assembly",
+                  keyFacts: ["#3 OSAT globally", "Acquiring WD Shanghai packaging", "Growing in memory assembly"] },
+                { name: "Advantest", ticker: "6857.T", exchange: "TSE", country: "JP", sector: "Memory Testers", start: 24500, now: 24500,
+                  role: "Dominates memory test equipment including T5835 for NAND/DRAM/HBM testing",
+                  significance: "Test time scales with NAND features (PLP, telemetry, QoS); Advantest order books are a leading indicator",
+                  keyFacts: ["T5835 for NAND testing", "Test time grows with features", "Order books = leading indicator"] },
+                { name: "FormFactor", ticker: "FORM", exchange: "NASDAQ", country: "US", sector: "Probe Cards", start: 92.6, now: 92.6,
+                  role: "Supplies probe cards for NAND wafer sort and Known-Good-Die testing at high parallelism",
+                  significance: "High-parallel probe cards scale test throughput; critical bottleneck when NAND production ramps",
+                  keyFacts: ["High-parallel probe cards", "NAND wafer sort capability", "Scales with production ramps"] }
+              ]
+            },
+            {
+              id: "ssd-ctrl",
+              name: "SSD Controllers & Assembly",
+              codename: "BRAIN-BOX",
+              desc: "Controller SoCs, DRAM cache, PLP capacitors, NVMe/PCIe interface — the 'small computer' inside each SSD",
+              companies: [
+                { name: "Marvell Technology", ticker: "MRVL", exchange: "NASDAQ", country: "US", sector: "SSD Controllers", start: 78.09, now: 78.09,
+                  role: "Designs Bravera SC5 enterprise SSD controllers — the SoC that orchestrates NAND, manages FTL, and speaks NVMe",
+                  significance: "Controller silicon is the brain of every enterprise SSD; Marvell leads in datacenter-grade controllers",
+                  keyFacts: ["Bravera SC5 enterprise controllers", "NVMe/PCIe 5.0 interface", "Datacenter SSD brain"] },
+                { name: "Microchip Technology", ticker: "MCHP", exchange: "NASDAQ", country: "US", sector: "SSD Controllers", start: 69.9, now: 69.9,
+                  role: "Flashtec controller line for enterprise SSDs — competes with Marvell in high-performance NVMe controllers",
+                  significance: "Alternative to Marvell for enterprise SSD controllers; Flashtec platform serves hyperscaler-class drives",
+                  keyFacts: ["Flashtec enterprise controllers", "Competes with Marvell Bravera", "Hyperscaler-class NVMe"] },
+                { name: "Silicon Motion", ticker: "SIMO", exchange: "NASDAQ", country: "TW", sector: "SSD Controllers", start: 122.3, now: 122.3,
+                  role: "Designs MonTitan enterprise SSD controller platform — merchant controller supplier to SSD makers",
+                  significance: "Largest merchant SSD controller vendor; MonTitan targets enterprise/datacenter segment growing with AI",
+                  keyFacts: ["MonTitan enterprise platform", "Largest merchant controller vendor", "Growing enterprise AI exposure"] },
+                { name: "Phison Electronics", ticker: "8299.TWO", exchange: "TPEX", country: "TW", sector: "SSD Controllers", start: 1705, now: 1705,
+                  role: "Designs enterprise and consumer SSD controllers; turnkey SSD solutions for OEMs who don't make their own NAND",
+                  significance: "Turnkey approach lets non-NAND companies enter the SSD market; growing enterprise and AI storage exposure",
+                  keyFacts: ["Turnkey SSD controller solutions", "Enterprise + consumer controllers", "Enables non-NAND OEMs"] },
+                { name: "Amphenol", ticker: "APH", exchange: "NYSE", country: "US", sector: "SSD Connectors", start: 132.77, now: 132.77,
+                  role: "Supplies EDSFF E3/S connectors and high-speed interconnects used in enterprise SSD form factors",
+                  significance: "Form factors are shifting to EDSFF E3/S for AI racks; Amphenol connectors are the physical interface standard",
+                  keyFacts: ["EDSFF E3/S connectors", "High-speed SSD interconnects", "New form factor standard for AI"] },
+                { name: "TE Connectivity", ticker: "TEL", exchange: "NYSE", country: "US", sector: "SSD Connectors", start: 209.05, now: 209.05,
+                  role: "Supplies PCIe and EDSFF connectors for enterprise SSD sleds and server backplanes",
+                  significance: "Alongside Amphenol, dominates the connector market for next-gen storage form factors in AI racks",
+                  keyFacts: ["PCIe/EDSFF connectors", "Server backplane interconnects", "AI rack storage connectors"] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "mem-hdd",
+          name: "HDD",
+          label: "HDD",
+          desc: "Hard-Disk Drives — spinning magnetic platters storing petabytes of cold AI data at the lowest cost per bit",
+          stages: [
+            {
+              id: "hdd-mineral",
+              name: "Minerals, Gases & Rare Earths",
+              codename: "EARTH-LAYER",
+              desc: "Quartz, bauxite, cobalt, platinum-group metals, rare earths (Nd/Dy), argon, and helium — the periodic table behind HDDs",
+              companies: [
+                { name: "Air Products", ticker: "APD", exchange: "NYSE", country: "US", sector: "Gases", start: 274.2, now: 274.2,
+                  role: "Supplies argon for sputter tools coating magnetic media, plus helium for sealed nearline HDD drives",
+                  significance: "Argon feeds the PVD tools; helium fills drives to reduce drag — both are critical HDD inputs",
+                  keyFacts: ["Argon for HDD media sputtering", "Helium for sealed nearline drives", "U.S. helium system now privatized"] },
+                { name: "Linde", ticker: "LIN", exchange: "NYSE", country: "US", sector: "Industrial Gases", start: 499.19, now: 499.19,
+                  role: "Major supplier of argon, helium, and other process gases used in HDD media deposition and drive sealing",
+                  significance: "Part of the gas triopoly; helium logistics and pricing directly affect cost of high-platter-count nearline drives",
+                  keyFacts: ["Argon + helium for HDD production", "Helium supply/pricing affects drive costs", "Gas triopoly member"] },
+                { name: "Air Liquide", ticker: "AI.PA", exchange: "EPA", country: "FR", sector: "Industrial Gases", start: 172.36, now: 172.36,
+                  role: "Third leg of the gas triopoly supplying argon and specialty gases for HDD media coating",
+                  significance: "Global gas supply network ensures HDD fabs have continuous access to ultra-pure process gases",
+                  keyFacts: ["Argon/specialty gases for HDD", "Global supply network", "Gas triopoly member"] }
+              ]
+            },
+            {
+              id: "hdd-platter",
+              name: "Platters & Substrates",
+              codename: "SPIN-GLASS",
+              desc: "Glass and aluminum platters — what actually spins inside every nearline drive; glass enables more, thinner disks",
+              companies: [
+                { name: "HOYA", ticker: "7741.T", exchange: "TSE", country: "JP", sector: "Glass Substrates", start: 27415, now: 27415,
+                  role: "Dominant maker of glass substrates for HDDs — stiffer, thinner, and thermally stable vs aluminum, enabling more platters per drive",
+                  significance: "Glass substrates are oligopolistic; if HOYA hiccups, exabyte shipments slip across the entire HDD industry",
+                  keyFacts: ["Dominant glass substrate maker", "Enables 10+ platter stacking", "Oligopolistic — no real alternative at scale"] }
+              ]
+            },
+            {
+              id: "hdd-media",
+              name: "Magnetic Media Deposition",
+              codename: "NANO-COAT",
+              desc: "PVD sputtering of CoCrPt / FePt magnetic films, DLC overcoats, and PFPE lube — where the bits physically live",
+              companies: [
+                { name: "Resonac (Showa Denko)", ticker: "4004.T", exchange: "TSE", country: "JP", sector: "HDD Media", start: 11760, now: 11760,
+                  role: "Independent anchor supplier of HDD media — co-develops next-gen HAMR FePt media with Seagate",
+                  significance: "Media is a first-order limiter for high capacities; FePt grain uniformity determines areal density and yields",
+                  keyFacts: ["Independent HDD media supplier", "Co-developing HAMR FePt media", "Areal density gatekeeper"] },
+                { name: "Canon", ticker: "7751.T", exchange: "TSE", country: "JP", sector: "Sputtering Tools", start: 4495, now: 4495,
+                  role: "Canon ANELVA division supplies PVD sputtering tools for HDD magnetic media deposition",
+                  significance: "Multi-chamber PVD sputtering lines are specialized capital equipment; Canon ANELVA is a dominant tool maker",
+                  keyFacts: ["Canon ANELVA PVD sputtering tools", "HDD media deposition equipment", "Dominant in HDD sputtering"] },
+                { name: "ULVAC", ticker: "6728.T", exchange: "TSE", country: "JP", sector: "Vacuum/Sputtering", start: 9760, now: 9760,
+                  role: "Supplies vacuum deposition and sputtering equipment for HDD media coating alongside Canon ANELVA",
+                  significance: "Vacuum technology specialist; PVD tools for magnetic film deposition are a core product line",
+                  keyFacts: ["Vacuum deposition for HDD media", "Sputtering equipment supplier", "Complements Canon ANELVA"] }
+              ]
+            },
+            {
+              id: "hdd-head",
+              name: "Read/Write Heads & Suspensions",
+              codename: "NANO-FLIGHT",
+              desc: "Multilayer magnetic/photonic heads flying at nanometer gaps, plus spring-steel suspensions controlling flight height",
+              companies: [
+                { name: "TDK Corporation", ticker: "6762.T", exchange: "TSE", country: "JP", sector: "R/W Heads", start: 2104.5, now: 2104.5,
+                  role: "Only merchant (independent) head supplier via SAE Magnetics; also supplies NdFeB magnets for actuators",
+                  significance: "Head yields and NFT reliability pace HAMR ramps; TDK also has magnet know-how for actuators — dual HDD exposure",
+                  keyFacts: ["Only merchant head supplier (SAE Magnetics)", "NFT for HAMR heads", "Also supplies actuator magnets"] },
+                { name: "NHK Spring", ticker: "5991.T", exchange: "TSE", country: "JP", sector: "Suspensions", start: 2734.5, now: 2734.5,
+                  role: "Leading supplier of precision HDD suspensions that control head flying height at nanometer altitude",
+                  significance: "Oligopolistic position in data-center suspensions; small geometry drifts change flying stability and scrap",
+                  keyFacts: ["Leader in HDD suspensions", "Nanometer flying-height control", "Oligopolistic position"] }
+              ]
+            },
+            {
+              id: "hdd-motor",
+              name: "Spindle Motors & Bearings",
+              codename: "SPIN-CORE",
+              desc: "Fluid-dynamic-bearing spindle motors — vibration is the enemy of areal density, and Nidec owns ~80% share",
+              companies: [
+                { name: "Nidec", ticker: "6594.T", exchange: "TSE", country: "JP", sector: "Spindle Motors", start: 2420, now: 2420,
+                  role: "~80% global share of HDD spindle motors — the fluid-dynamic-bearing motors that spin glass platters with minimal vibration",
+                  significance: "Near-monopoly position; any Nidec yield or capacity issue becomes a market-wide throttle on HDD exabyte output",
+                  keyFacts: ["~80% global HDD spindle motor share", "Fluid-dynamic-bearing technology", "Near-monopoly = market-wide throttle"] },
+                { name: "MinebeaMitsumi", ticker: "6479.T", exchange: "TSE", country: "JP", sector: "Motors & Bearings", start: 2920.5, now: 2920.5,
+                  role: "Second-largest HDD spindle motor supplier; also supplies precision bearings for various drive components",
+                  significance: "Only meaningful alternative to Nidec in HDD motors; runner-up position benefits when Nidec capacity is tight",
+                  keyFacts: ["#2 HDD spindle motor supplier", "Precision bearings expertise", "Benefits when Nidec is tight"] }
+              ]
+            },
+            {
+              id: "hdd-electronics",
+              name: "Electronics — Preamp, Read-Channel & SoC",
+              codename: "SIGNAL-DECODE",
+              desc: "Low-noise preamps and read-channel SoCs that turn analog magnetic whispers into digital data — new tape-outs pace SKU families",
+              companies: [
+                { name: "Marvell Technology", ticker: "MRVL", exchange: "NASDAQ", country: "US", sector: "HDD Controllers", start: 78.09, now: 78.09,
+                  role: "Supplies controller + preamp chipsets to Toshiba; read-channel SoC that decodes magnetic signals",
+                  significance: "New capacity points (especially HAMR) hinge on fresh channels/preamps — a tape-out delay paces a whole SKU family",
+                  keyFacts: ["HDD controller + preamp chipsets", "Supplies Toshiba", "HAMR requires new tape-outs"] },
+                { name: "Broadcom", ticker: "AVGO", exchange: "NASDAQ", country: "US", sector: "Read Channels", start: 317.53, now: 317.53,
+                  role: "Markets TrueStore read-channels and preamps for HDD OEMs — the signal processing brain of each drive",
+                  significance: "Read-channel/preamp silicon and firmware can pace entire SKU families; Broadcom and Marvell are the duopoly",
+                  keyFacts: ["TrueStore read-channels and preamps", "Duopoly with Marvell", "Firmware regressions can delay SKUs"] }
+              ]
+            },
+            {
+              id: "hdd-assembly",
+              name: "Drive OEMs — Assembly & Final Product",
+              codename: "SPIN-SHIP",
+              desc: "Helium-sealed HDA assembly, servo-write, burn-in, and the three companies that ship nearline HDDs to hyperscalers",
+              companies: [
+                { name: "Seagate Technology", ticker: "STX", exchange: "NASDAQ", country: "US", sector: "HDD OEM", start: 375.01, now: 375.01,
+                  role: "Leading nearline HDD OEM; ramping 30 TB-class HAMR (Mozaic 3+) drives in volume production",
+                  significance: "HAMR is the next areal-density leap; Seagate is first to market and sets the pricing/capacity frontier",
+                  keyFacts: ["Mozaic 3+ HAMR in volume production", "30 TB-class nearline drives", "First HAMR drive OEM"] },
+                { name: "Western Digital", ticker: "WDC", exchange: "NASDAQ", country: "US", sector: "HDD OEM", start: 261.3, now: 261.3,
+                  role: "Major nearline HDD OEM; ships 26 TB CMR and 32 TB UltraSMR ePMR drives for hyperscaler cold storage",
+                  significance: "ePMR/UltraSMR pathway competes with HAMR on different tech; WDC targets 40 TB+ via glass substrates",
+                  keyFacts: ["32 TB UltraSMR ePMR drives", "ePMR alternative to HAMR", "Glass substrate roadmap for 40TB+"] }
+              ]
+            }
+          ]
+        }
+    ]
+  }
 ];
 
 // ─── COUNTRY COORDINATES FOR WORLD MAP ──────────────────────────────────────
@@ -1859,6 +2624,10 @@ export const COUNTRY_COORDS = {
   BR: [{ x: 30, y: 55, label: "Brazil" }],
   ID: [{ x: 78, y: 58, label: "Indonesia" }],
   FI: [{ x: 54, y: 20, label: "Finland" }],
+
+  BE: [{ x: 50, y: 28, label: "Belgium" }],
+  IL: [{ x: 56, y: 40, label: "Israel" }],
+  MX: [{ x: 18, y: 48, label: "Mexico" }],
 };
 
 // ─── HELPERS ────────────────────────────────────────────────────────────────
