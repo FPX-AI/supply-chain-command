@@ -56,7 +56,7 @@ export default async function handler(req, res) {
 
     // Send magic link email
     await resend.emails.send({
-      from: 'SiliconSilkRoad <noreply@fpxai.com>',
+      from: 'SiliconSilkRoad <noreply@fpx.world>',
       to: email.toLowerCase(),
       subject: '🔐 Your COMMAND Access Link',
       html: `
