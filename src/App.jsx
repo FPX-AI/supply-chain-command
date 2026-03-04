@@ -47,7 +47,19 @@ const WireframeChip = ({ color, size = 80 }) => (
 // ─── TICKER TAPE ────────────────────────────────────────────────────────────
 const TickerTape = ({ isPro, onUpgrade }) => {
   const [offset, setOffset] = useState(0);
-  const allCompanies = useMemo(() => getAllCompaniesAcrossReports(), []);
+  const tapeItems = useMemo(() => {
+    const all = getAllCompaniesAcrossReports();
+    const free = all.filter(c => c.unlocked);
+    const paid = all.filter(c => !c.unlocked);
+    // Interleave: free, paid, free, paid...
+    const mixed = [];
+    const maxLen = Math.max(free.length, paid.length);
+    for (let i = 0; i < maxLen; i++) {
+      if (i < free.length) mixed.push(free[i]);
+      if (i < paid.length) mixed.push(paid[i]);
+    }
+    return mixed;
+  }, []);
 
   useEffect(() => {
     let raf;
@@ -56,41 +68,33 @@ const TickerTape = ({ isPro, onUpgrade }) => {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  const items = [...allCompanies, ...allCompanies, ...allCompanies];
+  const items = [...tapeItems, ...tapeItems, ...tapeItems];
   return (
     <div style={{ overflow: "hidden", borderTop: "1px solid #39ff1422", borderBottom: "1px solid #39ff1422", background: "#05080a", padding: "8px 0", position: "relative" }}>
       <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(90deg, #05080a, transparent)", zIndex: 2 }} />
       <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 80, background: "linear-gradient(-90deg, #05080a, transparent)", zIndex: 2 }} />
       <div style={{ display: "flex", gap: 32, whiteSpace: "nowrap", transform: `translateX(${offset}px)` }}>
         {items.map((c, i) => {
-          const ch = pct(c.start, c.now);
-          const up = parseFloat(ch) >= 0;
           const visible = c.unlocked || isPro;
+          if (visible) {
+            const ch = pct(c.start, c.now);
+            const up = parseFloat(ch) >= 0;
+            return (
+              <span key={i} style={{ fontFamily: "var(--mono)", fontSize: "0.7rem", display: "inline-flex", gap: 6, alignItems: "center" }}>
+                <span style={{ color: "#8a9bb0" }}>{c.sector.toUpperCase()}</span>
+                <span style={{ color: "#556070" }}>→</span>
+                <span style={{ color: "#c8d6e5" }}>{c.ticker}</span>
+                <span style={{ color: up ? "#39ff14" : "#ff3344", fontWeight: 700 }}>{`${up ? "+" : ""}${ch}%`}</span>
+                <span style={{ color: "#333d4a" }}>//</span>
+              </span>
+            );
+          }
           return (
-            <span
-              key={i}
-              onClick={!visible ? onUpgrade : undefined}
-              style={{
-                fontFamily: "var(--mono)", fontSize: "0.7rem", display: "inline-flex", gap: 6, alignItems: "center",
-                cursor: !visible ? "pointer" : "default",
-              }}
-            >
-              {visible ? (
-                <>
-                  <span style={{ color: "#c8d6e5" }}>{c.ticker}</span>
-                  <span style={{ color: up ? "#39ff14" : "#ff3344", fontWeight: 700 }}>
-                    {`${up ? "+" : ""}${ch}%`}
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span style={{ color: "#556070" }}>🔒</span>
-                  <span style={{ color: "#3d4a5a" }}>{c.ticker}</span>
-                  <span style={{ color: "#2a3340", fontWeight: 700 }}>
-                    {`${up ? "+" : ""}${ch}%`}
-                  </span>
-                </>
-              )}
+            <span key={i} onClick={onUpgrade} style={{ fontFamily: "var(--mono)", fontSize: "0.7rem", display: "inline-flex", gap: 6, alignItems: "center", cursor: "pointer" }}>
+              <span style={{ color: "#333d4a" }}>[REDACTED]</span>
+              <span style={{ color: "#556070" }}>→</span>
+              <span style={{ color: "#333d4a" }}>████</span>
+              <span style={{ color: "#333d4a", fontWeight: 700 }}>█.█%</span>
               <span style={{ color: "#333d4a" }}>//</span>
             </span>
           );
