@@ -697,6 +697,7 @@ const PricingGate = ({ report, mob, onVerify }) => {
     { label: "Priority Briefings", enabled: true },
   ];
 
+
   // Decryption attempt phase
   if (!showPricing) {
     return (
@@ -791,6 +792,7 @@ const PricingGate = ({ report, mob, onVerify }) => {
             <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "1.8rem" : "2.2rem", fontWeight: 700, color: "#e0e6ed", margin: "12px 0 4px" }}>
               $50<span style={{ fontSize: "0.7rem", color: "#556070" }}>/mo</span>
             </div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: "0.55rem", color: "#556070", marginBottom: -2 }}>or $500<span style={{ color: "#3d4a5a" }}>/year</span></div>
             <div style={{ fontFamily: "var(--mono)", fontSize: "0.55rem", color: "#556070", marginBottom: 20 }}>Full operational intelligence</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {proFeatures.map((f, i) => (
