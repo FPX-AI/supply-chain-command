@@ -223,7 +223,7 @@ const genDateTicks = (startStr, count) => {
   return ticks;
 };
 
-const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate }) => {
+const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgrade }) => {
   const ch = parseFloat(pct(company.start, company.now));
   const up = ch >= 0;
   const [hovered, setHovered] = useState(false);
@@ -262,7 +262,7 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate }) => {
         animation: `cardIn 0.4s ease ${idx * 0.06}s both`, cursor: unlocked ? "pointer" : "default",
       }}>
       {!unlocked && (
-        <div style={{ position: "absolute", inset: 0, zIndex: 5, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", background: "rgba(5,8,10,0.88)" }}>
+        <div onClick={(e) => { e.stopPropagation(); if (onUpgrade) onUpgrade(); }} style={{ position: "absolute", inset: 0, zIndex: 5, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", background: "rgba(5,8,10,0.88)", cursor: "pointer" }}>
           <div style={{ fontFamily: "var(--display)", fontSize: "0.65rem", color: "#ff3344", letterSpacing: "0.2em", marginBottom: 6, animation: "blink 1.5s infinite" }}>◆ CLEARANCE REQUIRED ◆</div>
           <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", background: "#0d1117", border: "1px solid #1a222e", borderRadius: 3, padding: "6px 14px", marginBottom: 8 }}>UPGRADE TO COMPLETE DECRYPTION</div>
           <div style={{ width: 100, height: 3, background: "#1a222e", borderRadius: 2, overflow: "hidden" }}>
@@ -905,6 +905,10 @@ export default function WarRoom() {
   const [user, setUser] = useState(null); // { email, tier } or null
   const [showLogin, setShowLogin] = useState(false);
   const isPro = user?.tier === 'pro';
+  const pricingRef = useRef(null);
+  const scrollToPricing = () => {
+    if (pricingRef.current) pricingRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
 
   // Check for magic link token in URL or existing session
   useEffect(() => {
@@ -1219,11 +1223,13 @@ export default function WarRoom() {
                   <div style={{ maxHeight: mob ? "none" : "calc(100vh - 380px)", overflowY: mob ? "visible" : "auto", paddingRight: mob ? 0 : 4 }}>
                     <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 8 : 10, marginBottom: 20 }}>
                       {stage.companies.map((c, i) => (
-                        <StockCard key={i} company={c} color={report.color} unlocked={false} idx={i} reportDate={report.date} />
+                        <StockCard key={i} company={c} color={report.color} unlocked={false} idx={i} reportDate={report.date} onUpgrade={scrollToPricing} />
                       ))}
                     </div>
                   </div>
-                  <PricingGate report={report} mob={mob} onVerify={() => setShowLogin(true)} />
+                  <div ref={pricingRef}>
+                    <PricingGate report={report} mob={mob} onVerify={() => setShowLogin(true)} />
+                  </div>
                 </div>
               )}
             </>
