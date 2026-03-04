@@ -45,7 +45,7 @@ const WireframeChip = ({ color, size = 80 }) => (
 );
 
 // ─── TICKER TAPE ────────────────────────────────────────────────────────────
-const TickerTape = () => {
+const TickerTape = ({ isPro, onUpgrade }) => {
   const [offset, setOffset] = useState(0);
   const allCompanies = useMemo(() => getAllCompaniesAcrossReports(), []);
 
@@ -65,18 +65,32 @@ const TickerTape = () => {
         {items.map((c, i) => {
           const ch = pct(c.start, c.now);
           const up = parseFloat(ch) >= 0;
+          const visible = c.unlocked || isPro;
           return (
-            <span key={i} style={{ fontFamily: "var(--mono)", fontSize: "0.7rem", display: "inline-flex", gap: 6, alignItems: "center" }}>
-              <span style={{ color: c.unlocked ? "#8a9bb0" : "#333d4a" }}>
-                {c.unlocked ? c.sector.toUpperCase() : "[REDACTED]"}
-              </span>
-              <span style={{ color: "#556070" }}>→</span>
-              <span style={{ color: c.unlocked ? "#c8d6e5" : "#333d4a" }}>
-                {c.unlocked ? c.ticker : "████"}
-              </span>
-              <span style={{ color: up ? "#39ff14" : "#ff3344", fontWeight: 700 }}>
-                {c.unlocked ? `${up ? "+" : ""}${ch}%` : "█.█%"}
-              </span>
+            <span
+              key={i}
+              onClick={!visible ? onUpgrade : undefined}
+              style={{
+                fontFamily: "var(--mono)", fontSize: "0.7rem", display: "inline-flex", gap: 6, alignItems: "center",
+                cursor: !visible ? "pointer" : "default",
+              }}
+            >
+              {visible ? (
+                <>
+                  <span style={{ color: "#c8d6e5" }}>{c.ticker}</span>
+                  <span style={{ color: up ? "#39ff14" : "#ff3344", fontWeight: 700 }}>
+                    {`${up ? "+" : ""}${ch}%`}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span style={{ color: "#556070" }}>🔒</span>
+                  <span style={{ color: "#3d4a5a" }}>{c.ticker}</span>
+                  <span style={{ color: "#2a3340", fontWeight: 700 }}>
+                    {`${up ? "+" : ""}${ch}%`}
+                  </span>
+                </>
+              )}
               <span style={{ color: "#333d4a" }}>//</span>
             </span>
           );
@@ -1034,7 +1048,7 @@ export default function WarRoom() {
         ))}
       </div>
 
-      {!mob && <TickerTape />}
+      {!mob && <TickerTape isPro={isPro} onUpgrade={() => setShowLogin(true)} />}
 
       {/* CHIP SELECTOR (Rubin only) */}
       {hasChips && (
