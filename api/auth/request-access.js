@@ -58,7 +58,7 @@ export default async function handler(req, res) {
     await resend.emails.send({
       from: 'FPX AI No Reply <noreply@fpx.world>',
       to: email.toLowerCase(),
-      subject: 'Your COMMAND Access Link',
+      subject: 'Your FPX AI Supply Chain COMMAND Access Link',
       html: `
         <div style="background:#0a0a0a;color:#00ff41;font-family:monospace;padding:40px;max-width:500px;margin:0 auto;">
           <h1 style="color:#ff6600;font-size:18px;border-bottom:1px solid #333;padding-bottom:12px;">
