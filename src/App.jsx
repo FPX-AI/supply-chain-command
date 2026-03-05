@@ -571,8 +571,8 @@ const LoginModal = ({ onClose, onSuccess, color }) => {
     e.preventDefault();
     if (!email) return;
 
-    // Dev bypass: type "devpro" to simulate pro access locally
-    if (email === 'devpro') {
+    // Dev bypass: only available in local development builds
+    if (import.meta.env.DEV && email === 'devpro') {
       onSuccess({ email: 'dev@test.com', tier: 'pro' });
       return;
     }

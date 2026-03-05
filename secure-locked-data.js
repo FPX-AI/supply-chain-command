@@ -36,22 +36,23 @@ async function main() {
       stages.forEach(s => s.companies.forEach(c => freeTickers.add(c.ticker)));
     } else {
       stages.forEach(s => s.companies.forEach(c => lockedTickers.add(c.ticker)));
+      const extractStage = (stage) => ({
+        id: stage.id,
+        name: stage.name,
+        desc: stage.desc,
+        codename: stage.codename,
+        companies: stage.companies.map(c => ({ ...c })),
+      });
       if (report.chips) {
         lockedData[report.id] = {
           chips: report.chips.map(chip => ({
             id: chip.id,
-            stages: chip.stages.map(stage => ({
-              id: stage.id,
-              companies: stage.companies.map(c => ({ ...c })),
-            })),
+            stages: chip.stages.map(extractStage),
           })),
         };
       } else {
         lockedData[report.id] = {
-          stages: report.stages.map(stage => ({
-            id: stage.id,
-            companies: stage.companies.map(c => ({ ...c })),
-          })),
+          stages: report.stages.map(extractStage),
         };
       }
     }
@@ -156,8 +157,60 @@ async function main() {
     }
   }
 
+  // ─── Redact stage names, descriptions, and codenames ───
+  let stageIdx = 0;
+  for (const lockedId of lockedIds) {
+    const report = REPORTS.find(r => r.id === lockedId);
+    const stages = report.chips
+      ? report.chips.flatMap(c => c.stages)
+      : report.stages;
+
+    const reportIdStr = `id: "${lockedId}"`;
+    const reportPos = content.indexOf(reportIdStr);
+    if (reportPos === -1) continue;
+
+    for (const stage of stages) {
+      stageIdx++;
+      const stageIdStr = `id: "${stage.id}"`;
+      const stagePos = content.indexOf(stageIdStr, reportPos);
+      if (stagePos === -1) continue;
+
+      // Find and replace name: "..." within 200 chars of stage id
+      const nameRegex = /name:\s*"([^"]*)"/;
+      const chunk = content.substring(stagePos, stagePos + 200);
+      const nameMatch = chunk.match(nameRegex);
+      if (nameMatch) {
+        const nameStart = stagePos + chunk.indexOf(nameMatch[0]);
+        content = content.slice(0, nameStart) + `name: "Classified Sector ${stageIdx}"` + content.slice(nameStart + nameMatch[0].length);
+      }
+
+      // Re-find stage position (content shifted)
+      const stagePos2 = content.indexOf(stageIdStr, reportPos);
+      if (stagePos2 === -1) continue;
+      const chunk2 = content.substring(stagePos2, stagePos2 + 300);
+
+      // Replace codename
+      const codeMatch = chunk2.match(/codename:\s*"([^"]*)"/);
+      if (codeMatch) {
+        const codeStart = stagePos2 + chunk2.indexOf(codeMatch[0]);
+        content = content.slice(0, codeStart) + `codename: "REDACTED-${stageIdx}"` + content.slice(codeStart + codeMatch[0].length);
+      }
+
+      // Re-find and replace desc
+      const stagePos3 = content.indexOf(stageIdStr, reportPos);
+      if (stagePos3 === -1) continue;
+      const chunk3 = content.substring(stagePos3, stagePos3 + 500);
+      const descMatch = chunk3.match(/desc:\s*"([^"]*)"/);
+      if (descMatch) {
+        const descStart = stagePos3 + chunk3.indexOf(descMatch[0]);
+        content = content.slice(0, descStart) + `desc: "Classified supply chain intelligence. Upgrade to COMMAND access."` + content.slice(descStart + descMatch[0].length);
+      }
+    }
+  }
+  console.log(`Redacted ${stageIdx} stage names/descriptions`);
+
   writeFileSync(join(__dirname, "src", "data.js"), content);
-  console.log("Redacted locked companies in data.js");
+  console.log("Redacted locked companies and stage metadata in data.js");
 
   // ─── Strip locked-only tickers from prices.json ───
   const pureLockedTickers = [...lockedTickers].filter(t => !freeTickers.has(t));

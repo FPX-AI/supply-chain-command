@@ -635,9 +635,9 @@ export const REPORTS = [
           stages: [
             {
               id: "hbm-sand",
-              name: "Silicon & Raw Materials",
-              codename: "SAND-ZERO",
-              desc: "High-purity silica, polysilicon, 300mm wafers, and the glass cloth/copper foils that form package substrates",
+        name: "Classified Sector 1",
+        codename: "REDACTED-1",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -679,9 +679,9 @@ export const REPORTS = [
             },
             {
               id: "hbm-substrate",
-              name: "ABF Substrates & Packaging Materials",
-              codename: "LAYER-CAKE",
-              desc: "ABF film, low-CTE glass cloth, and FC-BGA substrates — the persistent bottleneck for AI-scale packages",
+        name: "Classified Sector 2",
+        codename: "REDACTED-2",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -707,9 +707,9 @@ export const REPORTS = [
             },
             {
               id: "hbm-dram",
-              name: "DRAM Fabrication & TSV",
-              codename: "DEEP-WELL",
-              desc: "Front-end DRAM wafer fab at 1β/1γ nodes, EUV lithography, and through-silicon via drilling for HBM stacks",
+        name: "Classified Sector 3",
+        codename: "REDACTED-3",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -747,9 +747,9 @@ export const REPORTS = [
             },
             {
               id: "hbm-stack",
-              name: "Die Stacking & Bonding",
-              codename: "TOWER-BUILD",
-              desc: "Thinning, TSV reveal, micro-bump/hybrid bonding — turning individual DRAM dies into vertical HBM towers",
+        name: "Classified Sector 4",
+        codename: "REDACTED-4",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -767,9 +767,9 @@ export const REPORTS = [
             },
             {
               id: "hbm-pkg",
-              name: "2.5D Integration & Advanced Packaging",
-              codename: "COWOS-GATE",
-              desc: "CoWoS-S/L interposers, I-Cube, EMIB — the tightest throughput constraint in AI hardware",
+        name: "Classified Sector 5",
+        codename: "REDACTED-5",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -787,9 +787,9 @@ export const REPORTS = [
             },
             {
               id: "hbm-test",
-              name: "Test & Known-Good-Die",
-              codename: "BURN-IN",
-              desc: "HBM requires complex die-level KGD testing before stacking, then stack-level validation — insufficient test parallelism is the next constraint",
+        name: "Classified Sector 6",
+        codename: "REDACTED-6",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -803,9 +803,9 @@ export const REPORTS = [
             },
             {
               id: "hbm-system",
-              name: "GPU Integration & End Product",
-              codename: "FINAL-FORM",
-              desc: "The finished GPU+HBM module — boards, power delivery, liquid cooling, and the hyperscaler buyers",
+        name: "Classified Sector 7",
+        codename: "REDACTED-7",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -827,9 +827,9 @@ export const REPORTS = [
           stages: [
             {
               id: "ssd-quartz",
-              name: "Quartz, Wafers & Mask Blanks",
-              codename: "GLASS-ORIGIN",
-              desc: "High-purity quartz for fused silica, photomask blanks, and 300mm wafers — the glass that starts it all",
+        name: "Classified Sector 8",
+        codename: "REDACTED-8",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -847,9 +847,9 @@ export const REPORTS = [
             },
             {
               id: "ssd-nand",
-              name: "3D NAND Front-End Fab",
-              codename: "SKYSCRAPER",
-              desc: "Film stacks, high-aspect-ratio etch, wordline deposition — building the 200+ layer 'skyscrapers' of NAND flash",
+        name: "Classified Sector 9",
+        codename: "REDACTED-9",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -895,9 +895,9 @@ export const REPORTS = [
             },
             {
               id: "ssd-gas",
-              name: "Specialty Gases & Chemicals",
-              codename: "INVISIBLE-FUEL",
-              desc: "NF₃ for chamber cleans, WF₆ for tungsten fill — small concentrated supply chains that throttle NAND output",
+        name: "Classified Sector 10",
+        codename: "REDACTED-10",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -923,9 +923,9 @@ export const REPORTS = [
             },
             {
               id: "ssd-bond",
-              name: "Wafer Bonding & String Stacking",
-              codename: "DECK-JOIN",
-              desc: "CBA/CuA wafer-to-wafer bonding for ultra-high-layer NAND — the yield gate for 30-60+ TB enterprise SSDs",
+        name: "Classified Sector 11",
+        codename: "REDACTED-11",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -939,9 +939,9 @@ export const REPORTS = [
             },
             {
               id: "ssd-osat",
-              name: "OSAT Assembly & Test",
-              codename: "PACK-TEST",
-              desc: "NAND packaging, burn-in, NVMe/OCP qualification — where schedules actually slip",
+        name: "Classified Sector 12",
+        codename: "REDACTED-12",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -971,9 +971,9 @@ export const REPORTS = [
             },
             {
               id: "ssd-ctrl",
-              name: "SSD Controllers & Assembly",
-              codename: "BRAIN-BOX",
-              desc: "Controller SoCs, DRAM cache, PLP capacitors, NVMe/PCIe interface — the 'small computer' inside each SSD",
+        name: "Classified Sector 13",
+        codename: "REDACTED-13",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1011,9 +1011,9 @@ export const REPORTS = [
           stages: [
             {
               id: "hdd-mineral",
-              name: "Minerals, Gases & Rare Earths",
-              codename: "EARTH-LAYER",
-              desc: "Quartz, bauxite, cobalt, platinum-group metals, rare earths (Nd/Dy), argon, and helium — the periodic table behind HDDs",
+        name: "Classified Sector 14",
+        codename: "REDACTED-14",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1031,9 +1031,9 @@ export const REPORTS = [
             },
             {
               id: "hdd-platter",
-              name: "Platters & Substrates",
-              codename: "SPIN-GLASS",
-              desc: "Glass and aluminum platters — what actually spins inside every nearline drive; glass enables more, thinner disks",
+        name: "Classified Sector 15",
+        codename: "REDACTED-15",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1043,9 +1043,9 @@ export const REPORTS = [
             },
             {
               id: "hdd-media",
-              name: "Magnetic Media Deposition",
-              codename: "NANO-COAT",
-              desc: "PVD sputtering of CoCrPt / FePt magnetic films, DLC overcoats, and PFPE lube — where the bits physically live",
+        name: "Classified Sector 16",
+        codename: "REDACTED-16",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1063,9 +1063,9 @@ export const REPORTS = [
             },
             {
               id: "hdd-head",
-              name: "Read/Write Heads & Suspensions",
-              codename: "NANO-FLIGHT",
-              desc: "Multilayer magnetic/photonic heads flying at nanometer gaps, plus spring-steel suspensions controlling flight height",
+        name: "Classified Sector 17",
+        codename: "REDACTED-17",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1079,9 +1079,9 @@ export const REPORTS = [
             },
             {
               id: "hdd-motor",
-              name: "Spindle Motors & Bearings",
-              codename: "SPIN-CORE",
-              desc: "Fluid-dynamic-bearing spindle motors — vibration is the enemy of areal density, and Nidec owns ~80% share",
+        name: "Classified Sector 18",
+        codename: "REDACTED-18",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1095,9 +1095,9 @@ export const REPORTS = [
             },
             {
               id: "hdd-electronics",
-              name: "Electronics — Preamp, Read-Channel & SoC",
-              codename: "SIGNAL-DECODE",
-              desc: "Low-noise preamps and read-channel SoCs that turn analog magnetic whispers into digital data — new tape-outs pace SKU families",
+        name: "Classified Sector 19",
+        codename: "REDACTED-19",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1111,9 +1111,9 @@ export const REPORTS = [
             },
             {
               id: "hdd-assembly",
-              name: "Drive OEMs — Assembly & Final Product",
-              codename: "SPIN-SHIP",
-              desc: "Helium-sealed HDA assembly, servo-write, burn-in, and the three companies that ship nearline HDDs to hyperscalers",
+        name: "Classified Sector 20",
+        codename: "REDACTED-20",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
               companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1143,9 +1143,9 @@ export const REPORTS = [
     stages: [
       {
         id: "net-compute",
-        name: "Compute Vendors & Hyperscalers",
-        codename: "HYPER-CORE",
-        desc: "The GPU/TPU designers and cloud builders driving AI networking demand",
+        name: "Classified Sector 21",
+        codename: "REDACTED-21",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1171,9 +1171,9 @@ export const REPORTS = [
       },
       {
         id: "net-hbm",
-        name: "HBM Memory Suppliers",
-        codename: "MEM-STACK",
-        desc: "Stacked DRAM defines on-package copper fabric width — the bandwidth wall",
+        name: "Classified Sector 22",
+        codename: "REDACTED-22",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1191,9 +1191,9 @@ export const REPORTS = [
       },
       {
         id: "net-packaging",
-        name: "Advanced Packaging & OSAT",
-        codename: "PKG-BRIDGE",
-        desc: "CoWoS, EMIB, and the packaging that bridges chips to networking",
+        name: "Classified Sector 23",
+        codename: "REDACTED-23",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1215,9 +1215,9 @@ export const REPORTS = [
       },
       {
         id: "net-substrates",
-        name: "Substrates & PCB Materials",
-        codename: "LAYER-BASE",
-        desc: "ABF substrates, IC packaging materials, and high-speed PCB laminates",
+        name: "Classified Sector 24",
+        codename: "REDACTED-24",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1251,9 +1251,9 @@ export const REPORTS = [
       },
       {
         id: "net-connectors",
-        name: "Connectors & Cable Assemblies",
-        codename: "WIRE-LINK",
-        desc: "High-speed connectors, twinax DAC/AEC assemblies, and internal harnesses",
+        name: "Classified Sector 25",
+        codename: "REDACTED-25",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1275,9 +1275,9 @@ export const REPORTS = [
       },
       {
         id: "net-serdes",
-        name: "SerDes, Retimers & Signal Conditioning",
-        codename: "SIGNAL-OPS",
-        desc: "The silicon that pushes bits through copper and optical links at 112-224 Gb/s",
+        name: "Classified Sector 26",
+        codename: "REDACTED-26",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1311,9 +1311,9 @@ export const REPORTS = [
       },
       {
         id: "net-switches",
-        name: "Networking Equipment",
-        codename: "SWITCH-GRID",
-        desc: "Switches, routers, NICs, and the white-box ODMs building AI back-end fabrics",
+        name: "Classified Sector 27",
+        codename: "REDACTED-27",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1343,9 +1343,9 @@ export const REPORTS = [
       },
       {
         id: "net-optics",
-        name: "Optical Transceivers & Silicon Photonics",
-        codename: "PHOTON-MOD",
-        desc: "400G/800G/1.6T optical modules, lasers, silicon photonics, and CPO enablers",
+        name: "Classified Sector 28",
+        codename: "REDACTED-28",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1383,9 +1383,9 @@ export const REPORTS = [
       },
       {
         id: "net-dsp",
-        name: "Coherent DSP & Analog Drivers",
-        codename: "WAVE-CTRL",
-        desc: "Coherent DSPs for pluggable optics and analog drivers benefiting from LPO trends",
+        name: "Classified Sector 29",
+        codename: "REDACTED-29",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1411,9 +1411,9 @@ export const REPORTS = [
       },
       {
         id: "net-transport",
-        name: "Optical Transport & Line Systems",
-        codename: "TRUNK-LINE",
-        desc: "Long-haul and metro optical transport equipment connecting AI datacenters",
+        name: "Classified Sector 30",
+        codename: "REDACTED-30",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1431,9 +1431,9 @@ export const REPORTS = [
       },
       {
         id: "net-fiber",
-        name: "Fiber Optic Cable & Connectivity",
-        codename: "GLASS-WEB",
-        desc: "Optical fiber, cable, and connectivity hardware from datacenter to subsea",
+        name: "Classified Sector 31",
+        codename: "REDACTED-31",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -1467,9 +1467,9 @@ export const REPORTS = [
       },
       {
         id: "net-infra",
-        name: "Subsea, OCS & DC Infrastructure",
-        codename: "DEEP-GRID",
-        desc: "Submarine cable builders, optical circuit switches, and power/cooling for AI racks",
+        name: "Classified Sector 32",
+        codename: "REDACTED-32",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4096,9 +4096,9 @@ export const REPORTS = [
     stages: [
       {
         id: "cpu-design",
-        name: "CPU Architecture",
-        codename: "CORE-WAR",
-        desc: "The 2026 platform clash — vertical integration vs open ecosystem",
+        name: "Classified Sector 33",
+        codename: "REDACTED-33",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4120,9 +4120,9 @@ export const REPORTS = [
       },
       {
         id: "cpu-servers",
-        name: "Server Platforms",
-        codename: "RACK-OPS",
-        desc: "OEMs and integrators where CPU, power, and cooling collide",
+        name: "Classified Sector 34",
+        codename: "REDACTED-34",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4140,9 +4140,9 @@ export const REPORTS = [
       },
       {
         id: "cpu-foundry",
-        name: "Foundry & Lithography",
-        codename: "PROCESS-NODE",
-        desc: "Where the 2026 story becomes a yield ramp story",
+        name: "Classified Sector 35",
+        codename: "REDACTED-35",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4160,9 +4160,9 @@ export const REPORTS = [
       },
       {
         id: "cpu-memory",
-        name: "Memory Subsystem",
-        codename: "MEM-THROTTLE",
-        desc: "HBM, DRAM, CXL — where agentic workloads get throttled",
+        name: "Classified Sector 36",
+        codename: "REDACTED-36",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4172,9 +4172,9 @@ export const REPORTS = [
       },
       {
         id: "cpu-substrates",
-        name: "Substrates & Test",
-        codename: "SUBSTRATE-GATE",
-        desc: "ABF substrates, packaging, and test — where flawless silicon gets blocked",
+        name: "Classified Sector 37",
+        codename: "REDACTED-37",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4220,9 +4220,9 @@ export const REPORTS = [
       },
       {
         id: "cpu-eda",
-        name: "EDA & IP",
-        codename: "DESIGN-SYS",
-        desc: "Design tools and IP that define tapeout confidence at GAA era",
+        name: "Classified Sector 38",
+        codename: "REDACTED-38",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4240,9 +4240,9 @@ export const REPORTS = [
       },
       {
         id: "cpu-materials",
-        name: "Raw Materials & Chemistry",
-        codename: "PURITY-STACK",
-        desc: "Wafers, chemicals, gases — inputs that become more sensitive at GAA",
+        name: "Classified Sector 39",
+        codename: "REDACTED-39",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4286,9 +4286,9 @@ export const REPORTS = [
     stages: [
       {
         id: "cu-mining",
-        name: "Commodity Mining",
-        codename: "ORE-BASE",
-        desc: "Copper miners exposed to the structural supply deficit",
+        name: "Classified Sector 40",
+        codename: "REDACTED-40",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4314,9 +4314,9 @@ export const REPORTS = [
       },
       {
         id: "cu-power",
-        name: "Power Equipment Enablers",
-        codename: "GRID-GATE",
-        desc: "Transformers, switchgear, busbars — embedded copper with pricing power",
+        name: "Classified Sector 41",
+        codename: "REDACTED-41",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4342,9 +4342,9 @@ export const REPORTS = [
       },
       {
         id: "cu-epc",
-        name: "EPC & Grid Construction",
-        codename: "BUILD-OPS",
-        desc: "Engineering, procurement, construction for heavy grid and datacenter builds",
+        name: "Classified Sector 42",
+        codename: "REDACTED-42",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4366,9 +4366,9 @@ export const REPORTS = [
       },
       {
         id: "cu-optics",
-        name: "Optics & DSP",
-        codename: "PHOTON-WAVE",
-        desc: "800G-1.6T transceivers and DSP silicon driving the optical explosion",
+        name: "Classified Sector 43",
+        codename: "REDACTED-43",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4390,9 +4390,9 @@ export const REPORTS = [
       },
       {
         id: "cu-pcb",
-        name: "Cable-Free Rack Hardware",
-        codename: "BOARD-SHIFT",
-        desc: "High-layer PCBs and blind-mate connectors replacing internal cabling",
+        name: "Classified Sector 44",
+        codename: "REDACTED-44",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4410,9 +4410,9 @@ export const REPORTS = [
       },
       {
         id: "cu-pkg",
-        name: "CPO & Advanced Packaging",
-        codename: "PHOTON-PKG",
-        desc: "Co-packaged optics and 2.5D/3D packaging value chain migration",
+        name: "Classified Sector 45",
+        codename: "REDACTED-45",
+        desc: "Classified supply chain intelligence. Upgrade to COMMAND access.",
         companies: [
             { name: "CLASSIFIED-0", ticker: "XXXX-0", exchange: "---", country: "XX", sector: "REDACTED", start: 0, now: 0,
               role: "Upgrade to COMMAND access to reveal.",
@@ -4520,6 +4520,12 @@ export const updatePricesFromJSON = async () => {
 // ─── MERGE LOCKED DATA ─────────────────────────────────────────────────────
 // After pro auth, the frontend fetches locked company data from the server
 // and merges it back into the REPORTS array, replacing CLASSIFIED placeholders.
+const mergeStage = (targetStage, stage) => {
+  targetStage.companies = stage.companies;
+  if (stage.name) targetStage.name = stage.name;
+  if (stage.desc) targetStage.desc = stage.desc;
+  if (stage.codename) targetStage.codename = stage.codename;
+};
 export const mergeLockedData = (lockedReports) => {
   for (const [reportId, data] of Object.entries(lockedReports)) {
     const report = REPORTS.find((r) => r.id === reportId);
@@ -4532,14 +4538,14 @@ export const mergeLockedData = (lockedReports) => {
         for (const stage of chip.stages) {
           const targetStage = targetChip.stages.find((s) => s.id === stage.id);
           if (!targetStage) continue;
-          targetStage.companies = stage.companies;
+          mergeStage(targetStage, stage);
         }
       }
     } else if (data.stages && report.stages) {
       for (const stage of data.stages) {
         const targetStage = report.stages.find((s) => s.id === stage.id);
         if (!targetStage) continue;
-        targetStage.companies = stage.companies;
+        mergeStage(targetStage, stage);
       }
     }
   }

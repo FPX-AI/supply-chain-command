@@ -151,7 +151,10 @@
                   "Low-profile foils reduce warpage"
                 ]
               }
-            ]
+            ],
+            "name": "Silicon & Raw Materials",
+            "desc": "High-purity silica, polysilicon, 300mm wafers, and the glass cloth/copper foils that form package substrates",
+            "codename": "SAND-ZERO"
           },
           {
             "id": "hbm-substrate",
@@ -236,7 +239,10 @@
                   "Oligopolistic position"
                 ]
               }
-            ]
+            ],
+            "name": "ABF Substrates & Packaging Materials",
+            "desc": "ABF film, low-CTE glass cloth, and FC-BGA substrates — the persistent bottleneck for AI-scale packages",
+            "codename": "LAYER-CAKE"
           },
           {
             "id": "hbm-dram",
@@ -369,7 +375,10 @@
                   "Monopoly in advanced inspection"
                 ]
               }
-            ]
+            ],
+            "name": "DRAM Fabrication & TSV",
+            "desc": "Front-end DRAM wafer fab at 1β/1γ nodes, EUV lithography, and through-silicon via drilling for HBM stacks",
+            "codename": "DEEP-WELL"
           },
           {
             "id": "hbm-stack",
@@ -422,7 +431,10 @@
                   "Competes with EV Group (private)"
                 ]
               }
-            ]
+            ],
+            "name": "Die Stacking & Bonding",
+            "desc": "Thinning, TSV reveal, micro-bump/hybrid bonding — turning individual DRAM dies into vertical HBM towers",
+            "codename": "TOWER-BUILD"
           },
           {
             "id": "hbm-pkg",
@@ -475,7 +487,10 @@
                   "Deepening ties with NVIDIA/AMD"
                 ]
               }
-            ]
+            ],
+            "name": "2.5D Integration & Advanced Packaging",
+            "desc": "CoWoS-S/L interposers, I-Cube, EMIB — the tightest throughput constraint in AI hardware",
+            "codename": "COWOS-GATE"
           },
           {
             "id": "hbm-test",
@@ -512,7 +527,10 @@
                   "Scales with taller HBM stacks"
                 ]
               }
-            ]
+            ],
+            "name": "Test & Known-Good-Die",
+            "desc": "HBM requires complex die-level KGD testing before stacking, then stack-level validation — insufficient test parallelism is the next constraint",
+            "codename": "BURN-IN"
           },
           {
             "id": "hbm-system",
@@ -549,7 +567,10 @@
                   "Growing AI GPU market share"
                 ]
               }
-            ]
+            ],
+            "name": "GPU Integration & End Product",
+            "desc": "The finished GPU+HBM module — boards, power delivery, liquid cooling, and the hyperscaler buyers",
+            "codename": "FINAL-FORM"
           }
         ]
       },
@@ -607,7 +628,10 @@
                   "Critical for NAND lithography steps"
                 ]
               }
-            ]
+            ],
+            "name": "Quartz, Wafers & Mask Blanks",
+            "desc": "High-purity quartz for fused silica, photomask blanks, and 300mm wafers — the glass that starts it all",
+            "codename": "GLASS-ORIGIN"
           },
           {
             "id": "ssd-nand",
@@ -772,7 +796,10 @@
                   "Alternative to ASML for NAND"
                 ]
               }
-            ]
+            ],
+            "name": "3D NAND Front-End Fab",
+            "desc": "Film stacks, high-aspect-ratio etch, wordline deposition — building the 200+ layer 'skyscrapers' of NAND flash",
+            "codename": "SKYSCRAPER"
           },
           {
             "id": "ssd-gas",
@@ -857,7 +884,10 @@
                   "Concentrated supply chain"
                 ]
               }
-            ]
+            ],
+            "name": "Specialty Gases & Chemicals",
+            "desc": "NF₃ for chamber cleans, WF₆ for tungsten fill — small concentrated supply chains that throttle NAND output",
+            "codename": "INVISIBLE-FUEL"
           },
           {
             "id": "ssd-bond",
@@ -894,7 +924,10 @@
                   "One of few public bonder companies"
                 ]
               }
-            ]
+            ],
+            "name": "Wafer Bonding & String Stacking",
+            "desc": "CBA/CuA wafer-to-wafer bonding for ultra-high-layer NAND — the yield gate for 30-60+ TB enterprise SSDs",
+            "codename": "DECK-JOIN"
           },
           {
             "id": "ssd-osat",
@@ -995,7 +1028,10 @@
                   "Scales with production ramps"
                 ]
               }
-            ]
+            ],
+            "name": "OSAT Assembly & Test",
+            "desc": "NAND packaging, burn-in, NVMe/OCP qualification — where schedules actually slip",
+            "codename": "PACK-TEST"
           },
           {
             "id": "ssd-ctrl",
@@ -1096,7 +1132,10 @@
                   "AI rack storage connectors"
                 ]
               }
-            ]
+            ],
+            "name": "SSD Controllers & Assembly",
+            "desc": "Controller SoCs, DRAM cache, PLP capacitors, NVMe/PCIe interface — the 'small computer' inside each SSD",
+            "codename": "BRAIN-BOX"
           }
         ]
       },
@@ -1154,7 +1193,10 @@
                   "Gas triopoly member"
                 ]
               }
-            ]
+            ],
+            "name": "Minerals, Gases & Rare Earths",
+            "desc": "Quartz, bauxite, cobalt, platinum-group metals, rare earths (Nd/Dy), argon, and helium — the periodic table behind HDDs",
+            "codename": "EARTH-LAYER"
           },
           {
             "id": "hdd-platter",
@@ -1175,7 +1217,10 @@
                   "Oligopolistic — no real alternative at scale"
                 ]
               }
-            ]
+            ],
+            "name": "Platters & Substrates",
+            "desc": "Glass and aluminum platters — what actually spins inside every nearline drive; glass enables more, thinner disks",
+            "codename": "SPIN-GLASS"
           },
           {
             "id": "hdd-media",
@@ -1228,7 +1273,10 @@
                   "Complements Canon ANELVA"
                 ]
               }
-            ]
+            ],
+            "name": "Magnetic Media Deposition",
+            "desc": "PVD sputtering of CoCrPt / FePt magnetic films, DLC overcoats, and PFPE lube — where the bits physically live",
+            "codename": "NANO-COAT"
           },
           {
             "id": "hdd-head",
@@ -1265,7 +1313,10 @@
                   "Oligopolistic position"
                 ]
               }
-            ]
+            ],
+            "name": "Read/Write Heads & Suspensions",
+            "desc": "Multilayer magnetic/photonic heads flying at nanometer gaps, plus spring-steel suspensions controlling flight height",
+            "codename": "NANO-FLIGHT"
           },
           {
             "id": "hdd-motor",
@@ -1302,7 +1353,10 @@
                   "Benefits when Nidec is tight"
                 ]
               }
-            ]
+            ],
+            "name": "Spindle Motors & Bearings",
+            "desc": "Fluid-dynamic-bearing spindle motors — vibration is the enemy of areal density, and Nidec owns ~80% share",
+            "codename": "SPIN-CORE"
           },
           {
             "id": "hdd-electronics",
@@ -1339,7 +1393,10 @@
                   "Firmware regressions can delay SKUs"
                 ]
               }
-            ]
+            ],
+            "name": "Electronics — Preamp, Read-Channel & SoC",
+            "desc": "Low-noise preamps and read-channel SoCs that turn analog magnetic whispers into digital data — new tape-outs pace SKU families",
+            "codename": "SIGNAL-DECODE"
           },
           {
             "id": "hdd-assembly",
@@ -1376,7 +1433,10 @@
                   "Glass substrate roadmap for 40TB+"
                 ]
               }
-            ]
+            ],
+            "name": "Drive OEMs — Assembly & Final Product",
+            "desc": "Helium-sealed HDA assembly, servo-write, burn-in, and the three companies that ship nearline HDDs to hyperscalers",
+            "codename": "SPIN-SHIP"
           }
         ]
       }
@@ -1467,7 +1527,10 @@
               "Metro DCI coherent links"
             ]
           }
-        ]
+        ],
+        "name": "Compute Vendors & Hyperscalers",
+        "desc": "The GPU/TPU designers and cloud builders driving AI networking demand",
+        "codename": "HYPER-CORE"
       },
       {
         "id": "net-hbm",
@@ -1520,7 +1583,10 @@
               "HBM4E development with TSMC"
             ]
           }
-        ]
+        ],
+        "name": "HBM Memory Suppliers",
+        "desc": "Stacked DRAM defines on-package copper fabric width — the bandwidth wall",
+        "codename": "MEM-STACK"
       },
       {
         "id": "net-packaging",
@@ -1589,7 +1655,10 @@
               "US-based OSAT alternative"
             ]
           }
-        ]
+        ],
+        "name": "Advanced Packaging & OSAT",
+        "desc": "CoWoS, EMIB, and the packaging that bridges chips to networking",
+        "codename": "PKG-BRIDGE"
       },
       {
         "id": "net-substrates",
@@ -1706,7 +1775,10 @@
               "Mandatory at 224 Gb/s"
             ]
           }
-        ]
+        ],
+        "name": "Substrates & PCB Materials",
+        "desc": "ABF substrates, IC packaging materials, and high-speed PCB laminates",
+        "codename": "LAYER-BASE"
       },
       {
         "id": "net-connectors",
@@ -1775,7 +1847,10 @@
               "Integrated rack wiring"
             ]
           }
-        ]
+        ],
+        "name": "Connectors & Cable Assemblies",
+        "desc": "High-speed connectors, twinax DAC/AEC assemblies, and internal harnesses",
+        "codename": "WIRE-LINK"
       },
       {
         "id": "net-serdes",
@@ -1892,7 +1967,10 @@
               "800G volume beneficiary"
             ]
           }
-        ]
+        ],
+        "name": "SerDes, Retimers & Signal Conditioning",
+        "desc": "The silicon that pushes bits through copper and optical links at 112-224 Gb/s",
+        "codename": "SIGNAL-OPS"
       },
       {
         "id": "net-switches",
@@ -1993,7 +2071,10 @@
               "Merchant silicon ecosystem"
             ]
           }
-        ]
+        ],
+        "name": "Networking Equipment",
+        "desc": "Switches, routers, NICs, and the white-box ODMs building AI back-end fabrics",
+        "codename": "SWITCH-GRID"
       },
       {
         "id": "net-optics",
@@ -2126,7 +2207,10 @@
               "Disruptive potential"
             ]
           }
-        ]
+        ],
+        "name": "Optical Transceivers & Silicon Photonics",
+        "desc": "400G/800G/1.6T optical modules, lasers, silicon photonics, and CPO enablers",
+        "codename": "PHOTON-MOD"
       },
       {
         "id": "net-dsp",
@@ -2211,7 +2295,10 @@
               "LPO trend beneficiary"
             ]
           }
-        ]
+        ],
+        "name": "Coherent DSP & Analog Drivers",
+        "desc": "Coherent DSPs for pluggable optics and analog drivers benefiting from LPO trends",
+        "codename": "WAVE-CTRL"
       },
       {
         "id": "net-transport",
@@ -2264,7 +2351,10 @@
               "Global expansion"
             ]
           }
-        ]
+        ],
+        "name": "Optical Transport & Line Systems",
+        "desc": "Long-haul and metro optical transport equipment connecting AI datacenters",
+        "codename": "TRUNK-LINE"
       },
       {
         "id": "net-fiber",
@@ -2381,7 +2471,10 @@
               "Cross-continental connectivity"
             ]
           }
-        ]
+        ],
+        "name": "Fiber Optic Cable & Connectivity",
+        "desc": "Optical fiber, cable, and connectivity hardware from datacenter to subsea",
+        "codename": "GLASS-WEB"
       },
       {
         "id": "net-infra",
@@ -2450,7 +2543,10 @@
               "Networking equipment cooling"
             ]
           }
-        ]
+        ],
+        "name": "Subsea, OCS & DC Infrastructure",
+        "desc": "Submarine cable builders, optical circuit switches, and power/cooling for AI racks",
+        "codename": "DEEP-GRID"
       }
     ]
   },
@@ -2523,7 +2619,10 @@
               "Power efficiency advantage"
             ]
           }
-        ]
+        ],
+        "name": "CPU Architecture",
+        "desc": "The 2026 platform clash — vertical integration vs open ecosystem",
+        "codename": "CORE-WAR"
       },
       {
         "id": "cpu-servers",
@@ -2576,7 +2675,10 @@
               "Custom GPU server configurations"
             ]
           }
-        ]
+        ],
+        "name": "Server Platforms",
+        "desc": "OEMs and integrators where CPU, power, and cooling collide",
+        "codename": "RACK-OPS"
       },
       {
         "id": "cpu-foundry",
@@ -2629,7 +2731,10 @@
               "Defect tolerance collapse at advanced nodes"
             ]
           }
-        ]
+        ],
+        "name": "Foundry & Lithography",
+        "desc": "Where the 2026 story becomes a yield ramp story",
+        "codename": "PROCESS-NODE"
       },
       {
         "id": "cpu-memory",
@@ -2650,7 +2755,10 @@
               "CXL memory pooling support"
             ]
           }
-        ]
+        ],
+        "name": "Memory Subsystem",
+        "desc": "HBM, DRAM, CXL — where agentic workloads get throttled",
+        "codename": "MEM-THROTTLE"
       },
       {
         "id": "cpu-substrates",
@@ -2815,7 +2923,10 @@
               "Foundation of EUV patterning"
             ]
           }
-        ]
+        ],
+        "name": "Substrates & Test",
+        "desc": "ABF substrates, packaging, and test — where flawless silicon gets blocked",
+        "codename": "SUBSTRATE-GATE"
       },
       {
         "id": "cpu-eda",
@@ -2868,7 +2979,10 @@
               "Multi-die co-design capability"
             ]
           }
-        ]
+        ],
+        "name": "EDA & IP",
+        "desc": "Design tools and IP that define tapeout confidence at GAA era",
+        "codename": "DESIGN-SYS"
       },
       {
         "id": "cpu-materials",
@@ -2969,7 +3083,10 @@
               "Duopoly with Shin-Etsu"
             ]
           }
-        ]
+        ],
+        "name": "Raw Materials & Chemistry",
+        "desc": "Wafers, chemicals, gases — inputs that become more sensitive at GAA",
+        "codename": "PURITY-STACK"
       }
     ]
   },
@@ -3058,7 +3175,10 @@
               "Highland Valley long-life asset"
             ]
           }
-        ]
+        ],
+        "name": "Commodity Mining",
+        "desc": "Copper miners exposed to the structural supply deficit",
+        "codename": "ORE-BASE"
       },
       {
         "id": "cu-power",
@@ -3143,7 +3263,10 @@
               "Copper-heavy product portfolio"
             ]
           }
-        ]
+        ],
+        "name": "Power Equipment Enablers",
+        "desc": "Transformers, switchgear, busbars — embedded copper with pricing power",
+        "codename": "GRID-GATE"
       },
       {
         "id": "cu-epc",
@@ -3212,7 +3335,10 @@
               "Power and telecom infrastructure"
             ]
           }
-        ]
+        ],
+        "name": "EPC & Grid Construction",
+        "desc": "Engineering, procurement, construction for heavy grid and datacenter builds",
+        "codename": "BUILD-OPS"
       },
       {
         "id": "cu-optics",
@@ -3281,7 +3407,10 @@
               "800G/1.6T SerDes IP"
             ]
           }
-        ]
+        ],
+        "name": "Optics & DSP",
+        "desc": "800G-1.6T transceivers and DSP silicon driving the optical explosion",
+        "codename": "PHOTON-WAVE"
       },
       {
         "id": "cu-pcb",
@@ -3334,7 +3463,10 @@
               "Controlled impedance specialist"
             ]
           }
-        ]
+        ],
+        "name": "Cable-Free Rack Hardware",
+        "desc": "High-layer PCBs and blind-mate connectors replacing internal cabling",
+        "codename": "BOARD-SHIFT"
       },
       {
         "id": "cu-pkg",
@@ -3387,7 +3519,10 @@
               "Packaging yield gatekeeper"
             ]
           }
-        ]
+        ],
+        "name": "CPO & Advanced Packaging",
+        "desc": "Co-packaged optics and 2.5D/3D packaging value chain migration",
+        "codename": "PHOTON-PKG"
       }
     ]
   }
