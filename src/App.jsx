@@ -819,14 +819,26 @@ const PricingGate = ({ report, mob, onVerify }) => {
         </div>
       </div>
 
-      {/* Already a subscriber */}
-      <div style={{ marginTop: mob ? 16 : 20, textAlign: "center", padding: "16px 20px", background: "#0a0e12", border: "1px solid #111820", borderRadius: 6 }}>
-        <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", marginBottom: 8 }}>Already a Substack Pro subscriber?</div>
-        <button
-          onClick={onVerify}
-          style={{ fontFamily: "var(--mono)", fontSize: "0.65rem", color: report.color, cursor: "pointer", background: "none", letterSpacing: "0.1em", border: `1px solid ${report.color}33`, padding: "8px 20px", borderRadius: 3 }}>
-          VERIFY CLEARANCE →
-        </button>
+      {/* New user / existing subscriber */}
+      <div style={{ marginTop: mob ? 16 : 20, display: "flex", flexDirection: mob ? "column" : "row", gap: mob ? 10 : 12 }}>
+        <div style={{ flex: 1, textAlign: "center", padding: "16px 20px", background: "#0a0e12", border: "1px solid #111820", borderRadius: 6 }}>
+          <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", marginBottom: 8 }}>New here?</div>
+          <a
+            href="https://fpxai.substack.com/subscribe"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", fontFamily: "var(--mono)", fontSize: "0.65rem", color: "#05080a", background: report.color, cursor: "pointer", letterSpacing: "0.1em", border: "none", padding: "8px 20px", borderRadius: 3, textDecoration: "none", fontWeight: 700 }}>
+            SUBSCRIBE ON SUBSTACK →
+          </a>
+        </div>
+        <div style={{ flex: 1, textAlign: "center", padding: "16px 20px", background: "#0a0e12", border: "1px solid #111820", borderRadius: 6 }}>
+          <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", marginBottom: 8 }}>Already a Substack Pro subscriber?</div>
+          <button
+            onClick={onVerify}
+            style={{ fontFamily: "var(--mono)", fontSize: "0.65rem", color: report.color, cursor: "pointer", background: "none", letterSpacing: "0.1em", border: `1px solid ${report.color}33`, padding: "8px 20px", borderRadius: 3 }}>
+            VERIFY CLEARANCE →
+          </button>
+        </div>
       </div>
 
       {/* What you're unlocking */}
