@@ -649,6 +649,13 @@ const LoginModal = ({ onClose, onSuccess, color }) => {
             )}
           </form>
         )}
+        <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid #1a222e', textAlign: 'center' }}>
+          <div style={{ fontFamily: "var(--mono)", fontSize: '0.55rem', color: '#3d4a5a', marginBottom: 6 }}>Don't have a subscription?</div>
+          <a href="https://fpxai.substack.com/subscribe" target="_blank" rel="noopener noreferrer"
+            style={{ fontFamily: "var(--mono)", fontSize: '0.6rem', color, textDecoration: 'none', letterSpacing: '0.1em' }}>
+            SUBSCRIBE ON SUBSTACK →
+          </a>
+        </div>
       </div>
     </div>
   );
