@@ -62,8 +62,37 @@ async function main() {
   writeFileSync(join(apiDataDir, "locked-reports.json"), JSON.stringify(lockedData, null, 2));
   console.log("\nWrote api/data/locked-reports.json");
 
-  // ─── Redact data.js per-stage within locked reports ───
+  // ─── Compute and inject lockedStats for each locked report ───
   let content = readFileSync(join(__dirname, "src", "data.js"), "utf-8");
+
+  for (const lockedId of lockedIds) {
+    const report = REPORTS.find(r => r.id === lockedId);
+    const allStages = report.chips ? report.chips.flatMap(c => c.stages) : report.stages;
+    const allCos = allStages.flatMap(s => s.companies);
+    const seen = new Set();
+    const unique = allCos.filter(c => { if (seen.has(c.ticker)) return false; seen.add(c.ticker); return true; });
+    const gains = unique.map(c => c.start === 0 ? 0 : ((c.now - c.start) / c.start) * 100);
+    const avg = gains.reduce((a, g) => a + g, 0) / gains.length;
+    const best = Math.max(...gains);
+
+    // Inject lockedStats after "unlocked: false,"
+    const marker = `id: "${lockedId}"`;
+    const markerPos = content.indexOf(marker);
+    if (markerPos === -1) continue;
+    const unlockedStr = "unlocked: false,";
+    const unlockedPos = content.indexOf(unlockedStr, markerPos);
+    if (unlockedPos === -1 || unlockedPos - markerPos > 300) continue;
+
+    // Only inject if not already present
+    const afterUnlocked = content.substring(unlockedPos + unlockedStr.length, unlockedPos + unlockedStr.length + 50);
+    if (!afterUnlocked.includes("lockedStats")) {
+      const statsStr = `\n    lockedStats: { avgGain: ${parseFloat(avg.toFixed(1))}, bestPick: ${parseFloat(best.toFixed(1))} },`;
+      content = content.slice(0, unlockedPos + unlockedStr.length) + statsStr + content.slice(unlockedPos + unlockedStr.length);
+    }
+    console.log(`  ${lockedId}: avgGain=${avg.toFixed(1)}%, bestPick=${best.toFixed(1)}%`);
+  }
+
+  // ─── Redact data.js per-stage within locked reports ───
 
   for (const lockedId of lockedIds) {
     const report = REPORTS.find(r => r.id === lockedId);

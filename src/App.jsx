@@ -1043,8 +1043,12 @@ export default function WarRoom() {
     : report.stages.flatMap(s => s.companies);
   const seenTickers = new Set();
   const allCos = allCosRaw.filter(c => { if (seenTickers.has(c.ticker)) return false; seenTickers.add(c.ticker); return true; });
-  const avgGain = allCos.reduce((a, c) => a + parseFloat(pct(c.start, c.now)), 0) / allCos.length;
-  const bestPick = allCos.reduce((b, c) => parseFloat(pct(c.start, c.now)) > parseFloat(pct(b.start, b.now)) ? c : b);
+  // Use lockedStats for locked reports (pre-computed from real data), live calc for unlocked/pro
+  const isLocked = !report.unlocked && !isPro;
+  const avgGain = isLocked && report.lockedStats ? report.lockedStats.avgGain : allCos.reduce((a, c) => a + parseFloat(pct(c.start, c.now)), 0) / allCos.length;
+  const bestPickPct = isLocked && report.lockedStats ? report.lockedStats.bestPick : null;
+  const bestPick = isLocked ? { start: 0, now: 0 } : allCos.reduce((b, c) => parseFloat(pct(c.start, c.now)) > parseFloat(pct(b.start, b.now)) ? c : b);
+  const bestPickVal = bestPickPct != null ? bestPickPct : parseFloat(pct(bestPick.start, bestPick.now));
 
   return (
     <div style={{ "--mono": "'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', monospace", "--display": "'Orbitron', 'Share Tech', sans-serif", minHeight: "100vh", background: "#05080a", color: "#e0e6ed", fontFamily: "var(--mono)", position: "relative" }}>
@@ -1212,7 +1216,7 @@ export default function WarRoom() {
             </div>
           </div>
 
-          {/* Gauges — always visible */}
+          {/* Gauges — always visible with real stats */}
           {view === "grid" && (
             mob ? (
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, padding: "12px 14px", background: "#0a0e12", border: "1px solid #111820", borderRadius: 6 }}>
@@ -1224,25 +1228,25 @@ export default function WarRoom() {
                 </div>
                 <div style={{ textAlign: "center" }}>
                   <div style={{ fontFamily: "var(--mono)", fontSize: "0.45rem", color: "#3d4a5a", letterSpacing: "0.1em" }}>AVG RETURN</div>
-                  <div style={{ fontFamily: "var(--display)", fontSize: "1rem", fontWeight: 700, color: report.color }}>+{avgGain.toFixed(1)}%</div>
+                  <div style={{ fontFamily: "var(--display)", fontSize: "1rem", fontWeight: 700, color: report.color }}>{avgGain >= 0 ? "+" : ""}{avgGain.toFixed(1)}%</div>
                 </div>
                 <div style={{ textAlign: "center" }}>
                   <div style={{ fontFamily: "var(--mono)", fontSize: "0.45rem", color: "#3d4a5a", letterSpacing: "0.1em" }}>BEST PICK</div>
-                  <div style={{ fontFamily: "var(--display)", fontSize: "1rem", fontWeight: 700, color: "#39ff14" }}>+{parseFloat(pct(bestPick.start, bestPick.now)).toFixed(1)}%</div>
+                  <div style={{ fontFamily: "var(--display)", fontSize: "1rem", fontWeight: 700, color: "#39ff14" }}>+{bestPickVal.toFixed(1)}%</div>
                 </div>
               </div>
             ) : (
               <div style={{ display: "flex", gap: 24, marginBottom: 24, padding: "20px 24px", background: "#0a0e12", border: "1px solid #111820", borderRadius: 6, alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" }}>
-                <VelocityGauge value={parseFloat(avgGain.toFixed(1))} color={report.color} label="AVG RETURN" max={Math.max(100, Math.ceil(avgGain * 1.3))} />
-                <VelocityGauge value={parseFloat(pct(bestPick.start, bestPick.now))} color="#39ff14" label="BEST PICK" max={Math.max(100, Math.ceil(parseFloat(pct(bestPick.start, bestPick.now)) * 1.2))} />
+                <VelocityGauge value={parseFloat(avgGain.toFixed(1))} color={report.color} label="AVG RETURN" max={Math.max(100, Math.ceil(Math.abs(avgGain) * 1.3))} />
+                <VelocityGauge value={bestPickVal} color="#39ff14" label="BEST PICK" max={Math.max(100, Math.ceil(bestPickVal * 1.2))} />
 
                 <div style={{ textAlign: "center", padding: "0 16px" }}>
                   <div style={{ fontFamily: "var(--mono)", fontSize: "0.5rem", color: "#3d4a5a", letterSpacing: "0.15em", marginBottom: 6 }}>$10,000 INVESTED AT REPORT</div>
-                  <div style={{ fontFamily: "var(--display)", fontSize: "1.6rem", fontWeight: 700, color: "#39ff14", textShadow: "0 0 16px #39ff1444" }}>
+                  <div style={{ fontFamily: "var(--display)", fontSize: "1.6rem", fontWeight: 700, color: avgGain >= 0 ? "#39ff14" : "#ff3344", textShadow: `0 0 16px ${avgGain >= 0 ? "#39ff1444" : "#ff334444"}` }}>
                     ${(10000 * (1 + avgGain / 100)).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
-                  <div style={{ fontFamily: "var(--mono)", fontSize: "0.5rem", color: "#39ff14", marginTop: 4 }}>
-                    +${(10000 * avgGain / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} PROFIT
+                  <div style={{ fontFamily: "var(--mono)", fontSize: "0.5rem", color: avgGain >= 0 ? "#39ff14" : "#ff3344", marginTop: 4 }}>
+                    {avgGain >= 0 ? "+" : ""}${(10000 * avgGain / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} PROFIT
                   </div>
                 </div>
               </div>
@@ -1300,7 +1304,7 @@ export default function WarRoom() {
               ["PUBLISHED", report.date],
               ["COMPANIES", allCos.length],
               ["STAGES", hasChips ? report.chips.reduce((a, c) => a + c.stages.length, 0) : report.stages.length],
-              ["AVG RETURN", `+${avgGain.toFixed(1)}%`],
+              ["AVG RETURN", `${avgGain >= 0 ? "+" : ""}${avgGain.toFixed(1)}%`],
             ].map(([label, value]) => (
               <div key={label} style={{ fontFamily: "var(--mono)", fontSize: mob ? "0.5rem" : "0.55rem" }}>
                 <span style={{ color: "#3d4a5a", letterSpacing: "0.1em" }}>{label}: </span>
