@@ -6,6 +6,7 @@ import {
   getAllCompanies,
   getAllCompaniesAcrossReports,
   updatePricesFromJSON,
+  mergeLockedData,
 } from "./data";
 
 const API_URL = import.meta.env.VITE_API_URL || '';
@@ -45,7 +46,7 @@ const WireframeChip = ({ color, size = 80 }) => (
 );
 
 // ─── TICKER TAPE ────────────────────────────────────────────────────────────
-const TickerTape = ({ isPro, onUpgrade }) => {
+const TickerTape = ({ isPro, onUpgrade, lockedLoaded }) => {
   const [offset, setOffset] = useState(0);
   const tapeItems = useMemo(() => {
     const all = getAllCompaniesAcrossReports();
@@ -59,7 +60,7 @@ const TickerTape = ({ isPro, onUpgrade }) => {
       if (i < paid.length) mixed.push(paid[i]);
     }
     return mixed;
-  }, []);
+  }, [lockedLoaded]);
 
   useEffect(() => {
     let raf;
@@ -941,6 +942,7 @@ export default function WarRoom() {
           if (data.success) {
             localStorage.setItem('scc_token', data.sessionToken);
             setUser({ email: data.email, tier: data.tier });
+            if (data.tier === 'pro') fetchLockedData(data.sessionToken);
           }
           // Clean URL
           window.history.replaceState({}, '', window.location.pathname);
@@ -959,6 +961,7 @@ export default function WarRoom() {
           .then(data => {
             if (data.authenticated) {
               setUser({ email: data.email, tier: data.tier });
+              if (data.tier === 'pro') fetchLockedData(saved);
             } else {
               localStorage.removeItem('scc_token');
             }
@@ -968,9 +971,33 @@ export default function WarRoom() {
     }
   }, []);
 
+  const [lockedLoaded, setLockedLoaded] = useState(false);
+
+  // Fetch and merge locked report data when user has pro access
+  const fetchLockedData = async (token) => {
+    try {
+      const resp = await fetch(`${API_URL}/api/reports/locked`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!resp.ok) return;
+      const data = await resp.json();
+      if (data.success && data.reports) {
+        mergeLockedData(data.reports);
+        // Also fetch current prices for newly unlocked tickers
+        await updatePricesFromJSON();
+        setLockedLoaded(true);
+      }
+    } catch (err) {
+      console.error('Failed to fetch locked data:', err);
+    }
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('scc_token');
     setUser(null);
+    setLockedLoaded(false);
+    // Reload to restore redacted state (mergeLockedData mutated REPORTS in-place)
+    window.location.reload();
   };
 
   const [pricesUpdated, setPricesUpdated] = useState(null);
@@ -1089,7 +1116,7 @@ export default function WarRoom() {
         ))}
       </div>
 
-      {!mob && <TickerTape isPro={isPro} onUpgrade={() => setShowLogin(true)} />}
+      {!mob && <TickerTape isPro={isPro} onUpgrade={() => setShowLogin(true)} lockedLoaded={lockedLoaded} />}
 
       {/* CHIP SELECTOR (Rubin only) */}
       {hasChips && (
@@ -1288,7 +1315,14 @@ export default function WarRoom() {
       {selectedCompany && <CompanyDossier company={selectedCompany} color={report.color} onClose={() => setSelectedCompany(null)} reportDate={report.date} />}
 
       {/* LOGIN MODAL */}
-      {showLogin && <LoginModal color={report.color} onClose={() => setShowLogin(false)} onSuccess={(u) => { setUser(u); setShowLogin(false); }} />}
+      {showLogin && <LoginModal color={report.color} onClose={() => setShowLogin(false)} onSuccess={(u) => {
+        setUser(u);
+        setShowLogin(false);
+        if (u.tier === 'pro') {
+          const token = localStorage.getItem('scc_token');
+          if (token) fetchLockedData(token);
+        }
+      }} />}
 
       {/* FOOTER */}
       <footer style={{ padding: mob ? "10px 12px" : "12px 28px", borderTop: "1px solid #111820", textAlign: "center" }}>
