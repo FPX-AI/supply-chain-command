@@ -3900,7 +3900,7 @@ export const REPORTS = [
     unlocked: false,
     tagline: "How agentic AI makes the host CPU matter again",
     desc: "NVIDIA Vera vs AMD Venice vs Intel Diamond Rapids — the 2026 platform war and its reverse supply chain",
-    color: "#00e5ff",
+    color: "#00ffcc",
     stages: [
       {
         id: "cpu-design",
