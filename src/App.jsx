@@ -1051,9 +1051,9 @@ export default function WarRoom() {
   const bestPickVal = bestPickPct != null ? bestPickPct : parseFloat(pct(bestPick.start, bestPick.now));
 
   return (
-    <div style={{ "--mono": "'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', monospace", "--display": "'Orbitron', 'Share Tech', sans-serif", minHeight: "100vh", background: "#05080a", color: "#e0e6ed", fontFamily: "var(--mono)", position: "relative" }}>
+    <div style={{ "--mono": "'Poppins', sans-serif", "--display": "'Poppins', sans-serif", minHeight: "100vh", background: "#05080a", color: "#e0e6ed", fontFamily: "var(--mono)", position: "relative" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         @keyframes scanMove { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
