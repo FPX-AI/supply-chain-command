@@ -135,7 +135,7 @@ const VelocityGauge = ({ value, max = 50, color, label }) => {
   );
 };
 
-// ─── SILICON SILK ROAD (Supply Chain Nav) ────────────────────────────────────
+// ─── SUPPLY CHAIN COMMAND (Supply Chain Nav) ─────────────────────────────────
 const SiliconSilkRoad = ({ stages, activeStage, onSelect, color }) => {
   const canvasRef = useRef(null);
   const particlesRef = useRef([]);
@@ -1025,7 +1025,7 @@ export default function WarRoom() {
         <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 14 }}>
           <img src="/rubin/Adobe Express - file.png" alt="FPX" style={{ height: mob ? 24 : 32, filter: "invert(1)", opacity: 0.9 }} />
           <div>
-            <div style={{ fontFamily: "var(--display)", fontWeight: 900, fontSize: mob ? "0.7rem" : "0.85rem", letterSpacing: "0.2em", color: "#e0e6ed" }}>SILICON SILK ROAD</div>
+            <div style={{ fontFamily: "var(--display)", fontWeight: 900, fontSize: mob ? "0.7rem" : "0.85rem", letterSpacing: "0.2em", color: "#e0e6ed" }}>SUPPLY CHAIN COMMAND</div>
             {!mob && <div style={{ fontSize: "0.55rem", color: "#3d4a5a", letterSpacing: "0.25em" }}>AI INFRASTRUCTURE INTELLIGENCE · EST. 2025</div>}
           </div>
         </div>

@@ -62,7 +62,7 @@ export default async function handler(req, res) {
       html: `
         <div style="background:#0a0a0a;color:#00ff41;font-family:monospace;padding:40px;max-width:500px;margin:0 auto;">
           <h1 style="color:#ff6600;font-size:18px;border-bottom:1px solid #333;padding-bottom:12px;">
-            FPX SILICON SILK ROAD
+            FPX SUPPLY CHAIN COMMAND
           </h1>
           <p style="color:#888;font-size:13px;">CLEARANCE VERIFICATION</p>
           <p style="color:#ccc;font-size:14px;line-height:1.6;">
