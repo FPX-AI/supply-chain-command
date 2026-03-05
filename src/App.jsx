@@ -7,6 +7,8 @@ import {
   getAllCompaniesAcrossReports,
   updatePricesFromJSON,
   mergeLockedData,
+  loadHistoricalPrices,
+  getTickerHistory,
 } from "./data";
 
 const API_URL = import.meta.env.VITE_API_URL || '';
@@ -224,37 +226,74 @@ const genDateTicks = (startStr, count) => {
   return ticks;
 };
 
-const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgrade }) => {
+const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgrade, historicalPrices }) => {
   const ch = parseFloat(pct(company.start, company.now));
   const up = ch >= 0;
   const [hovered, setHovered] = useState(false);
-  const pts = 40, data = [];
-  const diff = company.now - company.start;
-  for (let i = 0; i <= pts; i++) {
-    const t = i / pts;
-    const n = Math.sin(i * 3.1) * 0.15 + Math.sin(i * 1.7) * 0.1 + Math.sin(i * 5.3) * 0.05;
-    data.push(company.start + diff * (t ** 0.7) + diff * n * 0.25);
-  }
-  const ri = 6, mn = Math.min(...data) * 0.998, mx = Math.max(...data) * 1.002;
+  const [hoverIdx, setHoverIdx] = useState(null);
+  const svgRef = useRef(null);
 
-  // Chart layout with proper margins for axis labels
+  // Use real historical data if available, fallback to synthetic
+  const history = useMemo(() => {
+    if (historicalPrices) {
+      const h = getTickerHistory(historicalPrices, company.ticker, reportDate);
+      if (h && h.points.length >= 2) return h;
+    }
+    return null;
+  }, [historicalPrices, company.ticker, reportDate]);
+
+  const data = useMemo(() => {
+    if (history) return history.points.map(p => p.price);
+    // Fallback: synthetic data
+    const pts = 40, arr = [];
+    const diff = company.now - company.start;
+    for (let i = 0; i <= pts; i++) {
+      const t = i / pts;
+      const n = Math.sin(i * 3.1) * 0.15 + Math.sin(i * 1.7) * 0.1 + Math.sin(i * 5.3) * 0.05;
+      arr.push(company.start + diff * (t ** 0.7) + diff * n * 0.25);
+    }
+    return arr;
+  }, [history, company.start, company.now]);
+
+  const ri = history ? history.reportIdx : 6;
+  const pts = data.length - 1;
+  const rawMn = Math.min(...data), rawMx = Math.max(...data);
+  const mn = rawMn * 0.998, mx = rawMx === rawMn ? rawMn + 1 : rawMx * 1.002;
+
+  // Chart layout
   const cL = 22, cR = 98, cT = 4, cB = 76;
-  const toXY = (v, i) => `${cL + (i / pts) * (cR - cL)},${cB - ((v - mn) / (mx - mn)) * (cB - cT)}`;
-  const pre = data.slice(0, ri + 1).map(toXY).join(" ");
-  const post = data.slice(ri).map((v, i) => toXY(v, i + ri)).join(" ");
-  const area = `${data.slice(ri).map((v, i) => toXY(v, i + ri)).join(" ")} ${cR},${cB} ${cL + (ri / pts) * (cR - cL)},${cB}`;
 
-  // Y-axis: 3 clean ticks (bottom, mid, top)
-  const yLabels = [0, 1, 2].map(i => {
-    const val = mn + (i / 2) * (mx - mn);
-    const y = cB - (i / 2) * (cB - cT);
-    return { val, y };
-  });
-  // X-axis: 3 date ticks (start, mid, end)
-  const dateTicks = reportDate ? genDateTicks(reportDate, 3) : [];
+  // Y-axis ticks
+  const yLabels = [0, 1, 2].map(i => ({
+    val: mn + (i / 2) * (mx - mn),
+    y: cB - (i / 2) * (cB - cT),
+  }));
+
+  // X-axis date ticks
+  const dateTicks = useMemo(() => {
+    if (history) {
+      const pts = history.points;
+      return [0, Math.floor(pts.length / 2), pts.length - 1].map(i => ({
+        t: i / (pts.length - 1),
+        label: fmtDateShort(pts[i].date),
+      }));
+    }
+    return reportDate ? genDateTicks(reportDate, 3) : [];
+  }, [history, reportDate]);
+
+  // Hover handler for SVG
+  const handleMouseMove = (e) => {
+    if (!svgRef.current || !unlocked) return;
+    const rect = svgRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width; // 0-1
+    const chartX = (x * 200 - cL * 2) / ((cR - cL) * 2); // normalized within chart area
+    const idx = Math.round(chartX * pts);
+    if (idx >= 0 && idx <= pts) setHoverIdx(idx);
+    else setHoverIdx(null);
+  };
 
   return (
-    <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+    <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => { setHovered(false); setHoverIdx(null); }}
       onClick={() => unlocked && onSelect && onSelect(company)}
       style={{
         background: hovered ? `linear-gradient(135deg, #0a0e12, ${color}06)` : "#0a0e12",
@@ -280,13 +319,13 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgr
           {up ? "+" : ""}{ch}%
         </div>
       </div>
-      <svg viewBox="0 0 200 100" style={{ width: "100%", height: 120 }}>
+      <svg ref={svgRef} viewBox="0 0 200 100" style={{ width: "100%", height: 120 }}
+        onMouseMove={handleMouseMove} onMouseLeave={() => setHoverIdx(null)}>
         <defs><linearGradient id={`a-${company.ticker}-${idx}`} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity="0.2" /><stop offset="100%" stopColor={color} stopOpacity="0" /></linearGradient></defs>
         {/* Grid lines */}
-        {yLabels.map((yt, i) => {
-          const sy = cT + (1 - (yt.y - cT) / (cB - cT)) * 0 + yt.y / 100 * 100;
-          return <line key={`g${i}`} x1={cL * 2} y1={yt.y} x2={cR * 2} y2={yt.y} stroke="#1a222e" strokeWidth="0.3" />;
-        })}
+        {yLabels.map((yt, i) => (
+          <line key={`g${i}`} x1={cL * 2} y1={yt.y} x2={cR * 2} y2={yt.y} stroke="#1a222e" strokeWidth="0.3" />
+        ))}
         {/* Y-axis labels */}
         {yLabels.map((yt, i) => (
           <text key={`y${i}`} x={cL * 2 - 3} y={yt.y + 1.5} fill="#556070" fontSize="5" fontFamily="var(--mono)" textAnchor="end">
@@ -300,7 +339,7 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgr
         {/* Axis lines */}
         <line x1={cL * 2} y1={cT} x2={cL * 2} y2={cB} stroke="#1a222e" strokeWidth="0.4" />
         <line x1={cL * 2} y1={cB} x2={cR * 2} y2={cB} stroke="#1a222e" strokeWidth="0.4" />
-        {/* Chart data — scaled to 200-wide viewBox */}
+        {/* Chart data */}
         {(() => {
           const sx = (v, i) => `${cL * 2 + (i / pts) * (cR - cL) * 2},${cB - ((v - mn) / (mx - mn)) * (cB - cT)}`;
           const sPre = data.slice(0, ri + 1).map(sx).join(" ");
@@ -317,12 +356,30 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgr
             <polyline points={sPost} fill="none" stroke={color} strokeWidth="1.5" />
           </>;
         })()}
+        {/* Hover crosshair */}
+        {hoverIdx != null && unlocked && (() => {
+          const hx = cL * 2 + (hoverIdx / pts) * (cR - cL) * 2;
+          const hy = cB - ((data[hoverIdx] - mn) / (mx - mn)) * (cB - cT);
+          const price = data[hoverIdx];
+          const dateLabel = history ? fmtDateMed(history.points[hoverIdx].date) : "";
+          const pctChange = company.start > 0 ? (((price - company.start) / company.start) * 100).toFixed(1) : "0.0";
+          const isUp = parseFloat(pctChange) >= 0;
+          // Tooltip positioning: flip if too close to right edge
+          const tipX = hx > 140 ? hx - 45 : hx + 4;
+          return <>
+            <line x1={hx} y1={cT} x2={hx} y2={cB} stroke="#556070" strokeWidth="0.5" strokeDasharray="2 1" />
+            <circle cx={hx} cy={hy} r="2" fill="#fff" stroke={color} strokeWidth="0.8" />
+            <rect x={tipX - 1} y={cT} width="42" height="16" rx="2" fill="#0d1117" stroke="#1a222e" strokeWidth="0.5" opacity="0.95" />
+            <text x={tipX + 1} y={cT + 5.5} fill="#e0e6ed" fontSize="4" fontFamily="var(--mono)">${price.toFixed(2)}</text>
+            <text x={tipX + 1} y={cT + 11.5} fill={isUp ? "#39ff14" : "#ff3344"} fontSize="3.5" fontFamily="var(--mono)">{isUp ? "+" : ""}{pctChange}%{dateLabel ? ` · ${fmtDateShort(history.points[hoverIdx].date)}` : ""}</text>
+          </>;
+        })()}
       </svg>
       <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "var(--mono)", fontSize: "0.5rem", color: "#3d4a5a", marginTop: 4 }}>
         <span>{unlocked ? `$${company.start.toFixed(2)} → $${company.now.toFixed(2)}` : "████"}</span>
         <span style={{ color: company.country === "US" ? "#39ff14" : company.country === "TW" ? "#00e5ff" : company.country === "JP" ? "#ff0066" : "#ffea00" }}>● {unlocked ? company.country : "██"}</span>
       </div>
-      {unlocked && hovered && (
+      {unlocked && hovered && !hoverIdx && (
         <div style={{ position: "absolute", bottom: 4, right: 8, fontFamily: "var(--mono)", fontSize: "0.45rem", color, opacity: 0.7 }}>CLICK FOR INTEL →</div>
       )}
     </div>
@@ -330,33 +387,67 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgr
 };
 
 // ─── COMPANY DOSSIER MODAL ──────────────────────────────────────────────────
-const CompanyDossier = ({ company, color, onClose, reportDate }) => {
+const CompanyDossier = ({ company, color, onClose, reportDate, historicalPrices }) => {
   const ch = parseFloat(pct(company.start, company.now));
   const up = ch >= 0;
   const profit = (10000 * ch / 100).toFixed(0);
+  const [dHoverIdx, setDHoverIdx] = useState(null);
+  const [chartRange, setChartRange] = useState(null); // null = ALL, or 1/3/6
+  const dSvgRef = useRef(null);
 
-  // Generate chart data (more points for smoother dossier chart)
-  const dPts = 60, dData = [];
-  const dDiff = company.now - company.start;
-  for (let i = 0; i <= dPts; i++) {
-    const t = i / dPts;
-    const n = Math.sin(i * 2.8) * 0.12 + Math.sin(i * 1.4) * 0.08 + Math.sin(i * 4.7) * 0.04;
-    dData.push(company.start + dDiff * (t ** 0.7) + dDiff * n * 0.2);
-  }
-  const dRi = 8, dMn = Math.min(...dData) * 0.998, dMx = Math.max(...dData) * 1.002;
-  // Dossier chart layout with proper margins
+  // Use real historical data with range filter
+  const history = useMemo(() => {
+    if (historicalPrices) {
+      const h = getTickerHistory(historicalPrices, company.ticker, reportDate, chartRange);
+      if (h && h.points.length >= 2) return h;
+    }
+    return null;
+  }, [historicalPrices, company.ticker, reportDate, chartRange]);
+
+  const dData = useMemo(() => {
+    if (history) return history.points.map(p => p.price);
+    const pts = 60, arr = [];
+    const diff = company.now - company.start;
+    for (let i = 0; i <= pts; i++) {
+      const t = i / pts;
+      const n = Math.sin(i * 2.8) * 0.12 + Math.sin(i * 1.4) * 0.08 + Math.sin(i * 4.7) * 0.04;
+      arr.push(company.start + diff * (t ** 0.7) + diff * n * 0.2);
+    }
+    return arr;
+  }, [history, company.start, company.now]);
+
+  const dRi = history ? history.reportIdx : 8;
+  const dPts = dData.length - 1;
+  const dRawMn = Math.min(...dData), dRawMx = Math.max(...dData);
+  const dMn = dRawMn * 0.998, dMx = dRawMx === dRawMn ? dRawMn + 1 : dRawMx * 1.002;
   const dcL = 20, dcR = 98, dcT = 4, dcB = 76;
-  const dXY = (v, i) => `${dcL + (i / dPts) * (dcR - dcL)},${dcB - ((v - dMn) / (dMx - dMn)) * (dcB - dcT)}`;
-  const dPre = dData.slice(0, dRi + 1).map(dXY).join(" ");
-  const dPost = dData.slice(dRi).map((v, i) => dXY(v, i + dRi)).join(" ");
-  const dArea = `${dData.slice(dRi).map((v, i) => dXY(v, i + dRi)).join(" ")} ${dcR},${dcB} ${dcL + (dRi / dPts) * (dcR - dcL)},${dcB}`;
-  // Y-axis: 3 clean ticks
-  const dYTicks = [0, 1, 2].map(i => {
-    const val = dMn + (i / 2) * (dMx - dMn);
-    const y = dcB - (i / 2) * (dcB - dcT);
-    return { val, y };
-  });
-  const dDateTicks = reportDate ? genDateTicks(reportDate, 4) : [];
+
+  const dYTicks = [0, 1, 2].map(i => ({
+    val: dMn + (i / 2) * (dMx - dMn),
+    y: dcB - (i / 2) * (dcB - dcT),
+  }));
+
+  const dDateTicks = useMemo(() => {
+    if (history) {
+      const pts = history.points;
+      return [0, Math.floor(pts.length / 3), Math.floor(2 * pts.length / 3), pts.length - 1].map(i => ({
+        t: i / (pts.length - 1),
+        label: fmtDateShort(pts[i].date),
+      }));
+    }
+    return reportDate ? genDateTicks(reportDate, 4) : [];
+  }, [history, reportDate]);
+
+  // Hover handler
+  const handleDossierMouseMove = (e) => {
+    if (!dSvgRef.current) return;
+    const rect = dSvgRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const chartX = (x * 200 - dcL * 2) / ((dcR - dcL) * 2);
+    const idx = Math.round(chartX * dPts);
+    if (idx >= 0 && idx <= dPts) setDHoverIdx(idx);
+    else setDHoverIdx(null);
+  };
 
   useEffect(() => {
     const handler = (e) => { if (e.key === "Escape") onClose(); };
@@ -382,15 +473,27 @@ const CompanyDossier = ({ company, color, onClose, reportDate }) => {
         {/* Price row */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "#05080a", border: "1px solid #111820", borderRadius: 6, marginBottom: 20, flexWrap: "wrap", gap: 16 }}>
           <div>
-            <div style={{ fontFamily: "var(--mono)", fontSize: "0.45rem", color: "#3d4a5a", letterSpacing: "0.2em", marginBottom: 4 }}>RETURN SINCE REPORT</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: "0.45rem", color: "#3d4a5a", letterSpacing: "0.2em", marginBottom: 4 }}>
+              {dHoverIdx != null && history ? fmtDateMed(history.points[dHoverIdx].date) : "RETURN SINCE REPORT"}
+            </div>
             <div style={{ fontFamily: "var(--display)", fontSize: "1.8rem", fontWeight: 700, color: up ? "#39ff14" : "#ff3344", textShadow: `0 0 20px ${up ? "#39ff1444" : "#ff334444"}` }}>
-              {up ? "+" : ""}{ch}%
+              {dHoverIdx != null ? (() => {
+                const hp = dData[dHoverIdx];
+                const hpct = company.start > 0 ? (((hp - company.start) / company.start) * 100).toFixed(1) : "0.0";
+                const hup = parseFloat(hpct) >= 0;
+                return <span style={{ color: hup ? "#39ff14" : "#ff3344" }}>{hup ? "+" : ""}{hpct}%</span>;
+              })() : <>{up ? "+" : ""}{ch}%</>}
             </div>
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontFamily: "var(--mono)", fontSize: "0.45rem", color: "#3d4a5a", letterSpacing: "0.2em", marginBottom: 4 }}>ENTRY → CURRENT</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: "0.45rem", color: "#3d4a5a", letterSpacing: "0.2em", marginBottom: 4 }}>
+              {dHoverIdx != null ? "PRICE" : "ENTRY → CURRENT"}
+            </div>
             <div style={{ fontFamily: "var(--mono)", fontSize: "0.8rem", color: "#8a9bb0" }}>
-              ${company.start.toFixed(2)} → <span style={{ color: "#e0e6ed", fontWeight: 700 }}>${company.now.toFixed(2)}</span>
+              {dHoverIdx != null
+                ? <span style={{ color: "#e0e6ed", fontWeight: 700 }}>${dData[dHoverIdx].toFixed(2)}</span>
+                : <>${company.start.toFixed(2)} → <span style={{ color: "#e0e6ed", fontWeight: 700 }}>${company.now.toFixed(2)}</span></>
+              }
             </div>
           </div>
           <div style={{ textAlign: "right" }}>
@@ -404,8 +507,25 @@ const CompanyDossier = ({ company, color, onClose, reportDate }) => {
 
         {/* Price Chart */}
         <div style={{ padding: "16px 20px", background: "#05080a", border: "1px solid #111820", borderRadius: 6, marginBottom: 20 }}>
-          <div style={{ fontFamily: "var(--display)", fontSize: "0.4rem", color: "#3d4a5a", letterSpacing: "0.25em", marginBottom: 8 }}>PRICE ACTION · SINCE REPORT</div>
-          <svg viewBox="0 0 200 100" style={{ width: "100%", height: 200 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+            <div style={{ fontFamily: "var(--display)", fontSize: "0.4rem", color: "#3d4a5a", letterSpacing: "0.25em" }}>PRICE ACTION · {chartRange ? `${chartRange}M` : "ALL"}</div>
+            {/* Range selector buttons */}
+            <div style={{ display: "flex", gap: 4 }}>
+              {[{ label: "1M", val: 1 }, { label: "3M", val: 3 }, { label: "6M", val: 6 }, { label: "ALL", val: null }].map(r => (
+                <button key={r.label} onClick={() => setChartRange(r.val)}
+                  style={{
+                    background: chartRange === r.val ? color + "22" : "transparent",
+                    border: `1px solid ${chartRange === r.val ? color + "66" : "#1a222e"}`,
+                    color: chartRange === r.val ? color : "#556070",
+                    fontFamily: "var(--mono)", fontSize: "0.45rem", padding: "2px 8px",
+                    borderRadius: 3, cursor: "pointer", letterSpacing: "0.05em",
+                    transition: "all 0.2s",
+                  }}>{r.label}</button>
+              ))}
+            </div>
+          </div>
+          <svg ref={dSvgRef} viewBox="0 0 200 100" style={{ width: "100%", height: 200, cursor: "crosshair" }}
+            onMouseMove={handleDossierMouseMove} onMouseLeave={() => setDHoverIdx(null)}>
             <defs>
               <linearGradient id={`dossier-g-${company.ticker}`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={color} stopOpacity="0.25" />
@@ -428,15 +548,34 @@ const CompanyDossier = ({ company, color, onClose, reportDate }) => {
             <line x1={dcL * 2} y1={dcT} x2={dcL * 2} y2={dcB} stroke="#1a222e" strokeWidth="0.4" />
             <line x1={dcL * 2} y1={dcB} x2={dcR * 2} y2={dcB} stroke="#1a222e" strokeWidth="0.4" />
             {/* Chart data */}
-            <polyline points={dPre.split(" ").map(p => { const [x,y] = p.split(","); return `${parseFloat(x)*2},${y}`; }).join(" ")} fill="none" stroke="#334455" strokeWidth="1" strokeDasharray="3 2" />
-            {(() => { const rx = dcL * 2 + (dRi / dPts) * (dcR - dcL) * 2; const riY = parseFloat(dXY(dData[dRi], dRi).split(",")[1]); return <>
-              <line x1={rx} y1={dcT} x2={rx} y2={dcB} stroke={color} strokeWidth="0.8" strokeDasharray="2 2" opacity="0.5" />
-              <circle cx={rx} cy={riY} r="2.5" fill={color} />
-              <text x={rx + 3} y={dcT + 5} fill={color} fontSize="5" fontFamily="var(--mono)">REPORT</text>
-            </>; })()}
-            <polygon points={dArea.split(" ").map(p => { const [x,y] = p.split(","); return `${parseFloat(x)*2},${y}`; }).join(" ")} fill={`url(#dossier-g-${company.ticker})`} />
-            <polyline points={dPost.split(" ").map(p => { const [x,y] = p.split(","); return `${parseFloat(x)*2},${y}`; }).join(" ")} fill="none" stroke={color} strokeWidth="1.5" />
-            <circle cx={dcR * 2} cy={parseFloat(dXY(dData[dPts], dPts).split(",")[1])} r="2" fill={up ? "#39ff14" : "#ff3344"} />
+            {(() => {
+              const sx = (v, i) => `${dcL * 2 + (i / dPts) * (dcR - dcL) * 2},${dcB - ((v - dMn) / (dMx - dMn)) * (dcB - dcT)}`;
+              const sPre = dData.slice(0, dRi + 1).map(sx).join(" ");
+              const sPost = dData.slice(dRi).map((v, i) => sx(v, i + dRi)).join(" ");
+              const sArea = `${dData.slice(dRi).map((v, i) => sx(v, i + dRi)).join(" ")} ${dcR * 2},${dcB} ${dcL * 2 + (dRi / dPts) * (dcR - dcL) * 2},${dcB}`;
+              const rx = dcL * 2 + (dRi / dPts) * (dcR - dcL) * 2;
+              const riY = dcB - ((dData[dRi] - dMn) / (dMx - dMn)) * (dcB - dcT);
+              return <>
+                <polyline points={sPre} fill="none" stroke="#334455" strokeWidth="1" strokeDasharray="3 2" />
+                <line x1={rx} y1={dcT} x2={rx} y2={dcB} stroke={color} strokeWidth="0.8" strokeDasharray="2 2" opacity="0.5" />
+                <circle cx={rx} cy={riY} r="2.5" fill={color} />
+                <text x={rx + 3} y={dcT + 5} fill={color} fontSize="5" fontFamily="var(--mono)">REPORT</text>
+                <polygon points={sArea} fill={`url(#dossier-g-${company.ticker})`} />
+                <polyline points={sPost} fill="none" stroke={color} strokeWidth="1.5" />
+                <circle cx={dcR * 2} cy={dcB - ((dData[dPts] - dMn) / (dMx - dMn)) * (dcB - dcT)} r="2" fill={up ? "#39ff14" : "#ff3344"} />
+              </>;
+            })()}
+            {/* Hover crosshair */}
+            {dHoverIdx != null && (() => {
+              const hx = dcL * 2 + (dHoverIdx / dPts) * (dcR - dcL) * 2;
+              const hy = dcB - ((dData[dHoverIdx] - dMn) / (dMx - dMn)) * (dcB - dcT);
+              return <>
+                <line x1={hx} y1={dcT} x2={hx} y2={dcB} stroke="#8a9bb0" strokeWidth="0.5" />
+                <line x1={dcL * 2} y1={hy} x2={dcR * 2} y2={hy} stroke="#8a9bb0" strokeWidth="0.3" strokeDasharray="2 2" opacity="0.5" />
+                <circle cx={hx} cy={hy} r="3" fill="none" stroke="#fff" strokeWidth="1" />
+                <circle cx={hx} cy={hy} r="1.5" fill="#fff" />
+              </>;
+            })()}
           </svg>
         </div>
 
@@ -1001,9 +1140,11 @@ export default function WarRoom() {
   };
 
   const [pricesUpdated, setPricesUpdated] = useState(null);
+  const [historicalPrices, setHistoricalPrices] = useState(null);
 
   useEffect(() => {
     updatePricesFromJSON().then(ts => { if (ts) setPricesUpdated(ts); });
+    loadHistoricalPrices().then(h => { if (h) setHistoricalPrices(h); });
   }, []);
 
   const report = REPORTS.find(r => r.id === activeReportId);
@@ -1263,7 +1404,7 @@ export default function WarRoom() {
                 <div style={{ maxHeight: mob ? "none" : "calc(100vh - 340px)", overflowY: mob ? "visible" : "auto", paddingRight: mob ? 0 : 4 }}>
                   <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 8 : 10 }}>
                     {stage.companies.map((c, i) => (
-                      <StockCard key={c.ticker} company={c} color={report.color} unlocked={true} idx={i} onSelect={setSelectedCompany} reportDate={report.date} />
+                      <StockCard key={c.ticker} company={c} color={report.color} unlocked={true} idx={i} onSelect={setSelectedCompany} reportDate={report.date} historicalPrices={historicalPrices} />
                     ))}
                   </div>
                 </div>
@@ -1273,7 +1414,7 @@ export default function WarRoom() {
                   <div style={{ maxHeight: mob ? "none" : "calc(100vh - 380px)", overflowY: mob ? "visible" : "auto", paddingRight: mob ? 0 : 4 }}>
                     <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 8 : 10, marginBottom: 20 }}>
                       {stage.companies.map((c, i) => (
-                        <StockCard key={i} company={c} color={report.color} unlocked={false} idx={i} reportDate={report.date} onUpgrade={scrollToPricing} />
+                        <StockCard key={i} company={c} color={report.color} unlocked={false} idx={i} reportDate={report.date} onUpgrade={scrollToPricing} historicalPrices={historicalPrices} />
                       ))}
                     </div>
                   </div>
@@ -1316,7 +1457,7 @@ export default function WarRoom() {
       </div>
 
       {/* COMPANY MODAL */}
-      {selectedCompany && <CompanyDossier company={selectedCompany} color={report.color} onClose={() => setSelectedCompany(null)} reportDate={report.date} />}
+      {selectedCompany && <CompanyDossier company={selectedCompany} color={report.color} onClose={() => setSelectedCompany(null)} reportDate={report.date} historicalPrices={historicalPrices} />}
 
       {/* LOGIN MODAL */}
       {showLogin && <LoginModal color={report.color} onClose={() => setShowLogin(false)} onSuccess={(u) => {

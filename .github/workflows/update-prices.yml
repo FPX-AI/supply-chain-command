@@ -21,10 +21,13 @@ jobs:
       - name: Fetch latest prices
         run: node update-prices.js
 
+      - name: Fetch historical prices
+        run: node fetch-historical.js
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/prices.json api/data/locked-prices.json api/data/locked-reports.json
+          git add public/prices.json public/historical.json api/data/locked-prices.json api/data/locked-reports.json api/data/locked-historical.json
           git diff --staged --quiet || git commit -m "chore: update stock prices $(date -u +%Y-%m-%d)"
           git push

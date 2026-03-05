@@ -4517,6 +4517,64 @@ export const updatePricesFromJSON = async () => {
   }
 };
 
+// ─── HISTORICAL PRICE DATA ────────────────────────────────────────────────────
+// Fetches /historical.json (weekly price history for each ticker) and returns
+// a map of ticker → [{date: Date, price: number}, ...] sorted chronologically.
+let _historicalCache = null;
+export const loadHistoricalPrices = async () => {
+  if (_historicalCache) return _historicalCache;
+  try {
+    const resp = await fetch("/historical.json?t=" + Date.now());
+    if (!resp.ok) return null;
+    const raw = await resp.json();
+    const parsed = {};
+    for (const [key, val] of Object.entries(raw)) {
+      if (key === "updated" || !Array.isArray(val)) continue;
+      parsed[key] = val.map(([ts, price]) => ({
+        date: new Date(ts * 1000),
+        price,
+      }));
+    }
+    _historicalCache = parsed;
+    return parsed;
+  } catch {
+    return null;
+  }
+};
+
+// Returns historical data for a specific ticker filtered to a date range.
+// reportDate: string like "2025-09-13", rangeMonths: null = all, or 1/3/6
+export const getTickerHistory = (historicalData, ticker, reportDateStr, rangeMonths = null) => {
+  if (!historicalData || !historicalData[ticker]) return null;
+  const all = historicalData[ticker];
+  const reportDate = new Date(reportDateStr + "T00:00:00");
+
+  // Find the first data point at or before report date for "pre-report" section
+  let filtered;
+  if (rangeMonths) {
+    const cutoff = new Date();
+    cutoff.setMonth(cutoff.getMonth() - rangeMonths);
+    filtered = all.filter(p => p.date >= cutoff);
+  } else {
+    // Show from ~2 weeks before report date
+    const preStart = new Date(reportDate);
+    preStart.setDate(preStart.getDate() - 14);
+    filtered = all.filter(p => p.date >= preStart);
+  }
+
+  if (filtered.length < 2) filtered = all;
+
+  // Find the index of the data point closest to the report date
+  let reportIdx = 0;
+  let minDist = Infinity;
+  for (let i = 0; i < filtered.length; i++) {
+    const dist = Math.abs(filtered[i].date - reportDate);
+    if (dist < minDist) { minDist = dist; reportIdx = i; }
+  }
+
+  return { points: filtered, reportIdx };
+};
+
 // ─── MERGE LOCKED DATA ─────────────────────────────────────────────────────
 // After pro auth, the frontend fetches locked company data from the server
 // and merges it back into the REPORTS array, replacing CLASSIFIED placeholders.
