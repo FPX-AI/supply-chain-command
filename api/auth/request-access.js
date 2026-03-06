@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const resend = new Resend(process.env.RESEND_API_KEY);
 const JWT_SECRET = process.env.JWT_SECRET;
-const APP_URL = process.env.APP_URL || 'https://supplychaincommand.com';
+const APP_URL = process.env.APP_URL || 'https://command.fpx.world';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
