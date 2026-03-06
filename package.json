@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.3",
+    "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-simple-maps": "^3.0.0",
     "resend": "^6.9.3",
     "stripe": "^20.4.0"
   },

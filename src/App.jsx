@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from "react";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import {
   REPORTS,
   COUNTRY_COORDS,
@@ -617,6 +618,8 @@ const CompanyDossier = ({ company, color, onClose, reportDate, historicalPrices 
 };
 
 // ─── WORLD MAP ──────────────────────────────────────────────────────────────
+const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
 const WorldMap = ({ report }) => {
   const companies = useMemo(() => getAllCompanies(report), [report]);
   const [hov, setHov] = useState(null);
@@ -626,58 +629,73 @@ const WorldMap = ({ report }) => {
     return m;
   }, [companies]);
 
+  const geoStyle = useMemo(() => ({
+    default: { fill: "#0d1117", stroke: "#1a222e", strokeWidth: 0.4, outline: "none" },
+    hover: { fill: "#111820", stroke: "#1a222e", strokeWidth: 0.4, outline: "none" },
+    pressed: { fill: "#0d1117", stroke: "#1a222e", strokeWidth: 0.4, outline: "none" },
+  }), []);
+
   return (
     <div style={{ padding: "20px 0" }}>
       <div style={{ fontFamily: "var(--display)", fontSize: "0.5rem", color: "#3d4a5a", letterSpacing: "0.3em", marginBottom: 12 }}>
         GLOBAL SUPPLY CHAIN TOPOLOGY · {Object.keys(byCountry).length} NATIONS
       </div>
-      <svg viewBox="0 0 100 60" style={{ width: "100%", maxHeight: 380 }}>
-        {/* Grid */}
-        {Array.from({ length: 13 }).map((_, i) => <line key={`v${i}`} x1={i * 8.33} y1="0" x2={i * 8.33} y2="60" stroke="#0a0e12" strokeWidth="0.15" />)}
-        {Array.from({ length: 8 }).map((_, i) => <line key={`h${i}`} x1="0" y1={i * 8.57} x2="100" y2={i * 8.57} stroke="#0a0e12" strokeWidth="0.15" />)}
-        {/* Continents */}
-        <path d="M5,15 L10,12 L18,10 L25,12 L30,15 L32,20 L30,25 L28,30 L22,35 L20,40 L15,42 L12,38 L8,35 L5,30 L3,25 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
-        <path d="M22,42 L25,40 L30,42 L33,48 L32,52 L28,55 L24,54 L22,50 L20,46 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
-        <path d="M44,14 L48,12 L52,13 L54,16 L52,20 L50,22 L48,24 L44,25 L42,22 L43,18 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
-        <path d="M44,26 L48,25 L52,28 L55,32 L56,38 L54,44 L50,48 L46,46 L42,40 L43,34 L42,30 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
-        <path d="M55,10 L60,8 L68,10 L75,12 L82,14 L88,18 L86,22 L82,25 L78,28 L72,26 L68,24 L62,22 L58,18 L56,14 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
-        <path d="M72,28 L78,30 L82,32 L85,36 L80,38 L76,36 L73,34 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
-        <path d="M78,44 L84,42 L90,44 L92,48 L90,52 L84,54 L78,50 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
-        <path d="M84,16 L86,14 L87,18 L85,20 Z" fill="none" stroke="#1a222e" strokeWidth="0.3" />
+      <div style={{ background: "#05080a", border: "1px solid #111820", borderRadius: 6, overflow: "hidden" }}>
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={{ scale: 130, center: [30, 25] }}
+          style={{ width: "100%", height: "auto", maxHeight: 420 }}
+          width={800}
+          height={420}
+        >
+          <Geographies geography={GEO_URL}>
+            {({ geographies }) =>
+              geographies.map(geo => (
+                <Geography key={geo.rsmKey} geography={geo} style={geoStyle} />
+              ))
+            }
+          </Geographies>
 
-        {/* Markers */}
-        {Object.entries(byCountry).map(([country, cos]) => {
-          const coords = COUNTRY_COORDS[country];
-          if (!coords) return null;
-          const co = coords[0];
-          const ag = cos.reduce((a, c) => a + parseFloat(pct(c.start, c.now)), 0) / cos.length;
-          const isH = hov === country;
-          const r = isH ? 2 : 1.3;
-          return (
-            <g key={country} onMouseEnter={() => setHov(country)} onMouseLeave={() => setHov(null)} style={{ cursor: "pointer" }}>
-              <circle cx={co.x} cy={co.y} r={r * 2.5} fill="none" stroke={report.color} strokeWidth="0.2" opacity="0.3">
-                <animate attributeName="r" from={r * 1.5} to={r * 3} dur="2s" repeatCount="indefinite" />
-                <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" />
-              </circle>
-              <circle cx={co.x} cy={co.y} r={r} fill={report.color} opacity="0.9">
-                <animate attributeName="opacity" values="0.9;0.5;0.9" dur="3s" repeatCount="indefinite" />
-              </circle>
-              <circle cx={co.x} cy={co.y} r={r * 0.5} fill="white" opacity="0.6" />
-              {isH && (
-                <>
-                  <rect x={co.x + 2.5} y={co.y - 4.5} width={28} height="9" rx="1" fill="#0a0e12ee" stroke={report.color + "44"} strokeWidth="0.3" />
-                  <text x={co.x + 4} y={co.y - 0.5} fill={report.color} fontSize="2.3" fontFamily="var(--mono)" fontWeight="700">
-                    {country} · {cos.length} COs · +{ag.toFixed(0)}%
-                  </text>
-                </>
-              )}
-            </g>
-          );
-        })}
-        <text x="2" y="58" fill="#3d4a5a" fontSize="2" fontFamily="var(--mono)">
-          {companies.length} COMPANIES · {Object.keys(byCountry).length} COUNTRIES
-        </text>
-      </svg>
+          {/* Company markers */}
+          {Object.entries(byCountry).map(([country, cos]) => {
+            const coords = COUNTRY_COORDS[country];
+            if (!coords) return null;
+            const co = coords[0];
+            const ag = cos.reduce((a, c) => a + parseFloat(pct(c.start, c.now)), 0) / cos.length;
+            const isH = hov === country;
+            const r = isH ? 8 : 5;
+            return (
+              <Marker key={country} coordinates={[co.lon, co.lat]}
+                onMouseEnter={() => setHov(country)} onMouseLeave={() => setHov(null)}
+                style={{ cursor: "pointer" }}>
+                {/* Pulsing ring */}
+                <circle r={r * 2.5} fill="none" stroke={report.color} strokeWidth="0.8" opacity="0.3">
+                  <animate attributeName="r" from={r * 1.5} to={r * 3} dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" />
+                </circle>
+                {/* Main dot */}
+                <circle r={r} fill={report.color} opacity="0.9">
+                  <animate attributeName="opacity" values="0.9;0.5;0.9" dur="3s" repeatCount="indefinite" />
+                </circle>
+                {/* Core */}
+                <circle r={r * 0.4} fill="white" opacity="0.6" />
+                {/* Hover tooltip */}
+                {isH && (
+                  <g>
+                    <rect x={10} y={-16} width={140} height={28} rx={4} fill="#0a0e12ee" stroke={report.color + "44"} strokeWidth="1" />
+                    <text x={18} y={2} fill={report.color} fontSize="11" fontFamily="var(--mono)" fontWeight="700">
+                      {country} · {cos.length} COs · {ag >= 0 ? "+" : ""}{ag.toFixed(0)}%
+                    </text>
+                  </g>
+                )}
+              </Marker>
+            );
+          })}
+        </ComposableMap>
+      </div>
+      <div style={{ fontFamily: "var(--mono)", fontSize: "0.5rem", color: "#3d4a5a", marginTop: 8, paddingLeft: 4 }}>
+        {companies.length} COMPANIES · {Object.keys(byCountry).length} COUNTRIES
+      </div>
 
       {/* Country summary */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 8, marginTop: 16 }}>
@@ -687,7 +705,7 @@ const WorldMap = ({ report }) => {
             <div key={country} style={{ background: "#0a0e12", border: "1px solid #1a222e", borderRadius: 3, padding: "8px 10px", fontFamily: "var(--mono)", fontSize: "0.6rem" }}>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <span style={{ color: "#8a9bb0", fontWeight: 700 }}>{country}</span>
-                <span style={{ color: "#39ff14", fontWeight: 700 }}>+{ag.toFixed(0)}%</span>
+                <span style={{ color: "#39ff14", fontWeight: 700 }}>{ag >= 0 ? "+" : ""}{ag.toFixed(0)}%</span>
               </div>
               <div style={{ color: "#3d4a5a", marginTop: 2, fontSize: "0.5rem" }}>
                 {cos.length} cos · {cos.map(c => report.unlocked ? c.ticker : "████").join(", ")}
