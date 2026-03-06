@@ -4462,6 +4462,37 @@ export const COUNTRY_COORDS = {
   MX: [{ lon: -99.13, lat: 19.43, label: "Mexico" }],
 };
 
+// ─── IMPORTANCE TIERS (AI Networking Stack) ──────────────────────────────────
+// Critical bottleneck = AI scaling stalls without this company
+// Important = disproportionate structural leverage / outsized winner
+export const TICKER_TIERS = {
+  // Critical Bottleneck
+  "000660.KS": "critical", // SK Hynix — HBM rate-limiting
+  "MU": "critical",        // Micron — HBM pre-allocated
+  "TSM": "critical",       // TSMC — CoWoS packaging monopoly
+  "2802.T": "critical",    // Ajinomoto — ABF film near-monopoly
+  "MRVL": "critical",      // Marvell — 50%+ coherent DSP share
+  "300502.SZ": "critical", // Eoptolink — geopolitical 800G risk
+  // Disproportionately Important
+  "NVDA": "important",  // CPO Kingmaker, vertical integration
+  "GOOGL": "important", // TPU, custom AI fabrics, major buyer
+  "AMZN": "important",  // Silicon photonics with STMicro
+  "MSFT": "important",  // Massive GPU clusters, 800G optics
+  "AVGO": "important",  // Tomahawk, PAM4, merchant CPO
+  "CRDO": "important",  // AEC silicon, copper resurrection
+  "ALAB": "important",  // CXL memory controllers, retimers
+  "ANET": "important",  // Dominates pure Ethernet top-end
+  "CSCO": "important",  // Coherent triopoly, silicon photonics
+  "COHR": "important",  // Safe harbor, CPO partner for NVIDIA
+  "LITE": "important",  // Laser lord, CPO external lasers
+  "FN": "important",    // Geopolitical hedge, Thailand mfg
+  "CIEN": "important",  // Coherent triopoly, WaveLogic
+  "MTSI": "important",  // LPO insurgency winner
+  "SMTC": "important",  // LPO insurgency winner
+};
+// Tickers carrying explicit downside risk (LPO insurgency threat to DSP TAM)
+export const TICKER_RISK = new Set(["MRVL", "CRDO"]);
+
 // ─── HELPERS ────────────────────────────────────────────────────────────────
 export const pct = (s, n) => s === 0 ? "0.0" : (((n - s) / s) * 100).toFixed(1);
 

@@ -10,6 +10,8 @@ import {
   mergeLockedData,
   loadHistoricalPrices,
   getTickerHistory,
+  TICKER_TIERS,
+  TICKER_RISK,
 } from "./data";
 
 const API_URL = import.meta.env.VITE_API_URL || '';
@@ -227,12 +229,49 @@ const genDateTicks = (startStr, count) => {
   return ticks;
 };
 
+const TierBadge = ({ ticker, style }) => {
+  const tier = TICKER_TIERS[ticker];
+  const hasRisk = TICKER_RISK.has(ticker);
+  if (!tier && !hasRisk) return null;
+  const isCritical = tier === "critical";
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 3, ...style }}>
+      {tier && (
+        <span style={{
+          fontFamily: "var(--mono)", fontSize: "0.4rem", letterSpacing: "0.15em", fontWeight: 700,
+          color: isCritical ? "#ff3344" : "#ffaa00",
+          background: isCritical ? "#ff334411" : "#ffaa0011",
+          border: `1px solid ${isCritical ? "#ff334433" : "#ffaa0033"}`,
+          borderRadius: 2, padding: "1px 5px",
+        }}>
+          {isCritical ? "BOTTLENECK" : "KEY"}
+        </span>
+      )}
+      {hasRisk && (
+        <span style={{
+          fontFamily: "var(--mono)", fontSize: "0.4rem", letterSpacing: "0.1em", fontWeight: 700,
+          color: "#ff8800", background: "#ff880011", border: "1px solid #ff880033",
+          borderRadius: 2, padding: "1px 5px",
+        }}>RISK</span>
+      )}
+    </div>
+  );
+};
+
+const tierSortKey = (ticker) => {
+  const t = TICKER_TIERS[ticker];
+  if (t === "critical") return 0;
+  if (t === "important") return 1;
+  return 2;
+};
+
 const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgrade, historicalPrices }) => {
   const ch = parseFloat(pct(company.start, company.now));
   const up = ch >= 0;
   const [hovered, setHovered] = useState(false);
   const [hoverIdx, setHoverIdx] = useState(null);
   const svgRef = useRef(null);
+  const tier = TICKER_TIERS[company.ticker];
 
   // Use real historical data if available, fallback to synthetic
   const history = useMemo(() => {
@@ -298,7 +337,11 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgr
       onClick={() => unlocked && onSelect && onSelect(company)}
       style={{
         background: hovered ? `linear-gradient(135deg, #0a0e12, ${color}06)` : "#0a0e12",
-        border: `1px solid ${hovered ? color + "44" : "#1a222e"}`, borderRadius: 4, padding: "16px 18px",
+        borderTop: `1px solid ${hovered ? color + "44" : tier === "critical" ? "#ff334422" : tier === "important" ? "#ffaa0015" : "#1a222e"}`,
+        borderRight: `1px solid ${hovered ? color + "44" : tier === "critical" ? "#ff334422" : tier === "important" ? "#ffaa0015" : "#1a222e"}`,
+        borderBottom: `1px solid ${hovered ? color + "44" : tier === "critical" ? "#ff334422" : tier === "important" ? "#ffaa0015" : "#1a222e"}`,
+        borderLeft: tier === "critical" ? "2px solid #ff334466" : tier === "important" ? "2px solid #ffaa0044" : `1px solid ${hovered ? color + "44" : "#1a222e"}`,
+        borderRadius: 4, padding: "16px 18px",
         position: "relative", overflow: "hidden", transition: "all 0.3s",
         animation: `cardIn 0.4s ease ${idx * 0.06}s both`, cursor: unlocked ? "pointer" : "default",
       }}>
@@ -315,6 +358,7 @@ const StockCard = ({ company, color, unlocked, idx, onSelect, reportDate, onUpgr
         <div>
           <div style={{ fontFamily: "var(--mono)", fontSize: "0.85rem", fontWeight: 700, color: "#e0e6ed" }}>{unlocked ? company.name : "██████████"}</div>
           <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070", marginTop: 2 }}>{unlocked ? `${company.ticker} · ${company.sector}` : "████ · ████████"}</div>
+          {unlocked && <TierBadge ticker={company.ticker} />}
         </div>
         <div style={{ fontFamily: "var(--mono)", fontSize: "0.95rem", fontWeight: 700, color: up ? "#39ff14" : "#ff3344", textShadow: `0 0 10px ${up ? "#39ff1444" : "#ff334444"}` }}>
           {up ? "+" : ""}{ch}%
@@ -468,6 +512,23 @@ const CompanyDossier = ({ company, color, onClose, reportDate, historicalPrices 
             <div style={{ fontFamily: "var(--display)", fontSize: "0.45rem", color: "#3d4a5a", letterSpacing: "0.3em" }}>INTELLIGENCE DOSSIER</div>
             <h2 style={{ fontFamily: "var(--display)", fontSize: "1.1rem", color, margin: "4px 0 2px", letterSpacing: "0.05em" }}>{company.name}</h2>
             <div style={{ fontFamily: "var(--mono)", fontSize: "0.6rem", color: "#556070" }}>{company.exchange}: {company.ticker} · {company.sector} · {company.country}</div>
+            {TICKER_TIERS[company.ticker] && (
+              <div style={{ marginTop: 6, fontFamily: "var(--mono)", fontSize: "0.5rem", display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{
+                  color: TICKER_TIERS[company.ticker] === "critical" ? "#ff3344" : "#ffaa00",
+                  background: TICKER_TIERS[company.ticker] === "critical" ? "#ff334411" : "#ffaa0011",
+                  border: `1px solid ${TICKER_TIERS[company.ticker] === "critical" ? "#ff334433" : "#ffaa0033"}`,
+                  borderRadius: 3, padding: "2px 8px", fontWeight: 700, letterSpacing: "0.15em", fontSize: "0.45rem",
+                }}>
+                  {TICKER_TIERS[company.ticker] === "critical" ? "CRITICAL BOTTLENECK" : "DISPROPORTIONATELY IMPORTANT"}
+                </span>
+                {TICKER_RISK.has(company.ticker) && (
+                  <span style={{ color: "#ff8800", background: "#ff880011", border: "1px solid #ff880033", borderRadius: 3, padding: "2px 8px", fontWeight: 700, letterSpacing: "0.1em", fontSize: "0.45rem" }}>
+                    DOWNSIDE RISK
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -1421,7 +1482,7 @@ export default function WarRoom() {
               {(report.unlocked || isPro) ? (
                 <div style={{ maxHeight: mob ? "none" : "calc(100vh - 340px)", overflowY: mob ? "visible" : "auto", paddingRight: mob ? 0 : 4 }}>
                   <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 8 : 10 }}>
-                    {stage.companies.map((c, i) => (
+                    {[...stage.companies].sort((a, b) => tierSortKey(a.ticker) - tierSortKey(b.ticker)).map((c, i) => (
                       <StockCard key={c.ticker} company={c} color={report.color} unlocked={true} idx={i} onSelect={setSelectedCompany} reportDate={report.date} historicalPrices={historicalPrices} />
                     ))}
                   </div>
@@ -1431,7 +1492,7 @@ export default function WarRoom() {
                   <div style={{ fontFamily: "var(--display)", fontSize: "0.5rem", color: "#3d4a5a", letterSpacing: "0.25em", marginBottom: 12 }}>LIVE SIGNALS · IDENTITY REDACTED</div>
                   <div style={{ maxHeight: mob ? "none" : "calc(100vh - 380px)", overflowY: mob ? "visible" : "auto", paddingRight: mob ? 0 : 4 }}>
                     <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 8 : 10, marginBottom: 20 }}>
-                      {stage.companies.map((c, i) => (
+                      {[...stage.companies].sort((a, b) => tierSortKey(a.ticker) - tierSortKey(b.ticker)).map((c, i) => (
                         <StockCard key={i} company={c} color={report.color} unlocked={false} idx={i} reportDate={report.date} onUpgrade={scrollToPricing} historicalPrices={historicalPrices} />
                       ))}
                     </div>
