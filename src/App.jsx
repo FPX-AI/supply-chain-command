@@ -1549,9 +1549,10 @@ export default function WarRoom() {
       }} />}
 
       {/* FOOTER */}
-      <footer style={{ padding: mob ? "10px 12px" : "12px 28px", borderTop: "1px solid #111820", textAlign: "center" }}>
-        <div style={{ fontFamily: "var(--mono)", color: "#3d4a5a", fontSize: mob ? "0.4rem" : "0.5rem" }}>
-          DISCLAIMER: For informational and educational purposes only. Not investment advice.
+      <footer style={{ padding: mob ? "14px 12px" : "20px 28px", borderTop: "1px solid #111820", textAlign: "center" }}>
+        <div style={{ fontFamily: "var(--mono)", color: "#3d4a5a", fontSize: mob ? "0.4rem" : "0.48rem", lineHeight: 1.8, maxWidth: 640, margin: "0 auto" }}>
+          <div>This is not investment advice. It's an analytical framework + a public-market watchlist for understanding how AI infrastructure supply chains evolve.</div>
+          <div style={{ marginTop: 6 }}>FPX AI is not a financial advisor. We are a research marketplace for AI Infrastructure that gives us the intel on the best market signals and bottlenecks through it.</div>
         </div>
       </footer>
     </div>
