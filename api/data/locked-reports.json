@@ -14,7 +14,7 @@
                 "country": "DE",
                 "sector": "Polysilicon",
                 "start": 68.1,
-                "now": 65.25,
+                "now": 68.7,
                 "role": "Produces semiconductor-grade polysilicon refined from high-purity quartz — the starting material for all DRAM wafers",
                 "significance": "One of the few companies capable of producing electronic-grade polysilicon at scale; expanded capacity in Burghausen and Tennessee",
                 "keyFacts": [
@@ -30,7 +30,7 @@
                 "country": "JP",
                 "sector": "Wafers & Resists",
                 "start": 4672,
-                "now": 5970,
+                "now": 6098,
                 "role": "Largest silicon wafer maker globally and key photoresist supplier — dual exposure to front-end DRAM fab",
                 "significance": "Dominates 300mm wafer supply alongside SUMCO; also supplies KrF/ArF photoresists used in DRAM patterning",
                 "keyFacts": [
@@ -46,7 +46,7 @@
                 "country": "JP",
                 "sector": "Silicon Wafers",
                 "start": 1592,
-                "now": 1546.5,
+                "now": 1639.5,
                 "role": "Second-largest 300mm silicon wafer supplier — every HBM DRAM die starts on a SUMCO or Shin-Etsu wafer",
                 "significance": "Oligopoly position in semiconductor wafers; crystal growth and defect control are entrenched IP moats",
                 "keyFacts": [
@@ -62,7 +62,7 @@
                 "country": "TW",
                 "sector": "Silicon Wafers",
                 "start": 512,
-                "now": 428.5,
+                "now": 443,
                 "role": "Third major 300mm wafer supplier; building new U.S. capacity to localize supply for CHIPS Act fabs",
                 "significance": "Building Texas wafer plant to de-risk geography; wafers look like commodities but crystal growth is deep IP",
                 "keyFacts": [
@@ -78,7 +78,7 @@
                 "country": "US",
                 "sector": "Industrial Gases",
                 "start": 442.72,
-                "now": 483.62,
+                "now": 477.94,
                 "role": "Supplies nitrogen, argon, and neon gases used in DRAM fab purge, process, and EUV lithography",
                 "significance": "Industrial gases are invisible but critical — neon for excimer lasers has been a strategic pinch-point since 2022",
                 "keyFacts": [
@@ -94,7 +94,7 @@
                 "country": "FR",
                 "sector": "Industrial Gases",
                 "start": 173.86,
-                "now": 165.38,
+                "now": 167.36,
                 "role": "Major supplier of ultra-high-purity process gases to DRAM and advanced packaging fabs worldwide",
                 "significance": "Alongside Linde and Air Products, forms the gas oligopoly that every semiconductor fab depends on",
                 "keyFacts": [
@@ -110,7 +110,7 @@
                 "country": "US",
                 "sector": "Specialty Gases",
                 "start": 254.43,
-                "now": 274.4,
+                "now": 275.12,
                 "role": "Supplies specialty and bulk gases including neon, nitrogen, and argon for DRAM lithography and processing",
                 "significance": "Part of the gas triopoly; also supplies helium and hydrogen for advanced packaging and cooling",
                 "keyFacts": [
@@ -126,7 +126,7 @@
                 "country": "US",
                 "sector": "Filtration & CMP",
                 "start": 91.71,
-                "now": 117.34,
+                "now": 116.88,
                 "role": "Supplies filtration systems, CMP slurries, and advanced materials that ensure nanometer-level cleanliness in DRAM fabs",
                 "significance": "Contamination at advanced nodes kills yields — Entegris is the clean-room gatekeeper",
                 "keyFacts": [
@@ -142,7 +142,7 @@
                 "country": "JP",
                 "sector": "Copper Foils",
                 "start": 14365,
-                "now": 29485,
+                "now": 30790,
                 "role": "Supplies ultra-flat ED/rolled copper foils for FC-BGA substrates used in GPU+HBM packages",
                 "significance": "Smoother, lower-profile copper foils cut signal loss and warpage — obscure materials that dictate high-speed integrity",
                 "keyFacts": [
@@ -166,7 +166,7 @@
                 "country": "JP",
                 "sector": "ABF Film",
                 "start": 4231,
-                "now": 4345,
+                "now": 4373,
                 "role": "Inventor and dominant supplier of Ajinomoto Build-up Film (ABF) — the dielectric layer in every high-end GPU+HBM substrate",
                 "significance": "Near-universal adoption at the high end; ABF is a persistent bottleneck for very large AI packages",
                 "keyFacts": [
@@ -182,7 +182,7 @@
                 "country": "TW",
                 "sector": "IC Substrates",
                 "start": 162.5,
-                "now": 389,
+                "now": 424,
                 "role": "Major FC-BGA substrate fabricator — laminates ABF onto glass cloth to build the wiring under GPU+HBM modules",
                 "significance": "One of the big four substrate makers adding capacity; lead times and layer counts keep rising with AI packages",
                 "keyFacts": [
@@ -198,7 +198,7 @@
                 "country": "JP",
                 "sector": "IC Substrates",
                 "start": 6317.5,
-                "now": 7238,
+                "now": 7833,
                 "role": "Leading FC-BGA substrate fabricator for Intel, NVIDIA, and AMD — builds the high-layer-count boards under HBM packages",
                 "significance": "Key substrate supplier with deep experience in high-layer FC-BGA; capacity adds ongoing but structurally tight",
                 "keyFacts": [
@@ -214,7 +214,7 @@
                 "country": "TW",
                 "sector": "IC Substrates",
                 "start": 276,
-                "now": 423,
+                "now": 428,
                 "role": "Fourth major FC-BGA substrate fabricator; expanding capacity to serve growing AI packaging demand",
                 "significance": "Part of the Formosa Plastics group; substrate business is a key growth driver as AI packages get larger",
                 "keyFacts": [
@@ -230,7 +230,7 @@
                 "country": "JP",
                 "sector": "Glass Cloth",
                 "start": 7980,
-                "now": 20680,
+                "now": 21170,
                 "role": "Dominant supplier of low-CTE glass cloth laminated into ABF substrates — controls thermal expansion in large AI packages",
                 "significance": "Glass cloth is an overlooked but critical layer; Nittobo's low-CTE material prevents warpage in enormous CoWoS packages",
                 "keyFacts": [
@@ -254,7 +254,7 @@
                 "country": "KR",
                 "sector": "HBM Memory",
                 "start": 521000,
-                "now": 836000,
+                "now": 938000,
                 "role": "Global leader in HBM shipments — first to qualify HBM3E with NVIDIA, now prepping HBM4",
                 "significance": "The HBM shipment leader; controls the most advanced DRAM stacking and TSV technology in production",
                 "keyFacts": [
@@ -270,7 +270,7 @@
                 "country": "KR",
                 "sector": "HBM Memory",
                 "start": 99500,
-                "now": 173500,
+                "now": 187900,
                 "role": "Second-largest DRAM maker; improving HBM yields after a slower start, pivoting to MR-MUF bonding",
                 "significance": "Massive DRAM capacity but lagged in AI-grade HBM qualification; catching up with process improvements",
                 "keyFacts": [
@@ -286,7 +286,7 @@
                 "country": "US",
                 "sector": "HBM Memory",
                 "start": 221.91,
-                "now": 389.32,
+                "now": 403.11,
                 "role": "Clear #2 in HBM shipments; HBM3E qualified in NVIDIA H200, ramping production rapidly",
                 "significance": "Rose from distant third to strong #2 in HBM; highest content growth per GPU as stacks get taller",
                 "keyFacts": [
@@ -302,7 +302,7 @@
                 "country": "NL",
                 "sector": "EUV Lithography",
                 "start": 1052.48,
-                "now": 1357.42,
+                "now": 1383.4,
                 "role": "Sole supplier of EUV lithography systems used to pattern advanced DRAM nodes (1β/1γ) for HBM dies",
                 "significance": "Monopoly on EUV tools; every advanced DRAM wafer requires ASML scanners — no alternative exists",
                 "keyFacts": [
@@ -318,7 +318,7 @@
                 "country": "US",
                 "sector": "Etch & Deposition",
                 "start": 155.62,
-                "now": 211.15,
+                "now": 215.23,
                 "role": "Supplies etch and deposition tools for DRAM fab and TSV drilling — critical for HBM vertical interconnects",
                 "significance": "TSV etch is the key enabling step for HBM stacking; Lam's tools drill the 'elevator shafts' through each die",
                 "keyFacts": [
@@ -334,7 +334,7 @@
                 "country": "JP",
                 "sector": "Etch & Deposition",
                 "start": 31450,
-                "now": 38920,
+                "now": 40030,
                 "role": "Major supplier of etch, deposition, and coating tools for DRAM wafer fabrication",
                 "significance": "Alongside Lam and AMAT, forms the etch/depo triopoly that equips every DRAM fab line",
                 "keyFacts": [
@@ -350,7 +350,7 @@
                 "country": "US",
                 "sector": "WFE & Bonding",
                 "start": 227.64,
-                "now": 338.94,
+                "now": 345.88,
                 "role": "Supplies deposition, etch, and inspection tools for DRAM fab; strategic 9% stake in BESI for hybrid bonding",
                 "significance": "Largest WFE company; strategic investment in BESI positions it for the HBM4-era hybrid bonding transition",
                 "keyFacts": [
@@ -366,7 +366,7 @@
                 "country": "US",
                 "sector": "Inspection",
                 "start": 1206.04,
-                "now": 1429.1,
+                "now": 1452.94,
                 "role": "Provides wafer inspection and metrology tools that detect defects in DRAM dies before they enter HBM stacks",
                 "significance": "Defect detection is critical for HBM — a single bad die in a stack wastes all layers; KLA ensures Known-Good-Die",
                 "keyFacts": [
@@ -390,7 +390,7 @@
                 "country": "NL",
                 "sector": "Hybrid Bonding",
                 "start": 146.6,
-                "now": 166.3,
+                "now": 174.6,
                 "role": "Leads hybrid-bonding equipment for next-gen HBM4 stacking — the critical tool for denser, cooler, faster die-to-die bonds",
                 "significance": "AMAT took a strategic 9% stake; hybrid bonding is the key technology transition from micro-bumps to direct Cu-Cu bonds",
                 "keyFacts": [
@@ -406,7 +406,7 @@
                 "country": "DE",
                 "sector": "Underfill Materials",
                 "start": 70.98,
-                "now": 72.88,
+                "now": 73.08,
                 "role": "Supplies underfill epoxies and adhesives used between bonded HBM die layers to prevent warpage and voids",
                 "significance": "Materials chemistry that holds HBM stacks together; one of two dominant underfill suppliers alongside NAMICS",
                 "keyFacts": [
@@ -422,7 +422,7 @@
                 "country": "DE",
                 "sector": "Bonding Equipment",
                 "start": 26.3,
-                "now": 51.3,
+                "now": 54.55,
                 "role": "Supplies precision wafer bonders used in HBM die stacking alongside EV Group (private)",
                 "significance": "Precision alignment and bonding at micron scale; critical for moving from 8-Hi to 12-Hi to 16-Hi stacks",
                 "keyFacts": [
@@ -446,7 +446,7 @@
                 "country": "TW",
                 "sector": "CoWoS Packaging",
                 "start": 301.53,
-                "now": 348.7,
+                "now": 347.09,
                 "role": "Controls CoWoS advanced packaging — the choke point that determines how many GPU+HBM modules can ship per month",
                 "significance": "CoWoS-L capacity is the #1 binding constraint on AI GPU throughput; TSMC doubled to ~70-75k wafers/month in 2025, still not enough",
                 "keyFacts": [
@@ -462,7 +462,7 @@
                 "country": "TW",
                 "sector": "OSAT Packaging",
                 "start": 13.36,
-                "now": 21.66,
+                "now": 21.71,
                 "role": "Largest OSAT; expanding advanced packaging lines to absorb CoWoS overflow from TSMC",
                 "significance": "As TSMC's packaging hits capacity, OSATs like ASE pick up overflow — critical for scaling total AI packaging output",
                 "keyFacts": [
@@ -478,7 +478,7 @@
                 "country": "US",
                 "sector": "OSAT Packaging",
                 "start": 32.16,
-                "now": 43.22,
+                "now": 43.94,
                 "role": "Building a large U.S. advanced-packaging campus to onshore capacity and deepen ties with top GPU customers",
                 "significance": "U.S. advanced packaging is strategic — CHIPS Act-backed, de-risks geography for the AI supply chain",
                 "keyFacts": [
@@ -502,7 +502,7 @@
                 "country": "JP",
                 "sector": "Memory Testers",
                 "start": 18120,
-                "now": 22875,
+                "now": 24075,
                 "role": "Dominates memory test equipment — HBM is a fast-growing slice of their product mix as stacks get taller and hotter",
                 "significance": "HBM requires more complex and earlier testing (die-level before stacking, then stack-level); Advantest tools are essential",
                 "keyFacts": [
@@ -518,7 +518,7 @@
                 "country": "US",
                 "sector": "Probe Cards",
                 "start": 42.42,
-                "now": 89.04,
+                "now": 91.03,
                 "role": "Supplies high-parallelism probe cards for wafer-level burn-in and Known-Good-Die testing of HBM DRAM",
                 "significance": "Every HBM stack needs KGD-tested dies to avoid wasting good layers on a bad die; FormFactor enables this at scale",
                 "keyFacts": [
@@ -542,7 +542,7 @@
                 "country": "US",
                 "sector": "GPU Design",
                 "start": 201.03,
-                "now": 182.65,
+                "now": 184.77,
                 "role": "Designs the GPUs that consume HBM; delivery schedule is gated by HBM stacks and CoWoS packages, not GPU wafers",
                 "significance": "NVIDIA's shipment cadence is set by packaging and memory, not compute die availability — HBM is the toll booth",
                 "keyFacts": [
@@ -558,7 +558,7 @@
                 "country": "US",
                 "sector": "GPU Design",
                 "start": 258.01,
-                "now": 202.68,
+                "now": 203.23,
                 "role": "Second-largest AI GPU designer; MI300X uses HBM3 on advanced packaging, competing for the same CoWoS/HBM supply",
                 "significance": "Competes with NVIDIA for the same scarce HBM and packaging slots — AMD volumes add to total demand pressure",
                 "keyFacts": [
@@ -587,7 +587,7 @@
                 "country": "JP",
                 "sector": "Mask Blanks",
                 "start": 23825,
-                "now": 26765,
+                "now": 27445,
                 "role": "Dominates EUV/DUV photomask blanks — the ultra-pure glass stencils that pattern every NAND layer",
                 "significance": "Oligopoly with AGC in mask blanks; a single-source disruption would halt lithography across all NAND fabs",
                 "keyFacts": [
@@ -603,7 +603,7 @@
                 "country": "JP",
                 "sector": "Mask Blanks",
                 "start": 4873,
-                "now": 5733,
+                "now": 5905,
                 "role": "Second major supplier of EUV/DUV mask blanks alongside HOYA — essential for NAND patterning",
                 "significance": "Together with HOYA forms a duopoly in mask blanks; no alternative suppliers exist at EUV grade",
                 "keyFacts": [
@@ -619,7 +619,7 @@
                 "country": "JP",
                 "sector": "Photoresists",
                 "start": 5257,
-                "now": 7725,
+                "now": 8008,
                 "role": "Supplies KrF/ArF/EUV photoresists — the light-sensitive chemicals that transfer circuit patterns onto NAND wafers",
                 "significance": "Photoresist is concentrated in Japan; TOK, Shin-Etsu, and JSR (now private) supply virtually all advanced resists",
                 "keyFacts": [
@@ -643,7 +643,7 @@
                 "country": "KR",
                 "sector": "NAND Flash",
                 "start": 99500,
-                "now": 173500,
+                "now": 187900,
                 "role": "Largest NAND flash producer globally; vertically integrated from wafer to finished SSD",
                 "significance": "Sets the pace for layer counts and bit growth; V-NAND technology leader with massive fab capacity",
                 "keyFacts": [
@@ -659,7 +659,7 @@
                 "country": "US",
                 "sector": "NAND Flash",
                 "start": 221.91,
-                "now": 389.32,
+                "now": 403.11,
                 "role": "Third-largest NAND producer; 232-layer and beyond NAND for enterprise SSDs",
                 "significance": "Only major U.S.-based NAND maker; benefits from CHIPS Act and growing AI enterprise demand",
                 "keyFacts": [
@@ -675,7 +675,7 @@
                 "country": "US",
                 "sector": "NAND Flash",
                 "start": 124.92,
-                "now": 262.06,
+                "now": 266.22,
                 "role": "Major NAND producer via JV with Kioxia; BiCS FLASH with CBA (CMOS-bonded-to-Array) architecture",
                 "significance": "Kioxia/WDC JV is #2 in NAND bits; CBA bonding tech enables highest-density enterprise SSDs",
                 "keyFacts": [
@@ -691,7 +691,7 @@
                 "country": "KR",
                 "sector": "NAND Flash",
                 "start": 521000,
-                "now": 836000,
+                "now": 938000,
                 "role": "Fourth-largest NAND producer; Solidigm subsidiary (ex-Intel NAND) adds enterprise SSD capacity",
                 "significance": "Solidigm acquisition gave SK hynix major enterprise SSD presence and QLC NAND leadership",
                 "keyFacts": [
@@ -707,7 +707,7 @@
                 "country": "US",
                 "sector": "HAR Etch",
                 "start": 155.62,
-                "now": 211.15,
+                "now": 215.23,
                 "role": "Dominates high-aspect-ratio (HAR) etch tools — the most critical and time-consuming step in 3D NAND fabrication",
                 "significance": "As NAND adds layers, HAR etch time grows faster than bits/wafer — Lam's tools are the throughput governor",
                 "keyFacts": [
@@ -723,7 +723,7 @@
                 "country": "JP",
                 "sector": "Etch & Deposition",
                 "start": 31450,
-                "now": 38920,
+                "now": 40030,
                 "role": "Supplies etch and deposition tools for 3D NAND film stacks, staircase etch, and wordline formation",
                 "significance": "Part of the etch/depo triopoly with Lam and AMAT; critical for NAND scaling beyond 200 layers",
                 "keyFacts": [
@@ -739,7 +739,7 @@
                 "country": "US",
                 "sector": "Deposition",
                 "start": 227.64,
-                "now": 338.94,
+                "now": 345.88,
                 "role": "Supplies CVD/PVD deposition tools for NAND film stacks and tungsten wordline fill",
                 "significance": "Tungsten fill via WF₆ CVD is a key bottleneck step; AMAT's deposition tools enable each NAND layer",
                 "keyFacts": [
@@ -755,7 +755,7 @@
                 "country": "US",
                 "sector": "Inspection",
                 "start": 1206.04,
-                "now": 1429.1,
+                "now": 1452.94,
                 "role": "Provides inline inspection and metrology for 3D NAND fabs — catches defects before they compound through layers",
                 "significance": "In 200+ layer stacks, a defect in early layers wastes all subsequent processing; KLA's tools prevent this",
                 "keyFacts": [
@@ -771,7 +771,7 @@
                 "country": "NL",
                 "sector": "DUV Lithography",
                 "start": 1052.48,
-                "now": 1357.42,
+                "now": 1383.4,
                 "role": "Supplies ArF immersion DUV scanners used for critical NAND patterning layers",
                 "significance": "NAND uses DUV (not EUV) for most layers; ASML dominates the scanner market alongside Nikon",
                 "keyFacts": [
@@ -787,7 +787,7 @@
                 "country": "JP",
                 "sector": "DUV Lithography",
                 "start": 1839,
-                "now": 1898,
+                "now": 1924.5,
                 "role": "Second DUV lithography scanner supplier; re-entering with a new ArFi platform for NAND fabs",
                 "significance": "Provides competition to ASML in DUV scanners; new platform could gain share in cost-sensitive NAND lithography",
                 "keyFacts": [
@@ -811,7 +811,7 @@
                 "country": "US",
                 "sector": "Specialty Gases",
                 "start": 254.43,
-                "now": 274.4,
+                "now": 275.12,
                 "role": "Supplies NF₃ and WF₆ process gases critical for NAND chamber cleaning and tungsten wordline deposition",
                 "significance": "NF₃ and WF₆ are in small, concentrated supply chains — a single plant incident cuts wafer throughput immediately",
                 "keyFacts": [
@@ -827,7 +827,7 @@
                 "country": "US",
                 "sector": "Industrial Gases",
                 "start": 442.72,
-                "now": 483.62,
+                "now": 477.94,
                 "role": "Major supplier of bulk and specialty gases for NAND fabs including nitrogen, argon, and fluorine chemistries",
                 "significance": "Part of the gas triopoly; supplies the 'invisible consumables' that every NAND wafer step requires",
                 "keyFacts": [
@@ -843,7 +843,7 @@
                 "country": "FR",
                 "sector": "Process Gases",
                 "start": 173.86,
-                "now": 165.38,
+                "now": 167.36,
                 "role": "Supplies ultra-high-purity process gases to NAND fabs; on-site plants at major memory facilities",
                 "significance": "On-site gas generation at fabs ensures uninterrupted supply; critical during capacity ramp periods",
                 "keyFacts": [
@@ -859,7 +859,7 @@
                 "country": "DE",
                 "sector": "Specialty Chemicals",
                 "start": 113.5,
-                "now": 107.65,
+                "now": 111,
                 "role": "Supplies specialty chemicals and electronic materials for semiconductor processing including WF₆ precursors",
                 "significance": "EMD Electronics division is a key specialty chemical supplier; concentration risk in WF₆ supply chain",
                 "keyFacts": [
@@ -875,7 +875,7 @@
                 "country": "JP",
                 "sector": "NF₃ Gas",
                 "start": 1065,
-                "now": 1498,
+                "now": 1562,
                 "role": "Key NF₃ (nitrogen trifluoride) producer for NAND fab chamber cleaning — a 2025 incident underscored concentration risk",
                 "significance": "NF₃ is consumed in massive quantities for chamber cleans; Kanto Denka is a concentrated single-source risk",
                 "keyFacts": [
@@ -899,7 +899,7 @@
                 "country": "JP",
                 "sector": "Bonding/Clean",
                 "start": 31450,
-                "now": 38920,
+                "now": 40030,
                 "role": "Supplies bonding, deposition, and cleaning tools for wafer-to-wafer string stacking in high-layer NAND",
                 "significance": "CBA/string stacking inserts new yield modes — TEL's tools are critical for keeping bonding lines clean and precise",
                 "keyFacts": [
@@ -915,7 +915,7 @@
                 "country": "DE",
                 "sector": "Wafer Bonders",
                 "start": 26.3,
-                "now": 51.3,
+                "now": 54.55,
                 "role": "Supplies precision wafer bonders used in NAND string stacking and CMOS-bonded-to-Array processes",
                 "significance": "Wafer bonding precision determines yield for the largest-capacity NAND dies; SUSS is one of few public bonder companies",
                 "keyFacts": [
@@ -939,7 +939,7 @@
                 "country": "TW",
                 "sector": "OSAT",
                 "start": 13.36,
-                "now": 21.66,
+                "now": 21.71,
                 "role": "Largest OSAT; packages and tests NAND flash dies before they go into enterprise SSDs",
                 "significance": "OSAT capacity and test parallelism are hidden schedule drivers in NAND cycles",
                 "keyFacts": [
@@ -955,7 +955,7 @@
                 "country": "US",
                 "sector": "OSAT",
                 "start": 32.16,
-                "now": 43.22,
+                "now": 43.94,
                 "role": "Major OSAT for NAND packaging; building U.S. capacity for memory and AI chip assembly",
                 "significance": "U.S.-based advanced packaging capacity is increasingly strategic for supply chain resilience",
                 "keyFacts": [
@@ -971,7 +971,7 @@
                 "country": "TW",
                 "sector": "Memory OSAT",
                 "start": 176.5,
-                "now": 202.5,
+                "now": 214.5,
                 "role": "Major memory OSAT specializing in DRAM and NAND packaging — key supplier to Micron and SK hynix",
                 "significance": "Handles high-volume memory packaging with deep expertise in thin-die handling and stacking",
                 "keyFacts": [
@@ -987,7 +987,7 @@
                 "country": "CN",
                 "sector": "OSAT",
                 "start": 41.89,
-                "now": 45,
+                "now": 46,
                 "role": "Third-largest OSAT globally; acquiring Western Digital's Shanghai packaging operations",
                 "significance": "WD Shanghai acquisition deepens NAND packaging ties; growing player in memory assembly",
                 "keyFacts": [
@@ -1003,7 +1003,7 @@
                 "country": "JP",
                 "sector": "Memory Testers",
                 "start": 18120,
-                "now": 22875,
+                "now": 24075,
                 "role": "Dominates memory test equipment including T5835 for NAND/DRAM/HBM testing",
                 "significance": "Test time scales with NAND features (PLP, telemetry, QoS); Advantest order books are a leading indicator",
                 "keyFacts": [
@@ -1019,7 +1019,7 @@
                 "country": "US",
                 "sector": "Probe Cards",
                 "start": 42.42,
-                "now": 89.04,
+                "now": 91.03,
                 "role": "Supplies probe cards for NAND wafer sort and Known-Good-Die testing at high parallelism",
                 "significance": "High-parallel probe cards scale test throughput; critical bottleneck when NAND production ramps",
                 "keyFacts": [
@@ -1043,7 +1043,7 @@
                 "country": "US",
                 "sector": "SSD Controllers",
                 "start": 88.46,
-                "now": 92.65,
+                "now": 93.3,
                 "role": "Designs Bravera SC5 enterprise SSD controllers — the SoC that orchestrates NAND, manages FTL, and speaks NVMe",
                 "significance": "Controller silicon is the brain of every enterprise SSD; Marvell leads in datacenter-grade controllers",
                 "keyFacts": [
@@ -1059,7 +1059,7 @@
                 "country": "US",
                 "sector": "SSD Controllers",
                 "start": 63.64,
-                "now": 65,
+                "now": 65.33,
                 "role": "Flashtec controller line for enterprise SSDs — competes with Marvell in high-performance NVMe controllers",
                 "significance": "Alternative to Marvell for enterprise SSD controllers; Flashtec platform serves hyperscaler-class drives",
                 "keyFacts": [
@@ -1075,7 +1075,7 @@
                 "country": "TW",
                 "sector": "SSD Controllers",
                 "start": 100.45,
-                "now": 121.63,
+                "now": 122.78,
                 "role": "Designs MonTitan enterprise SSD controller platform — merchant controller supplier to SSD makers",
                 "significance": "Largest merchant SSD controller vendor; MonTitan targets enterprise/datacenter segment growing with AI",
                 "keyFacts": [
@@ -1091,7 +1091,7 @@
                 "country": "TW",
                 "sector": "SSD Controllers",
                 "start": 1025,
-                "now": 1605,
+                "now": 1745,
                 "role": "Designs enterprise and consumer SSD controllers; turnkey SSD solutions for OEMs who don't make their own NAND",
                 "significance": "Turnkey approach lets non-NAND companies enter the SSD market; growing enterprise and AI storage exposure",
                 "keyFacts": [
@@ -1107,7 +1107,7 @@
                 "country": "US",
                 "sector": "SSD Connectors",
                 "start": 137.29,
-                "now": 136.06,
+                "now": 136.74,
                 "role": "Supplies EDSFF E3/S connectors and high-speed interconnects used in enterprise SSD form factors",
                 "significance": "Form factors are shifting to EDSFF E3/S for AI racks; Amphenol connectors are the physical interface standard",
                 "keyFacts": [
@@ -1123,7 +1123,7 @@
                 "country": "US",
                 "sector": "SSD Connectors",
                 "start": 236.54,
-                "now": 206.24,
+                "now": 202.95,
                 "role": "Supplies PCIe and EDSFF connectors for enterprise SSD sleds and server backplanes",
                 "significance": "Alongside Amphenol, dominates the connector market for next-gen storage form factors in AI racks",
                 "keyFacts": [
@@ -1152,7 +1152,7 @@
                 "country": "US",
                 "sector": "Gases",
                 "start": 254.43,
-                "now": 274.4,
+                "now": 275.12,
                 "role": "Supplies argon for sputter tools coating magnetic media, plus helium for sealed nearline HDD drives",
                 "significance": "Argon feeds the PVD tools; helium fills drives to reduce drag — both are critical HDD inputs",
                 "keyFacts": [
@@ -1168,7 +1168,7 @@
                 "country": "US",
                 "sector": "Industrial Gases",
                 "start": 442.72,
-                "now": 483.62,
+                "now": 477.94,
                 "role": "Major supplier of argon, helium, and other process gases used in HDD media deposition and drive sealing",
                 "significance": "Part of the gas triopoly; helium logistics and pricing directly affect cost of high-platter-count nearline drives",
                 "keyFacts": [
@@ -1184,7 +1184,7 @@
                 "country": "FR",
                 "sector": "Industrial Gases",
                 "start": 173.86,
-                "now": 165.38,
+                "now": 167.36,
                 "role": "Third leg of the gas triopoly supplying argon and specialty gases for HDD media coating",
                 "significance": "Global gas supply network ensures HDD fabs have continuous access to ultra-pure process gases",
                 "keyFacts": [
@@ -1208,7 +1208,7 @@
                 "country": "JP",
                 "sector": "Glass Substrates",
                 "start": 23825,
-                "now": 26765,
+                "now": 27445,
                 "role": "Dominant maker of glass substrates for HDDs — stiffer, thinner, and thermally stable vs aluminum, enabling more platters per drive",
                 "significance": "Glass substrates are oligopolistic; if HOYA hiccups, exabyte shipments slip across the entire HDD industry",
                 "keyFacts": [
@@ -1232,7 +1232,7 @@
                 "country": "JP",
                 "sector": "HDD Media",
                 "start": 5890,
-                "now": 10655,
+                "now": 10800,
                 "role": "Independent anchor supplier of HDD media — co-develops next-gen HAMR FePt media with Seagate",
                 "significance": "Media is a first-order limiter for high capacities; FePt grain uniformity determines areal density and yields",
                 "keyFacts": [
@@ -1248,7 +1248,7 @@
                 "country": "JP",
                 "sector": "Sputtering Tools",
                 "start": 4398,
-                "now": 4460,
+                "now": 4473,
                 "role": "Canon ANELVA division supplies PVD sputtering tools for HDD magnetic media deposition",
                 "significance": "Multi-chamber PVD sputtering lines are specialized capital equipment; Canon ANELVA is a dominant tool maker",
                 "keyFacts": [
@@ -1264,7 +1264,7 @@
                 "country": "JP",
                 "sector": "Vacuum/Sputtering",
                 "start": 6905,
-                "now": 9054,
+                "now": 9579,
                 "role": "Supplies vacuum deposition and sputtering equipment for HDD media coating alongside Canon ANELVA",
                 "significance": "Vacuum technology specialist; PVD tools for magnetic film deposition are a core product line",
                 "keyFacts": [
@@ -1288,7 +1288,7 @@
                 "country": "JP",
                 "sector": "R/W Heads",
                 "start": 2572.5,
-                "now": 2100,
+                "now": 2208,
                 "role": "Only merchant (independent) head supplier via SAE Magnetics; also supplies NdFeB magnets for actuators",
                 "significance": "Head yields and NFT reliability pace HAMR ramps; TDK also has magnet know-how for actuators — dual HDD exposure",
                 "keyFacts": [
@@ -1304,7 +1304,7 @@
                 "country": "JP",
                 "sector": "Suspensions",
                 "start": 2810,
-                "now": 2660,
+                "now": 2737.5,
                 "role": "Leading supplier of precision HDD suspensions that control head flying height at nanometer altitude",
                 "significance": "Oligopolistic position in data-center suspensions; small geometry drifts change flying stability and scrap",
                 "keyFacts": [
@@ -1328,7 +1328,7 @@
                 "country": "JP",
                 "sector": "Spindle Motors",
                 "start": 2070.5,
-                "now": 2185,
+                "now": 2286,
                 "role": "~80% global share of HDD spindle motors — the fluid-dynamic-bearing motors that spin glass platters with minimal vibration",
                 "significance": "Near-monopoly position; any Nidec yield or capacity issue becomes a market-wide throttle on HDD exabyte output",
                 "keyFacts": [
@@ -1344,7 +1344,7 @@
                 "country": "JP",
                 "sector": "Motors & Bearings",
                 "start": 3030,
-                "now": 2771.5,
+                "now": 2832,
                 "role": "Second-largest HDD spindle motor supplier; also supplies precision bearings for various drive components",
                 "significance": "Only meaningful alternative to Nidec in HDD motors; runner-up position benefits when Nidec capacity is tight",
                 "keyFacts": [
@@ -1368,7 +1368,7 @@
                 "country": "US",
                 "sector": "HDD Controllers",
                 "start": 88.46,
-                "now": 92.65,
+                "now": 93.3,
                 "role": "Supplies controller + preamp chipsets to Toshiba; read-channel SoC that decodes magnetic signals",
                 "significance": "New capacity points (especially HAMR) hinge on fresh channels/preamps — a tape-out delay paces a whole SKU family",
                 "keyFacts": [
@@ -1384,7 +1384,7 @@
                 "country": "US",
                 "sector": "Read Channels",
                 "start": 372.97,
-                "now": 345.75,
+                "now": 342.58,
                 "role": "Markets TrueStore read-channels and preamps for HDD OEMs — the signal processing brain of each drive",
                 "significance": "Read-channel/preamp silicon and firmware can pace entire SKU families; Broadcom and Marvell are the duopoly",
                 "keyFacts": [
@@ -1408,7 +1408,7 @@
                 "country": "US",
                 "sector": "HDD OEM",
                 "start": 223,
-                "now": 374.33,
+                "now": 384.29,
                 "role": "Leading nearline HDD OEM; ramping 30 TB-class HAMR (Mozaic 3+) drives in volume production",
                 "significance": "HAMR is the next areal-density leap; Seagate is first to market and sets the pricing/capacity frontier",
                 "keyFacts": [
@@ -1424,7 +1424,7 @@
                 "country": "US",
                 "sector": "HDD OEM",
                 "start": 124.92,
-                "now": 262.06,
+                "now": 266.22,
                 "role": "Major nearline HDD OEM; ships 26 TB CMR and 32 TB UltraSMR ePMR drives for hyperscaler cold storage",
                 "significance": "ePMR/UltraSMR pathway competes with HAMR on different tech; WDC targets 40 TB+ via glass substrates",
                 "keyFacts": [
@@ -1454,7 +1454,7 @@
             "country": "US",
             "sector": "GPU / Networking",
             "start": 184.97,
-            "now": 182.65,
+            "now": 184.77,
             "role": "Controls SerDes, NVLink, and GPU/switch design; also sells InfiniBand/Spectrum switches, NICs, and CPO-integrated networking.",
             "significance": "NVIDIA defines the interconnect standard. NVLink and InfiniBand set the pace for AI cluster fabric.",
             "keyFacts": [
@@ -1470,7 +1470,7 @@
             "country": "US",
             "sector": "GPU / CPU",
             "start": 221.62,
-            "now": 202.68,
+            "now": 203.23,
             "role": "GPU and CPU vendor with Infinity Fabric interconnect, driving SerDes lane counts and on-board copper complexity.",
             "significance": "Infinity Fabric defines AMD's on-die and inter-chip connectivity, competing with NVLink.",
             "keyFacts": [
@@ -1486,7 +1486,7 @@
             "country": "US",
             "sector": "Hyperscaler / TPU",
             "start": 317.08,
-            "now": 306.36,
+            "now": 307.04,
             "role": "Designs TPU chips in-house, builds custom AI fabrics with optical circuit switching, and is a major buyer of optical transport gear.",
             "significance": "Google's custom optical fabric bypasses traditional switching, pioneering OCS at datacenter scale.",
             "keyFacts": [
@@ -1502,7 +1502,7 @@
             "country": "US",
             "sector": "Hyperscaler",
             "start": 227.92,
-            "now": 213.49,
+            "now": 214.33,
             "role": "Hyperscaler co-developing silicon photonics with STMicro, major buyer of DCI and backbone optical systems.",
             "significance": "AWS custom silicon photonics could reshape the transceiver supply chain.",
             "keyFacts": [
@@ -1518,7 +1518,7 @@
             "country": "US",
             "sector": "Hyperscaler",
             "start": 492.02,
-            "now": 409.41,
+            "now": 405.76,
             "role": "Hyperscaler deploying massive GPU clusters (Azure), driving demand for 800G optics and metro DCI coherent links.",
             "significance": "Azure AI cluster scale drives 800G/1.6T optics adoption and metro DCI coherent demand.",
             "keyFacts": [
@@ -1542,7 +1542,7 @@
             "country": "KR",
             "sector": "HBM / DRAM",
             "start": 566000,
-            "now": 836000,
+            "now": 938000,
             "role": "Leading HBM manufacturer, stacked DRAM defines on-package copper fabric width; supply fully booked through 2025.",
             "significance": "HBM stack height determines memory bandwidth, which defines the copper interconnect complexity.",
             "keyFacts": [
@@ -1558,7 +1558,7 @@
             "country": "KR",
             "sector": "HBM / DRAM",
             "start": 108400,
-            "now": 173500,
+            "now": 187900,
             "role": "HBM and DRAM supplier, one of only three companies capable of manufacturing HBM at scale.",
             "significance": "Samsung's HBM4 qualification timeline directly impacts next-gen AI networking bandwidth.",
             "keyFacts": [
@@ -1574,7 +1574,7 @@
             "country": "US",
             "sector": "HBM / DRAM",
             "start": 252.42,
-            "now": 389.32,
+            "now": 403.11,
             "role": "Third HBM supplier, pre-allocated nearly all 2024-2025 output; building $9.6B HBM fab in Japan.",
             "significance": "Micron's HBM4E with TSMC logic base die could change the memory-networking interface.",
             "keyFacts": [
@@ -1598,7 +1598,7 @@
             "country": "TW",
             "sector": "Foundry / Packaging",
             "start": 303.41,
-            "now": 348.7,
+            "now": 347.09,
             "role": "Fabricates AI chips and provides CoWoS advanced packaging; also co-architects photonic engines and COUPE platform for CPO.",
             "significance": "CoWoS-L enables the multi-die packaging that defines AI chip networking topology.",
             "keyFacts": [
@@ -1614,7 +1614,7 @@
             "country": "US",
             "sector": "Foundry / Packaging",
             "start": 40.5,
-            "now": 45.58,
+            "now": 46.78,
             "role": "Offers EMIB/Foveros packaging as alternative to CoWoS; expanded packaging facility for third-party AI chips.",
             "significance": "EMIB provides a competitive packaging alternative, especially for chiplet-based AI networking.",
             "keyFacts": [
@@ -1630,7 +1630,7 @@
             "country": "TW",
             "sector": "OSAT / Packaging",
             "start": 15.97,
-            "now": 21.66,
+            "now": 21.71,
             "role": "Leading OSAT handling advanced packaging and testing for AI accelerator chips.",
             "significance": "ASE handles overflow advanced packaging demand, critical when CoWoS capacity is oversubscribed.",
             "keyFacts": [
@@ -1646,7 +1646,7 @@
             "country": "US",
             "sector": "OSAT / Packaging",
             "start": 44.61,
-            "now": 43.22,
+            "now": 43.94,
             "role": "OSAT providing 2.5D packaging services, relief valve for oversubscribed CoWoS capacity.",
             "significance": "Amkor's 2.5D packaging provides crucial capacity relief for AI chip packaging demand.",
             "keyFacts": [
@@ -1670,7 +1670,7 @@
             "country": "JP",
             "sector": "ABF Film",
             "start": 3530,
-            "now": 4345,
+            "now": 4373,
             "role": "Near-monopoly supplier of ABF insulating film used in virtually every high-end IC substrate.",
             "significance": "Without ABF film, no advanced substrate can be built. Single point of failure for AI chip packaging.",
             "keyFacts": [
@@ -1686,7 +1686,7 @@
             "country": "JP",
             "sector": "IC Substrates",
             "start": 6465,
-            "now": 7238,
+            "now": 7833,
             "role": "Manufactures advanced IC substrates using ABF film for AI chip packaging.",
             "significance": "Ibiden's substrate quality directly determines AI chip signal integrity and networking performance.",
             "keyFacts": [
@@ -1702,7 +1702,7 @@
             "country": "JP",
             "sector": "IC Substrates",
             "start": 3443,
-            "now": 3683,
+            "now": 3657,
             "role": "IC substrates via Shinko Electric subsidiary. Key capacity expansion for AI packaging.",
             "significance": "Shinko (Fujitsu subsidiary) is a top-tier substrate maker alongside Ibiden.",
             "keyFacts": [
@@ -1718,7 +1718,7 @@
             "country": "TW",
             "sector": "PCB / Substrates",
             "start": 226,
-            "now": 389,
+            "now": 424,
             "role": "Advanced PCB and IC substrate manufacturer for chip packaging and server boards.",
             "significance": "Unimicron bridges the gap between chip packages and server motherboards for AI networking.",
             "keyFacts": [
@@ -1734,7 +1734,7 @@
             "country": "AT",
             "sector": "IC Substrates",
             "start": 31.8,
-            "now": 43.95,
+            "now": 49.4,
             "role": "European IC substrate manufacturer expanding capacity for high-end AI chip packages.",
             "significance": "European substrate supply diversifies the Asian-concentrated IC substrate chain.",
             "keyFacts": [
@@ -1750,7 +1750,7 @@
             "country": "US",
             "sector": "Server PCB",
             "start": 76.74,
-            "now": 96.8,
+            "now": 96.43,
             "role": "Server and accelerator PCB fabricator handling high-speed trace routing.",
             "significance": "PCB trace routing at 112-224 Gb/s requires extreme precision. TTM specializes in this.",
             "keyFacts": [
@@ -1766,7 +1766,7 @@
             "country": "US",
             "sector": "PCB Laminates",
             "start": 87.39,
-            "now": 104.77,
+            "now": 105.55,
             "role": "Supplies high-frequency, low-loss PCB laminates critical for 112-224 Gb/s signal integrity.",
             "significance": "At 224 Gb/s, standard PCB materials fail. Rogers' low-loss laminates become mandatory.",
             "keyFacts": [
@@ -1790,7 +1790,7 @@
             "country": "US",
             "sector": "Connectors",
             "start": 236.2,
-            "now": 206.24,
+            "now": 202.95,
             "role": "Manufactures high-speed connectors, twinax DAC/AEC assemblies, and mezzanine connectors for server boards.",
             "significance": "Every GPU-to-switch link requires a physical connector. TE dominates high-speed server connectivity.",
             "keyFacts": [
@@ -1806,7 +1806,7 @@
             "country": "US",
             "sector": "Connectors",
             "start": 138.58,
-            "now": 136.06,
+            "now": 136.74,
             "role": "High-speed connector and cable OEM supplying internal harnesses and DAC/AEC assemblies at hyperscale volumes.",
             "significance": "Amphenol's scale and qualification with hyperscalers makes it the go-to connector supplier.",
             "keyFacts": [
@@ -1822,7 +1822,7 @@
             "country": "CN",
             "sector": "Connectors / Cable",
             "start": 60.6,
-            "now": 46.5,
+            "now": 49.39,
             "role": "Chinese connector and cable OEM manufacturing twinax assemblies and high-speed connectors for AI racks.",
             "significance": "Luxshare provides cost-competitive connector alternatives for Chinese and global AI rack builds.",
             "keyFacts": [
@@ -1838,7 +1838,7 @@
             "country": "HK",
             "sector": "Connectors / Cable",
             "start": 5.86,
-            "now": 5.36,
+            "now": 5.74,
             "role": "Builds twinax assemblies, internal harnesses, and high-speed connectors binding GPUs, switches, and trays.",
             "significance": "FIT's integration with Foxconn's server assembly gives it unique placement in AI rack wiring.",
             "keyFacts": [
@@ -1862,7 +1862,7 @@
             "country": "US",
             "sector": "Switch ASIC / SerDes",
             "start": 406.29,
-            "now": 345.75,
+            "now": 342.58,
             "role": "Provides switch ASICs (Tomahawk family up to 102.4 Tb/s), SerDes/PHY chips, PAM4 DSPs, optical modules, and CPO platforms.",
             "significance": "Broadcom's Tomahawk defines the merchant switching standard. Every white-box switch runs Broadcom silicon.",
             "keyFacts": [
@@ -1878,7 +1878,7 @@
             "country": "US",
             "sector": "Custom AI / DSP",
             "start": 88.9,
-            "now": 92.65,
+            "now": 93.3,
             "role": "Custom AI silicon, PAM4 DSPs, coherent DSPs (via Inphi acquisition); dominates 400ZR market share and leads in 800G ZR.",
             "significance": "Marvell's Inphi-derived coherent DSPs power the pluggable optics revolution.",
             "keyFacts": [
@@ -1894,7 +1894,7 @@
             "country": "US",
             "sector": "AEC / Retimers",
             "start": 170.29,
-            "now": 115.98,
+            "now": 112.33,
             "role": "Pure-play in AEC silicon and retimer chips; HiWire AECs widely deployed in AI racks for extending copper reach.",
             "significance": "AECs extend copper reach from 3m to 7m, avoiding expensive optics for short intra-rack links.",
             "keyFacts": [
@@ -1910,7 +1910,7 @@
             "country": "US",
             "sector": "CXL / Retimers",
             "start": 167.08,
-            "now": 122.31,
+            "now": 116.48,
             "role": "CXL memory controller chips and retimer hubs enabling PCIe 5/6 signal extension on server boards.",
             "significance": "CXL enables memory disaggregation, fundamentally changing AI server networking architecture.",
             "keyFacts": [
@@ -1926,7 +1926,7 @@
             "country": "US",
             "sector": "Analog / Mixed-Signal",
             "start": 276.24,
-            "now": 319.71,
+            "now": 318.81,
             "role": "Analog/mixed-signal ICs for power management, clocking, and signal conditioning in high-speed AI systems.",
             "significance": "Clean clocks and stable power are prerequisites for 224 Gb/s signaling. ADI provides both.",
             "keyFacts": [
@@ -1942,7 +1942,7 @@
             "country": "US",
             "sector": "Retimer / Power",
             "start": 179.52,
-            "now": 196.2,
+            "now": 197.46,
             "role": "Retimer, clocking, and power management silicon used across AI server boards and interconnect.",
             "significance": "TI's broad analog portfolio touches every AI server board from power to signal integrity.",
             "keyFacts": [
@@ -1958,7 +1958,7 @@
             "country": "US",
             "sector": "PAM4 DSP / PHY",
             "start": 19.45,
-            "now": 15.94,
+            "now": 16.2,
             "role": "High-speed PAM4 PHY and DSP chips for interconnect and retimer applications.",
             "significance": "Niche PAM4 player that benefits from the 800G optical module volume explosion.",
             "keyFacts": [
@@ -1982,7 +1982,7 @@
             "country": "US",
             "sector": "Cloud Switching",
             "start": 130.04,
-            "now": 137.17,
+            "now": 139.62,
             "role": "Leads high-performance cloud Ethernet switching with EOS software; packages Broadcom merchant ASICs for 400G/800G leaf-spine fabrics.",
             "significance": "Arista owns the Ethernet switching software stack that most hyperscalers run in production.",
             "keyFacts": [
@@ -1998,7 +1998,7 @@
             "country": "US",
             "sector": "Networking",
             "start": 79.51,
-            "now": 76.21,
+            "now": 77.7,
             "role": "Nexus/Silicon One switching platforms plus captive optics (Acacia coherent DSPs, Luxtera silicon photonics); end-to-end IP+optical solutions.",
             "significance": "Cisco's Acacia + Luxtera acquisitions give it a vertically integrated IP+optical networking stack.",
             "keyFacts": [
@@ -2030,7 +2030,7 @@
             "country": "US",
             "sector": "Compute + Network",
             "start": 24.77,
-            "now": 21.81,
+            "now": 21.1,
             "role": "Acquiring Juniper's switching line to offer integrated compute+network fabric for AI workloads.",
             "significance": "HPE+Juniper creates a combined compute+networking vendor for enterprise AI deployments.",
             "keyFacts": [
@@ -2046,7 +2046,7 @@
             "country": "CA",
             "sector": "ODM / White-Box",
             "start": 342.03,
-            "now": 267.95,
+            "now": 269.2,
             "role": "ODM building white-box switches using merchant silicon for hyperscaler AI back-end networks at scale.",
             "significance": "White-box switch ODMs like Celestica capture share as hyperscalers bypass traditional networking vendors.",
             "keyFacts": [
@@ -2062,7 +2062,7 @@
             "country": "TW",
             "sector": "ODM / White-Box",
             "start": 995,
-            "now": 1380,
+            "now": 1435,
             "role": "ODM manufacturing cost-optimized white-box switch gear for hyperscale deployments.",
             "significance": "Accton's white-box switches undercut branded gear, accelerating the shift to merchant silicon.",
             "keyFacts": [
@@ -2086,7 +2086,7 @@
             "country": "US",
             "sector": "Optical Modules",
             "start": 192.73,
-            "now": 252.32,
+            "now": 260.64,
             "role": "Formed from II-VI + Finisar merger; major supplier of 400G/800G transceivers, lasers, and optical components; CPO partner for NVIDIA.",
             "significance": "Coherent's vertical integration from lasers to modules gives it unique cost and technology leverage.",
             "keyFacts": [
@@ -2102,7 +2102,7 @@
             "country": "US",
             "sector": "Lasers / Photonics",
             "start": 360.33,
-            "now": 640.69,
+            "now": 672,
             "role": "Laser diodes, photonic components, and optical circuit switches; positioned to supply external laser sources for CPO.",
             "significance": "In CPO architectures, external laser sources become critical. Lumentum is the key laser supplier.",
             "keyFacts": [
@@ -2118,7 +2118,7 @@
             "country": "US",
             "sector": "Optical Transceivers",
             "start": 30.38,
-            "now": 110.62,
+            "now": 120.49,
             "role": "Optical transceiver and laser supplier for datacenter and telecom applications.",
             "significance": "AAOI's datacenter transceiver volumes scale directly with AI cluster deployments.",
             "keyFacts": [
@@ -2134,7 +2134,7 @@
             "country": "CN",
             "sector": "Optical Modules",
             "start": 419.13,
-            "now": 384,
+            "now": 397.33,
             "role": "Chinese optical module maker with 175% YoY revenue growth, major 400G/800G transceiver supplier.",
             "significance": "Eoptolink's explosive growth shows Chinese optics vendors capturing massive AI transceiver share.",
             "keyFacts": [
@@ -2150,7 +2150,7 @@
             "country": "CN",
             "sector": "Optical Modules",
             "start": 606,
-            "now": 525.99,
+            "now": 547,
             "role": "Chinese supplier of finished optical modules and InP lasers/EMLs/receivers for datacenter and telecom.",
             "significance": "Accelink provides both modules and critical InP laser components, spanning two layers of the stack.",
             "keyFacts": [
@@ -2166,7 +2166,7 @@
             "country": "CN",
             "sector": "Optical Transceivers",
             "start": 25.11,
-            "now": 22.09,
+            "now": 22.26,
             "role": "Chinese optical transceiver manufacturer serving cloud and datacenter markets.",
             "significance": "Part of the Chinese optics ecosystem competing for hyperscaler transceiver volume.",
             "keyFacts": [
@@ -2182,7 +2182,7 @@
             "country": "TH",
             "sector": "Optical Manufacturing",
             "start": 498.45,
-            "now": 527.53,
+            "now": 543.02,
             "role": "Contract manufacturer for optical transceivers and modules, primarily in Thailand; geopolitical hedge as 'China+1' safe harbor.",
             "significance": "Fabrinet is the 'China+1' manufacturing hedge — Thailand-based precision optics assembly.",
             "keyFacts": [
@@ -2198,7 +2198,7 @@
             "country": "FR",
             "sector": "Silicon Photonics",
             "start": 25.94,
-            "now": 33.53,
+            "now": 33.52,
             "role": "Co-developing AI-focused silicon photonics interconnect chips with AWS for 800G/1.6T optical links.",
             "significance": "STMicro's AWS partnership could produce a silicon photonics platform that disrupts discrete optics.",
             "keyFacts": [
@@ -2222,7 +2222,7 @@
             "country": "US",
             "sector": "Coherent DSP",
             "start": 214.35,
-            "now": 318.54,
+            "now": 337.36,
             "role": "WaveLogic coherent DSP family; optical transport line systems; entered pluggable 400ZR market in 2024; ~19% global optical transport share.",
             "significance": "Ciena's WaveLogic DSPs power long-haul and metro optical networks connecting AI datacenters.",
             "keyFacts": [
@@ -2238,7 +2238,7 @@
             "country": "FI",
             "sector": "Coherent DSP",
             "start": 6.18,
-            "now": 7.89,
+            "now": 7.8,
             "role": "PSE coherent DSP family plus optical transport systems; acquired Infinera for $2.3B to become #2 optical vendor globally.",
             "significance": "Nokia+Infinera creates the #2 global optical vendor, challenging Ciena in coherent DSP.",
             "keyFacts": [
@@ -2270,7 +2270,7 @@
             "country": "US",
             "sector": "Analog Drivers",
             "start": 188.08,
-            "now": 218.73,
+            "now": 220.59,
             "role": "High-performance analog driver maker positioned to win if LPO removes digital DSPs from optical modules.",
             "significance": "LPO (Linear Pluggable Optics) shifts value from digital DSPs to analog drivers — Macom's sweet spot.",
             "keyFacts": [
@@ -2286,7 +2286,7 @@
             "country": "US",
             "sector": "Analog / Signal",
             "start": 80.54,
-            "now": 85.14,
+            "now": 87.58,
             "role": "Analog driver and signal integrity silicon; benefits from LPO trend shifting value from digital DSP to analog muscle.",
             "significance": "Semtech's analog portfolio positions it to capture value as LPO adoption accelerates.",
             "keyFacts": [
@@ -2310,7 +2310,7 @@
             "country": "CN",
             "sector": "Optical Transport",
             "start": 42.37,
-            "now": 35.7,
+            "now": 36.87,
             "role": "Optical transport equipment vendor; part of top five globally alongside Huawei, Ciena, Nokia, and FiberHome.",
             "significance": "ZTE is a major optical transport vendor with strong presence in Asia and emerging markets.",
             "keyFacts": [
@@ -2326,7 +2326,7 @@
             "country": "HK",
             "sector": "Optical Transport",
             "start": 32.06,
-            "now": 24.34,
+            "now": 25.18,
             "role": "Hong Kong-listed shares of ZTE, providing optical transport equipment and networking solutions.",
             "significance": "Dual listing provides international investor access to ZTE's optical transport franchise.",
             "keyFacts": [
@@ -2342,7 +2342,7 @@
             "country": "CN",
             "sector": "Optical Transport",
             "start": 24.63,
-            "now": 52,
+            "now": 57.2,
             "role": "Chinese optical transport equipment vendor in the global top six by revenue share.",
             "significance": "FiberHome serves the massive Chinese telecom infrastructure buildout and expanding globally.",
             "keyFacts": [
@@ -2366,7 +2366,7 @@
             "country": "US",
             "sector": "Optical Fiber",
             "start": 91.11,
-            "now": 129.05,
+            "now": 136.22,
             "role": "World's largest optical fiber and cable supplier (~4% global share); supplies fiber for datacenter, campus, and subsea builds.",
             "significance": "Every AI datacenter needs fiber. Corning supplies the glass that carries the light.",
             "keyFacts": [
@@ -2398,7 +2398,7 @@
             "country": "IT",
             "sector": "Fiber / Subsea Cable",
             "start": 84.32,
-            "now": 97.02,
+            "now": 101.8,
             "role": "Global fiber optic and armored submarine cable manufacturer.",
             "significance": "Prysmian builds both datacenter fiber and undersea cables — two sides of AI connectivity.",
             "keyFacts": [
@@ -2414,7 +2414,7 @@
             "country": "JP",
             "sector": "Fiber / Cable",
             "start": 18470,
-            "now": 22615,
+            "now": 24065,
             "role": "Optical fiber and cable manufacturer; fusion splicer technology leader.",
             "significance": "Fujikura's fusion splicers are the tools that join fiber — critical installation equipment.",
             "keyFacts": [
@@ -2430,7 +2430,7 @@
             "country": "JP",
             "sector": "Fiber / Cable",
             "start": 10065,
-            "now": 25300,
+            "now": 27455,
             "role": "Optical fiber, cable, and connectivity products via OFS subsidiary.",
             "significance": "Furukawa's OFS subsidiary provides North American fiber supply from Japanese manufacturing.",
             "keyFacts": [
@@ -2446,7 +2446,7 @@
             "country": "JP",
             "sector": "Fiber / Cable",
             "start": 7109,
-            "now": 9125,
+            "now": 9931,
             "role": "Optical fiber, cables, compound semiconductors, and connectivity hardware.",
             "significance": "Part of the Japanese fiber triad with Fujikura and Furukawa, supplying global fiber demand.",
             "keyFacts": [
@@ -2462,7 +2462,7 @@
             "country": "FR",
             "sector": "Cable / Subsea",
             "start": 123.3,
-            "now": 118.5,
+            "now": 121.1,
             "role": "Cable manufacturer including subsea and fiber optic cabling.",
             "significance": "European cable manufacturer with subsea expertise connecting AI datacenters across continents.",
             "keyFacts": [
@@ -2486,7 +2486,7 @@
             "country": "JP",
             "sector": "Subsea Cable",
             "start": 5625,
-            "now": 4419,
+            "now": 4500,
             "role": "One of only three major submarine cable system builders; full pipeline through 2026.",
             "significance": "Only three companies can build submarine cables. NEC is one of them, with a full order pipeline.",
             "keyFacts": [
@@ -2502,7 +2502,7 @@
             "country": "CH",
             "sector": "Optical Switches",
             "start": 152.6,
-            "now": 166,
+            "now": 174,
             "role": "Via Polatis unit, supplies MEMS-based optical circuit switches for dynamic fiber rewiring in AI campuses.",
             "significance": "OCS enables dynamic fiber rewiring, eliminating the need for fixed optical patching in AI clusters.",
             "keyFacts": [
@@ -2518,7 +2518,7 @@
             "country": "US",
             "sector": "DC Power / Cooling",
             "start": 178.38,
-            "now": 264.35,
+            "now": 270.06,
             "role": "Sells liquid cooling CDUs, power distribution, and thermal management gear critical for AI rack retrofits.",
             "significance": "AI racks run at 70-120kW per rack. Vertiv's liquid cooling CDUs are mandatory at these densities.",
             "keyFacts": [
@@ -2534,7 +2534,7 @@
             "country": "US",
             "sector": "Enclosure / Cooling",
             "start": 107.42,
-            "now": 108.13,
+            "now": 109.13,
             "role": "Profits from enclosure cooling and thermal management solutions required for high-density AI deployments.",
             "significance": "nVent's enclosure cooling keeps networking equipment operational in high-density AI environments.",
             "keyFacts": [
@@ -2562,7 +2562,7 @@
             "country": "US",
             "sector": "Vera CPU / GPU",
             "start": 192.51,
-            "now": 182.65,
+            "now": 184.77,
             "role": "Vera CPU: 88 custom Olympus cores, Arm-compatible. Designed to keep GPU pipelines saturated.",
             "significance": "Vertical integration strategy — Rubin racks are sold as 'AI factory blocks,' not components.",
             "keyFacts": [
@@ -2578,7 +2578,7 @@
             "country": "US",
             "sector": "EPYC Venice CPU",
             "start": 252.18,
-            "now": 202.68,
+            "now": 203.23,
             "role": "Venice EPYC: open rack-scale approach with Instinct MI455X GPUs and Pensando NICs.",
             "significance": "Designed to slide into broad x86 ecosystem with minimal friction. Open vs NVIDIA's closed stack.",
             "keyFacts": [
@@ -2594,7 +2594,7 @@
             "country": "US",
             "sector": "Diamond Rapids CPU",
             "start": 48.66,
-            "now": 45.58,
+            "now": 46.78,
             "role": "Diamond Rapids: platform bandwidth push with Intel 18A RibbonFET and backside power.",
             "significance": "Last stand for x86 defense. 18A is Intel's redemption arc — or its yield-risk story.",
             "keyFacts": [
@@ -2610,7 +2610,7 @@
             "country": "UK",
             "sector": "ISA / IP Licensing",
             "start": 108.43,
-            "now": 117.63,
+            "now": 120.55,
             "role": "Pushing deeper into datacenter host CPU role. Arm-based CPUs could capture large DC share by 2025.",
             "significance": "Power and efficiency matter when running AI factories. Arm's ISA enables Vera's architecture.",
             "keyFacts": [
@@ -2634,7 +2634,7 @@
             "country": "US",
             "sector": "Server OEM",
             "start": 118.49,
-            "now": 146.51,
+            "now": 143.8,
             "role": "Major server OEM integrating AI platforms. Competes with NVIDIA's vertical integration push.",
             "significance": "Traditional OEM value may compress toward 'rack assembler' if NVIDIA controls more integration.",
             "keyFacts": [
@@ -2650,7 +2650,7 @@
             "country": "US",
             "sector": "Server OEM",
             "start": 22.01,
-            "now": 21.81,
+            "now": 21.1,
             "role": "Enterprise server and HPC platform provider. ProLiant and Cray systems.",
             "significance": "HPC heritage positions HPE for large-scale AI training deployments.",
             "keyFacts": [
@@ -2666,7 +2666,7 @@
             "country": "US",
             "sector": "AI Server OEM",
             "start": 30.12,
-            "now": 31.98,
+            "now": 31.79,
             "role": "Specialized GPU server maker with rapid design-to-ship cycles for AI workloads.",
             "significance": "Speed-to-market advantage in custom AI server configurations. Liquid cooling early mover.",
             "keyFacts": [
@@ -2690,7 +2690,7 @@
             "country": "TW",
             "sector": "Foundry",
             "start": 339.55,
-            "now": 348.7,
+            "now": 347.09,
             "role": "Manufactures AMD Venice (GAA-class process) and likely NVIDIA Vera. The shared chokepoint.",
             "significance": "A small yield wobble at the new GAA node becomes a big supply shock. Venice is tied to TSMC's first GAA.",
             "keyFacts": [
@@ -2706,7 +2706,7 @@
             "country": "NL",
             "sector": "EUV Lithography",
             "start": 1455.16,
-            "now": 1357.42,
+            "now": 1383.4,
             "role": "EUV throughput and uptime define how quickly critical CPU layers can be patterned.",
             "significance": "EUV capacity is never 'just add money.' Tools are scarce, expensive, and operationally delicate.",
             "keyFacts": [
@@ -2722,7 +2722,7 @@
             "country": "US",
             "sector": "Inspection & Metrology",
             "start": 1684.71,
-            "now": 1429.1,
+            "now": 1452.94,
             "role": "Inspection and metrology central to yield management. Defect detection is the gating function at GAA.",
             "significance": "As nodes shrink and complexity rises, defect tolerance collapses. KLA defines what's shippable.",
             "keyFacts": [
@@ -2746,7 +2746,7 @@
             "country": "US",
             "sector": "DRAM / HBM",
             "start": 435.79,
-            "now": 389.32,
+            "now": 403.11,
             "role": "Memory bandwidth is the throttle for agentic workloads. SOCAMM LPDDR5X in volume production.",
             "significance": "Agentic AI holds state and moves it constantly — memory bandwidth stops being secondary.",
             "keyFacts": [
@@ -2770,7 +2770,7 @@
             "country": "TW",
             "sector": "OSAT",
             "start": 19.78,
-            "now": 21.66,
+            "now": 21.71,
             "role": "Packaging and testing arbiter when demand spikes. Shared infrastructure = schedule setter.",
             "significance": "Packaging capacity for CPUs is shared with GPUs — queue competition creates allocation battles.",
             "keyFacts": [
@@ -2786,7 +2786,7 @@
             "country": "US",
             "sector": "OSAT",
             "start": 50,
-            "now": 43.22,
+            "now": 43.94,
             "role": "Advanced packaging and test capacity. Retains ability to service non-AI server configurations.",
             "significance": "Vera-based system shipments can be indirectly gated by packaging queues shared with accelerators.",
             "keyFacts": [
@@ -2802,7 +2802,7 @@
             "country": "US",
             "sector": "Photomasks",
             "start": 35.28,
-            "now": 34.21,
+            "now": 34.1,
             "role": "Photomask maker sitting in the critical path when mask counts rise and defect tolerance collapses.",
             "significance": "As nodes shrink, mask quality becomes gating. Mask counts increase with each new process node.",
             "keyFacts": [
@@ -2818,7 +2818,7 @@
             "country": "JP",
             "sector": "ABF Film",
             "start": 3468,
-            "now": 4345,
+            "now": 4373,
             "role": "Sole manufacturer of ABF insulation film used in all high-performance CPU substrates.",
             "significance": "Near-monopoly on ABF film. Without this single material, no advanced CPU substrate can be built.",
             "keyFacts": [
@@ -2834,7 +2834,7 @@
             "country": "JP",
             "sector": "ABF Substrates",
             "start": 8257,
-            "now": 7238,
+            "now": 7833,
             "role": "Premium ABF substrate maker for Intel and other leading CPU platforms.",
             "significance": "Cannot route high-speed signals without Ajinomoto film — but Ibiden turns it into finished substrates.",
             "keyFacts": [
@@ -2850,7 +2850,7 @@
             "country": "TW",
             "sector": "ABF Substrates",
             "start": 344.5,
-            "now": 389,
+            "now": 424,
             "role": "Largest ABF substrate maker globally. Supplies substrates for AI chips and CPUs.",
             "significance": "ABF substrate capacity expansion takes 18-24 months. Demand outpacing new capacity additions.",
             "keyFacts": [
@@ -2866,7 +2866,7 @@
             "country": "AT",
             "sector": "ABF Substrates",
             "start": 38.55,
-            "now": 43.95,
+            "now": 49.4,
             "role": "European ABF substrate manufacturer. Growing capacity for high-performance computing substrates.",
             "significance": "One of few non-Asian substrate makers, providing supply chain diversification for CPU platforms.",
             "keyFacts": [
@@ -2882,7 +2882,7 @@
             "country": "JP",
             "sector": "Photomasks",
             "start": 4694,
-            "now": 4824,
+            "now": 5056,
             "role": "Japanese photomask leader. Mask counts rise with each new process node, increasing Toppan's content per wafer.",
             "significance": "Photomask quality becomes gating at GAA. Defect-free masks are essential for leading-edge patterning.",
             "keyFacts": [
@@ -2898,7 +2898,7 @@
             "country": "JP",
             "sector": "Photomasks",
             "start": 2756,
-            "now": 2963.5,
+            "now": 3030,
             "role": "Major photomask producer for leading-edge semiconductor manufacturing.",
             "significance": "Part of the Japanese mask triad with Toppan and HOYA. Capacity concentration creates fragility.",
             "keyFacts": [
@@ -2914,7 +2914,7 @@
             "country": "JP",
             "sector": "Mask Blanks / Optics",
             "start": 25485,
-            "now": 26765,
+            "now": 27445,
             "role": "Dominant supplier of EUV mask blanks — the ultra-flat substrates that photomasks are built on.",
             "significance": "EUV mask blanks are the foundation of every EUV mask. HOYA's quality defines patterning capability.",
             "keyFacts": [
@@ -2938,7 +2938,7 @@
             "country": "US",
             "sector": "EDA",
             "start": 480,
-            "now": 437.22,
+            "now": 432.65,
             "role": "At the GAA era, EDA modeling accuracy IS yield. Defines tapeout confidence for all CPU vendors.",
             "significance": "Every CPU architecture — Vera, Venice, Diamond Rapids — needs EDA signoff. Vendor-agnostic winner.",
             "keyFacts": [
@@ -2954,7 +2954,7 @@
             "country": "US",
             "sector": "EDA",
             "start": 302.67,
-            "now": 298.05,
+            "now": 293.29,
             "role": "Complementary EDA platform. IP ecosystems matter for coherency and system-level integration.",
             "significance": "Design complexity at GAA multiplies verification cycles. EDA revenue scales with tapeout iterations.",
             "keyFacts": [
@@ -2970,7 +2970,7 @@
             "country": "DE",
             "sector": "EDA / IC Packaging",
             "start": 154.13,
-            "now": 130.45,
+            "now": 133.93,
             "role": "Via Mentor Graphics, provides IC packaging and PCB design tools critical for multi-die CPU integration.",
             "significance": "Third major EDA player. IC package co-design becomes essential as CPU platforms add die-to-die complexity.",
             "keyFacts": [
@@ -2994,7 +2994,7 @@
             "country": "US",
             "sector": "Materials Purity",
             "start": 122.71,
-            "now": 117.34,
+            "now": 116.88,
             "role": "Filtration and CMP materials that become more sensitive inputs at first-gen GAA ramps.",
             "significance": "The 'clean kitchen' layer. If purity drops, fabs don't slow down — they often stop.",
             "keyFacts": [
@@ -3010,7 +3010,7 @@
             "country": "US",
             "sector": "Process Chemicals",
             "start": 44.6,
-            "now": 45.24,
+            "now": 45.97,
             "role": "Photoresists, CMP slurries, and specialty chemicals for semiconductor manufacturing.",
             "significance": "Process materials become more sensitive inputs as the industry moves into first-gen GAA ramps.",
             "keyFacts": [
@@ -3026,7 +3026,7 @@
             "country": "IE",
             "sector": "Industrial Gases",
             "start": 455,
-            "now": 483.62,
+            "now": 477.94,
             "role": "Ultra-high-purity nitrogen, argon, oxygen, and hydrogen for chip fabrication.",
             "significance": "If gas purity drops, fabs don't slow down — they stop. Contamination kills yield.",
             "keyFacts": [
@@ -3042,7 +3042,7 @@
             "country": "FR",
             "sector": "Specialty Gases",
             "start": 158.18,
-            "now": 165.38,
+            "now": 167.36,
             "role": "Specialty and ultra-pure gases for semiconductor fabrication alongside Linde.",
             "significance": "Part of the gas duopoly. Gases are a continuous consumable — fabs cannot operate without them.",
             "keyFacts": [
@@ -3058,7 +3058,7 @@
             "country": "JP",
             "sector": "Silicon Wafers",
             "start": 4908,
-            "now": 5970,
+            "now": 6098,
             "role": "World's largest silicon wafer manufacturer. Every chip starts on a Shin-Etsu wafer.",
             "significance": "Wafer quality at leading-edge nodes defines what's possible. Shin-Etsu sets the purity floor.",
             "keyFacts": [
@@ -3074,7 +3074,7 @@
             "country": "JP",
             "sector": "Silicon Wafers",
             "start": 1570,
-            "now": 1546.5,
+            "now": 1639.5,
             "role": "Second-largest silicon wafer maker. Supplies 300mm wafers to all major foundries.",
             "significance": "Wafer supply is concentrated in two Japanese companies. SUMCO duopoly with Shin-Etsu is structural.",
             "keyFacts": [
@@ -3102,7 +3102,7 @@
             "country": "US",
             "sector": "Copper Mining",
             "start": 64.34,
-            "now": 60.49,
+            "now": 62.4,
             "role": "Largest publicly traded copper miner. Direct exposure to the 10M ton supply deficit by 2040.",
             "significance": "Price is the only mechanism left to clear the market. Structural deficit = structural pricing power.",
             "keyFacts": [
@@ -3118,7 +3118,7 @@
             "country": "US",
             "sector": "Copper Mining",
             "start": 201.01,
-            "now": 190.64,
+            "now": 196.16,
             "role": "Pure-play copper miner with lowest-cost production and massive reserves.",
             "significance": "Long-duration exposure to copper price appreciation with industry-leading margins.",
             "keyFacts": [
@@ -3134,7 +3134,7 @@
             "country": "AU",
             "sector": "Diversified Mining",
             "start": 76.82,
-            "now": 72.89,
+            "now": 73.89,
             "role": "Global mining giant with significant copper production and expansion pipeline.",
             "significance": "Copper is becoming BHP's strategic growth metal as AI drives demand.",
             "keyFacts": [
@@ -3150,7 +3150,7 @@
             "country": "AU",
             "sector": "Diversified Mining",
             "start": 97.09,
-            "now": 90.35,
+            "now": 91.68,
             "role": "Major miner with growing copper operations and Oyu Tolgoi ramp.",
             "significance": "Copper production growing as AI datacenter construction accelerates globally.",
             "keyFacts": [
@@ -3166,7 +3166,7 @@
             "country": "CA",
             "sector": "Copper Mining",
             "start": 59.4,
-            "now": 50.95,
+            "now": 52.47,
             "role": "Transitioning to pure-play copper after selling coal assets. Highland Valley and QB2 expansion.",
             "significance": "Repositioned as a copper-first company at the exact moment AI demand accelerates the deficit.",
             "keyFacts": [
@@ -3190,7 +3190,7 @@
             "country": "US",
             "sector": "Power Distribution",
             "start": 373.38,
-            "now": 353.87,
+            "now": 361.06,
             "role": "Provides switchgear, busbars, and power distribution for AI datacenters. Acquiring Boyd Thermal for $9.5B.",
             "significance": "Copper is physically embedded in switchgear. Long-lead gating hardware with massive backlogs.",
             "keyFacts": [
@@ -3206,7 +3206,7 @@
             "country": "US",
             "sector": "Power & Cooling",
             "start": 243.75,
-            "now": 264.35,
+            "now": 270.06,
             "role": "Provides CDUs, power conversion, and thermal management for high-density AI racks.",
             "significance": "Better positioned for liquid/precision cooling vs pure chillers in the AI datacenter shift.",
             "keyFacts": [
@@ -3222,7 +3222,7 @@
             "country": "US",
             "sector": "Power Generation",
             "start": 830.34,
-            "now": 830.1,
+            "now": 839.2,
             "role": "Provides grid infrastructure and power generation equipment for massive AI campus buildouts.",
             "significance": "AI campuses need dedicated behind-the-meter generation. GE Vernova builds the power plants.",
             "keyFacts": [
@@ -3238,7 +3238,7 @@
             "country": "CH",
             "sector": "Power & Automation",
             "start": 90.56,
-            "now": 85.09,
+            "now": 86.48,
             "role": "Provides power distribution, switchgear, and automation systems for AI datacenter campuses.",
             "significance": "AI campuses require massive electrical infrastructure — ABB builds the grid-to-rack power path.",
             "keyFacts": [
@@ -3254,7 +3254,7 @@
             "country": "FR",
             "sector": "Power & Cooling",
             "start": 261.9,
-            "now": 245.15,
+            "now": 255.05,
             "role": "End-to-end datacenter infrastructure from grid connection to rack-level power and cooling.",
             "significance": "Embedded copper in every transformer, busbar, and switchgear panel — pricing power from lead times.",
             "keyFacts": [
@@ -3278,7 +3278,7 @@
             "country": "US",
             "sector": "EPC / Grid",
             "start": 552.66,
-            "now": 568.04,
+            "now": 564.05,
             "role": "Builds heavy grid interconnects and dedicated behind-the-meter power infrastructure.",
             "significance": "Massive mandated buildout of power infrastructure. The physical builders of AI's electrical backbone.",
             "keyFacts": [
@@ -3294,7 +3294,7 @@
             "country": "US",
             "sector": "EPC / Electrical",
             "start": 812.79,
-            "now": 719.18,
+            "now": 723.38,
             "role": "Electrical and mechanical construction services for datacenter facilities.",
             "significance": "The hands that wire and plumb AI datacenters. Skilled labor scarcity amplifies pricing power.",
             "keyFacts": [
@@ -3310,7 +3310,7 @@
             "country": "US",
             "sector": "EPC / Electrical",
             "start": 281.01,
-            "now": 267.31,
+            "now": 267.9,
             "role": "Specialty electrical contractor focused on transmission, distribution, and commercial/industrial construction.",
             "significance": "Builds the high-voltage transmission lines and substations connecting AI campuses to the grid.",
             "keyFacts": [
@@ -3326,7 +3326,7 @@
             "country": "US",
             "sector": "EPC / Infrastructure",
             "start": 283.86,
-            "now": 297.81,
+            "now": 300.12,
             "role": "Large-scale infrastructure contractor for power grid, telecom, and pipeline construction.",
             "significance": "One of the few contractors with the scale and equipment to handle multi-GW grid interconnection projects.",
             "keyFacts": [
@@ -3350,7 +3350,7 @@
             "country": "US",
             "sector": "Optical Transceivers",
             "start": 248.18,
-            "now": 252.32,
+            "now": 260.64,
             "role": "Fiber replacing copper trims 10% of metal but signals an explosion in optical volume.",
             "significance": "Trade is the upgrade cadence — 800G deployments today with clear 1.6T sampling visibility.",
             "keyFacts": [
@@ -3366,7 +3366,7 @@
             "country": "US",
             "sector": "DSP / Networking",
             "start": 332.65,
-            "now": 345.75,
+            "now": 342.58,
             "role": "PAM4 DSP/SerDes and networking silicon powering the optical interconnect stack.",
             "significance": "Controls DSP silicon that every optical module depends on. Networking silicon at scale.",
             "keyFacts": [
@@ -3382,7 +3382,7 @@
             "country": "US",
             "sector": "Lasers & Photonics",
             "start": 667.77,
-            "now": 640.69,
+            "now": 672,
             "role": "Provides lasers and silicon photonics for optical modules. Fiber replacing copper drives optical volume.",
             "significance": "Every 800G link that replaces a copper cable needs a laser. Lumentum makes the light source.",
             "keyFacts": [
@@ -3398,7 +3398,7 @@
             "country": "US",
             "sector": "DSP / SerDes",
             "start": 79.48,
-            "now": 92.65,
+            "now": 93.3,
             "role": "PAM4 DSP silicon that sits inside every optical transceiver. Critical for the 800G explosion.",
             "significance": "DSP silicon is the brain of every transceiver module. Marvell competes with Broadcom for design wins.",
             "keyFacts": [
@@ -3422,7 +3422,7 @@
             "country": "US",
             "sector": "Connectors",
             "start": 151.04,
-            "now": 136.06,
+            "now": 136.74,
             "role": "Makes high-density blind-mate connectors that replace traditional internal rack cabling.",
             "significance": "Cleanest hidden alpha — cable-free modular trays create massive market share shift to connectors.",
             "keyFacts": [
@@ -3438,7 +3438,7 @@
             "country": "CH",
             "sector": "Connectors",
             "start": 234.73,
-            "now": 206.24,
+            "now": 202.95,
             "role": "High-speed OSFP/QSFP connectors and cages for next-gen networking hardware.",
             "significance": "Every ConnectX-9 and switch board needs precision high-speed connector ecosystems.",
             "keyFacts": [
@@ -3454,7 +3454,7 @@
             "country": "US",
             "sector": "High-End PCB",
             "start": 107.93,
-            "now": 96.8,
+            "now": 96.43,
             "role": "Fabricates high-layer-count PCBs replacing traditional copper cable assemblies inside racks.",
             "significance": "Cable-free designs move wiring into PCBs. Share shift from cabling vendors to PCB makers.",
             "keyFacts": [
@@ -3478,7 +3478,7 @@
             "country": "TW",
             "sector": "OSAT / Packaging",
             "start": 23.96,
-            "now": 21.66,
+            "now": 21.71,
             "role": "World's largest chip packaging and testing company. Named by NVIDIA in CPO packaging ecosystem.",
             "significance": "Advanced packaging revenue >2x YoY on AI demand. Packaging is the real capacity gatekeeper.",
             "keyFacts": [
@@ -3494,7 +3494,7 @@
             "country": "TW",
             "sector": "Foundry / CoWoS",
             "start": 370.54,
-            "now": 348.7,
+            "now": 347.09,
             "role": "Advanced packaging capacity (CoWoS) is where AI chip capacity is manufactured.",
             "significance": "Even when wafer supply is fine, packaging turns good dies into shippable systems.",
             "keyFacts": [
@@ -3510,7 +3510,7 @@
             "country": "US",
             "sector": "OSAT",
             "start": 47.94,
-            "now": 43.22,
+            "now": 43.94,
             "role": "Outsourced semiconductor assembly and test for advanced AI chip packages.",
             "significance": "Packaging capacity is shared infrastructure — becomes a schedule setter when demand spikes.",
             "keyFacts": [
