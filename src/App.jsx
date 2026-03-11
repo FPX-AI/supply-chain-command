@@ -1292,13 +1292,13 @@ export default function WarRoom() {
 
       {/* HEADER */}
       <header style={{ padding: mob ? "10px 12px" : "14px 28px", display: "flex", justifyContent: "space-between", alignItems: mob ? "flex-start" : "center", borderBottom: "1px solid #111820", background: "#05080acc", flexWrap: "wrap", gap: mob ? 8 : 0 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 14 }}>
+        <a href="https://fpx.world" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 14, textDecoration: "none" }}>
           <img src="/rubin/Adobe Express - file.png" alt="FPX" style={{ height: mob ? 24 : 32, filter: "invert(1)", opacity: 0.9 }} />
           <div>
             <div style={{ fontFamily: "var(--display)", fontWeight: 900, fontSize: mob ? "0.7rem" : "0.85rem", letterSpacing: "0.2em", color: "#e0e6ed" }}>SUPPLY CHAIN COMMAND</div>
             {!mob && <div style={{ fontSize: "0.55rem", color: "#3d4a5a", letterSpacing: "0.25em" }}>AI INFRASTRUCTURE INTELLIGENCE · EST. 2025</div>}
           </div>
-        </div>
+        </a>
         <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 20 }}>
           <div style={{ fontFamily: "var(--mono)", fontSize: mob ? "0.5rem" : "0.6rem", color: "#3d4a5a" }}>
             <span style={{ color: "#39ff14", animation: "blink 2s infinite" }}>●</span> LIVE {time.toLocaleTimeString("en-US", { hour12: false })}
