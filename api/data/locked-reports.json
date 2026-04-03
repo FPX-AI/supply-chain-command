@@ -30,7 +30,7 @@
                 "country": "JP",
                 "sector": "Wafers & Resists",
                 "start": 4672,
-                "now": 6412,
+                "now": 6450,
                 "role": "Largest silicon wafer maker globally and key photoresist supplier — dual exposure to front-end DRAM fab",
                 "significance": "Dominates 300mm wafer supply alongside SUMCO; also supplies KrF/ArF photoresists used in DRAM patterning",
                 "keyFacts": [
@@ -46,7 +46,7 @@
                 "country": "JP",
                 "sector": "Silicon Wafers",
                 "start": 1592,
-                "now": 1713.5,
+                "now": 1738,
                 "role": "Second-largest 300mm silicon wafer supplier — every HBM DRAM die starts on a SUMCO or Shin-Etsu wafer",
                 "significance": "Oligopoly position in semiconductor wafers; crystal growth and defect control are entrenched IP moats",
                 "keyFacts": [
@@ -142,7 +142,7 @@
                 "country": "JP",
                 "sector": "Copper Foils",
                 "start": 14365,
-                "now": 29650,
+                "now": 31520,
                 "role": "Supplies ultra-flat ED/rolled copper foils for FC-BGA substrates used in GPU+HBM packages",
                 "significance": "Smoother, lower-profile copper foils cut signal loss and warpage — obscure materials that dictate high-speed integrity",
                 "keyFacts": [
@@ -166,7 +166,7 @@
                 "country": "JP",
                 "sector": "ABF Film",
                 "start": 4231,
-                "now": 4659,
+                "now": 4612,
                 "role": "Inventor and dominant supplier of Ajinomoto Build-up Film (ABF) — the dielectric layer in every high-end GPU+HBM substrate",
                 "significance": "Near-universal adoption at the high end; ABF is a persistent bottleneck for very large AI packages",
                 "keyFacts": [
@@ -198,7 +198,7 @@
                 "country": "JP",
                 "sector": "IC Substrates",
                 "start": 6317.5,
-                "now": 7775,
+                "now": 8210,
                 "role": "Leading FC-BGA substrate fabricator for Intel, NVIDIA, and AMD — builds the high-layer-count boards under HBM packages",
                 "significance": "Key substrate supplier with deep experience in high-layer FC-BGA; capacity adds ongoing but structurally tight",
                 "keyFacts": [
@@ -230,7 +230,7 @@
                 "country": "JP",
                 "sector": "Glass Cloth",
                 "start": 7980,
-                "now": 19610,
+                "now": 20480,
                 "role": "Dominant supplier of low-CTE glass cloth laminated into ABF substrates — controls thermal expansion in large AI packages",
                 "significance": "Glass cloth is an overlooked but critical layer; Nittobo's low-CTE material prevents warpage in enormous CoWoS packages",
                 "keyFacts": [
@@ -254,7 +254,7 @@
                 "country": "KR",
                 "sector": "HBM Memory",
                 "start": 521000,
-                "now": 830000,
+                "now": 876000,
                 "role": "Global leader in HBM shipments — first to qualify HBM3E with NVIDIA, now prepping HBM4",
                 "significance": "The HBM shipment leader; controls the most advanced DRAM stacking and TSV technology in production",
                 "keyFacts": [
@@ -270,7 +270,7 @@
                 "country": "KR",
                 "sector": "HBM Memory",
                 "start": 99500,
-                "now": 178400,
+                "now": 186200,
                 "role": "Second-largest DRAM maker; improving HBM yields after a slower start, pivoting to MR-MUF bonding",
                 "significance": "Massive DRAM capacity but lagged in AI-grade HBM qualification; catching up with process improvements",
                 "keyFacts": [
@@ -334,7 +334,7 @@
                 "country": "JP",
                 "sector": "Etch & Deposition",
                 "start": 31450,
-                "now": 38020,
+                "now": 38420,
                 "role": "Major supplier of etch, deposition, and coating tools for DRAM wafer fabrication",
                 "significance": "Alongside Lam and AMAT, forms the etch/depo triopoly that equips every DRAM fab line",
                 "keyFacts": [
@@ -502,7 +502,7 @@
                 "country": "JP",
                 "sector": "Memory Testers",
                 "start": 18120,
-                "now": 21125,
+                "now": 21555,
                 "role": "Dominates memory test equipment — HBM is a fast-growing slice of their product mix as stacks get taller and hotter",
                 "significance": "HBM requires more complex and earlier testing (die-level before stacking, then stack-level); Advantest tools are essential",
                 "keyFacts": [
@@ -587,7 +587,7 @@
                 "country": "JP",
                 "sector": "Mask Blanks",
                 "start": 23825,
-                "now": 27320,
+                "now": 27575,
                 "role": "Dominates EUV/DUV photomask blanks — the ultra-pure glass stencils that pattern every NAND layer",
                 "significance": "Oligopoly with AGC in mask blanks; a single-source disruption would halt lithography across all NAND fabs",
                 "keyFacts": [
@@ -603,7 +603,7 @@
                 "country": "JP",
                 "sector": "Mask Blanks",
                 "start": 4873,
-                "now": 5627,
+                "now": 5598,
                 "role": "Second major supplier of EUV/DUV mask blanks alongside HOYA — essential for NAND patterning",
                 "significance": "Together with HOYA forms a duopoly in mask blanks; no alternative suppliers exist at EUV grade",
                 "keyFacts": [
@@ -619,7 +619,7 @@
                 "country": "JP",
                 "sector": "Photoresists",
                 "start": 5257,
-                "now": 7471,
+                "now": 7702,
                 "role": "Supplies KrF/ArF/EUV photoresists — the light-sensitive chemicals that transfer circuit patterns onto NAND wafers",
                 "significance": "Photoresist is concentrated in Japan; TOK, Shin-Etsu, and JSR (now private) supply virtually all advanced resists",
                 "keyFacts": [
@@ -643,7 +643,7 @@
                 "country": "KR",
                 "sector": "NAND Flash",
                 "start": 99500,
-                "now": 178400,
+                "now": 186200,
                 "role": "Largest NAND flash producer globally; vertically integrated from wafer to finished SSD",
                 "significance": "Sets the pace for layer counts and bit growth; V-NAND technology leader with massive fab capacity",
                 "keyFacts": [
@@ -691,7 +691,7 @@
                 "country": "KR",
                 "sector": "NAND Flash",
                 "start": 521000,
-                "now": 830000,
+                "now": 876000,
                 "role": "Fourth-largest NAND producer; Solidigm subsidiary (ex-Intel NAND) adds enterprise SSD capacity",
                 "significance": "Solidigm acquisition gave SK hynix major enterprise SSD presence and QLC NAND leadership",
                 "keyFacts": [
@@ -723,7 +723,7 @@
                 "country": "JP",
                 "sector": "Etch & Deposition",
                 "start": 31450,
-                "now": 38020,
+                "now": 38420,
                 "role": "Supplies etch and deposition tools for 3D NAND film stacks, staircase etch, and wordline formation",
                 "significance": "Part of the etch/depo triopoly with Lam and AMAT; critical for NAND scaling beyond 200 layers",
                 "keyFacts": [
@@ -787,7 +787,7 @@
                 "country": "JP",
                 "sector": "DUV Lithography",
                 "start": 1839,
-                "now": 1972,
+                "now": 2018,
                 "role": "Second DUV lithography scanner supplier; re-entering with a new ArFi platform for NAND fabs",
                 "significance": "Provides competition to ASML in DUV scanners; new platform could gain share in cost-sensitive NAND lithography",
                 "keyFacts": [
@@ -875,7 +875,7 @@
                 "country": "JP",
                 "sector": "NF₃ Gas",
                 "start": 1065,
-                "now": 1372,
+                "now": 1373,
                 "role": "Key NF₃ (nitrogen trifluoride) producer for NAND fab chamber cleaning — a 2025 incident underscored concentration risk",
                 "significance": "NF₃ is consumed in massive quantities for chamber cleans; Kanto Denka is a concentrated single-source risk",
                 "keyFacts": [
@@ -899,7 +899,7 @@
                 "country": "JP",
                 "sector": "Bonding/Clean",
                 "start": 31450,
-                "now": 38020,
+                "now": 38420,
                 "role": "Supplies bonding, deposition, and cleaning tools for wafer-to-wafer string stacking in high-layer NAND",
                 "significance": "CBA/string stacking inserts new yield modes — TEL's tools are critical for keeping bonding lines clean and precise",
                 "keyFacts": [
@@ -987,7 +987,7 @@
                 "country": "CN",
                 "sector": "OSAT",
                 "start": 41.89,
-                "now": 38.48,
+                "now": 38.29,
                 "role": "Third-largest OSAT globally; acquiring Western Digital's Shanghai packaging operations",
                 "significance": "WD Shanghai acquisition deepens NAND packaging ties; growing player in memory assembly",
                 "keyFacts": [
@@ -1003,7 +1003,7 @@
                 "country": "JP",
                 "sector": "Memory Testers",
                 "start": 18120,
-                "now": 21125,
+                "now": 21555,
                 "role": "Dominates memory test equipment including T5835 for NAND/DRAM/HBM testing",
                 "significance": "Test time scales with NAND features (PLP, telemetry, QoS); Advantest order books are a leading indicator",
                 "keyFacts": [
@@ -1208,7 +1208,7 @@
                 "country": "JP",
                 "sector": "Glass Substrates",
                 "start": 23825,
-                "now": 27320,
+                "now": 27575,
                 "role": "Dominant maker of glass substrates for HDDs — stiffer, thinner, and thermally stable vs aluminum, enabling more platters per drive",
                 "significance": "Glass substrates are oligopolistic; if HOYA hiccups, exabyte shipments slip across the entire HDD industry",
                 "keyFacts": [
@@ -1232,7 +1232,7 @@
                 "country": "JP",
                 "sector": "HDD Media",
                 "start": 5890,
-                "now": 10555,
+                "now": 11300,
                 "role": "Independent anchor supplier of HDD media — co-develops next-gen HAMR FePt media with Seagate",
                 "significance": "Media is a first-order limiter for high capacities; FePt grain uniformity determines areal density and yields",
                 "keyFacts": [
@@ -1248,7 +1248,7 @@
                 "country": "JP",
                 "sector": "Sputtering Tools",
                 "start": 4398,
-                "now": 4451,
+                "now": 4488,
                 "role": "Canon ANELVA division supplies PVD sputtering tools for HDD magnetic media deposition",
                 "significance": "Multi-chamber PVD sputtering lines are specialized capital equipment; Canon ANELVA is a dominant tool maker",
                 "keyFacts": [
@@ -1264,7 +1264,7 @@
                 "country": "JP",
                 "sector": "Vacuum/Sputtering",
                 "start": 6905,
-                "now": 8492,
+                "now": 8741,
                 "role": "Supplies vacuum deposition and sputtering equipment for HDD media coating alongside Canon ANELVA",
                 "significance": "Vacuum technology specialist; PVD tools for magnetic film deposition are a core product line",
                 "keyFacts": [
@@ -1288,7 +1288,7 @@
                 "country": "JP",
                 "sector": "R/W Heads",
                 "start": 2572.5,
-                "now": 1945.5,
+                "now": 2011.5,
                 "role": "Only merchant (independent) head supplier via SAE Magnetics; also supplies NdFeB magnets for actuators",
                 "significance": "Head yields and NFT reliability pace HAMR ramps; TDK also has magnet know-how for actuators — dual HDD exposure",
                 "keyFacts": [
@@ -1304,7 +1304,7 @@
                 "country": "JP",
                 "sector": "Suspensions",
                 "start": 2810,
-                "now": 2485,
+                "now": 2499,
                 "role": "Leading supplier of precision HDD suspensions that control head flying height at nanometer altitude",
                 "significance": "Oligopolistic position in data-center suspensions; small geometry drifts change flying stability and scrap",
                 "keyFacts": [
@@ -1328,7 +1328,7 @@
                 "country": "JP",
                 "sector": "Spindle Motors",
                 "start": 2070.5,
-                "now": 2100,
+                "now": 2184,
                 "role": "~80% global share of HDD spindle motors — the fluid-dynamic-bearing motors that spin glass platters with minimal vibration",
                 "significance": "Near-monopoly position; any Nidec yield or capacity issue becomes a market-wide throttle on HDD exabyte output",
                 "keyFacts": [
@@ -1344,7 +1344,7 @@
                 "country": "JP",
                 "sector": "Motors & Bearings",
                 "start": 3030,
-                "now": 2575,
+                "now": 2589.5,
                 "role": "Second-largest HDD spindle motor supplier; also supplies precision bearings for various drive components",
                 "significance": "Only meaningful alternative to Nidec in HDD motors; runner-up position benefits when Nidec capacity is tight",
                 "keyFacts": [
@@ -1542,7 +1542,7 @@
             "country": "KR",
             "sector": "HBM / DRAM",
             "start": 566000,
-            "now": 830000,
+            "now": 876000,
             "role": "Leading HBM manufacturer, stacked DRAM defines on-package copper fabric width; supply fully booked through 2025.",
             "significance": "HBM stack height determines memory bandwidth, which defines the copper interconnect complexity.",
             "keyFacts": [
@@ -1558,7 +1558,7 @@
             "country": "KR",
             "sector": "HBM / DRAM",
             "start": 108400,
-            "now": 178400,
+            "now": 186200,
             "role": "HBM and DRAM supplier, one of only three companies capable of manufacturing HBM at scale.",
             "significance": "Samsung's HBM4 qualification timeline directly impacts next-gen AI networking bandwidth.",
             "keyFacts": [
@@ -1670,7 +1670,7 @@
             "country": "JP",
             "sector": "ABF Film",
             "start": 3530,
-            "now": 4659,
+            "now": 4612,
             "role": "Near-monopoly supplier of ABF insulating film used in virtually every high-end IC substrate.",
             "significance": "Without ABF film, no advanced substrate can be built. Single point of failure for AI chip packaging.",
             "keyFacts": [
@@ -1686,7 +1686,7 @@
             "country": "JP",
             "sector": "IC Substrates",
             "start": 6465,
-            "now": 7775,
+            "now": 8210,
             "role": "Manufactures advanced IC substrates using ABF film for AI chip packaging.",
             "significance": "Ibiden's substrate quality directly determines AI chip signal integrity and networking performance.",
             "keyFacts": [
@@ -1702,7 +1702,7 @@
             "country": "JP",
             "sector": "IC Substrates",
             "start": 3443,
-            "now": 3260,
+            "now": 3273,
             "role": "IC substrates via Shinko Electric subsidiary. Key capacity expansion for AI packaging.",
             "significance": "Shinko (Fujitsu subsidiary) is a top-tier substrate maker alongside Ibiden.",
             "keyFacts": [
@@ -1822,7 +1822,7 @@
             "country": "CN",
             "sector": "Connectors / Cable",
             "start": 60.6,
-            "now": 49.89,
+            "now": 48.8,
             "role": "Chinese connector and cable OEM manufacturing twinax assemblies and high-speed connectors for AI racks.",
             "significance": "Luxshare provides cost-competitive connector alternatives for Chinese and global AI rack builds.",
             "keyFacts": [
@@ -2134,7 +2134,7 @@
             "country": "CN",
             "sector": "Optical Modules",
             "start": 419.13,
-            "now": 447.49,
+            "now": 455.3,
             "role": "Chinese optical module maker with 175% YoY revenue growth, major 400G/800G transceiver supplier.",
             "significance": "Eoptolink's explosive growth shows Chinese optics vendors capturing massive AI transceiver share.",
             "keyFacts": [
@@ -2150,7 +2150,7 @@
             "country": "CN",
             "sector": "Optical Modules",
             "start": 606,
-            "now": 582,
+            "now": 606.52,
             "role": "Chinese supplier of finished optical modules and InP lasers/EMLs/receivers for datacenter and telecom.",
             "significance": "Accelink provides both modules and critical InP laser components, spanning two layers of the stack.",
             "keyFacts": [
@@ -2166,7 +2166,7 @@
             "country": "CN",
             "sector": "Optical Transceivers",
             "start": 25.11,
-            "now": 22.87,
+            "now": 22.38,
             "role": "Chinese optical transceiver manufacturer serving cloud and datacenter markets.",
             "significance": "Part of the Chinese optics ecosystem competing for hyperscaler transceiver volume.",
             "keyFacts": [
@@ -2310,7 +2310,7 @@
             "country": "CN",
             "sector": "Optical Transport",
             "start": 42.37,
-            "now": 32.05,
+            "now": 32.08,
             "role": "Optical transport equipment vendor; part of top five globally alongside Huawei, Ciena, Nokia, and FiberHome.",
             "significance": "ZTE is a major optical transport vendor with strong presence in Asia and emerging markets.",
             "keyFacts": [
@@ -2342,7 +2342,7 @@
             "country": "CN",
             "sector": "Optical Transport",
             "start": 24.63,
-            "now": 47.82,
+            "now": 49.16,
             "role": "Chinese optical transport equipment vendor in the global top six by revenue share.",
             "significance": "FiberHome serves the massive Chinese telecom infrastructure buildout and expanding globally.",
             "keyFacts": [
@@ -2414,7 +2414,7 @@
             "country": "JP",
             "sector": "Fiber / Cable",
             "start": 18470,
-            "now": 4293,
+            "now": 4616,
             "role": "Optical fiber and cable manufacturer; fusion splicer technology leader.",
             "significance": "Fujikura's fusion splicers are the tools that join fiber — critical installation equipment.",
             "keyFacts": [
@@ -2430,7 +2430,7 @@
             "country": "JP",
             "sector": "Fiber / Cable",
             "start": 10065,
-            "now": 32420,
+            "now": 35800,
             "role": "Optical fiber, cable, and connectivity products via OFS subsidiary.",
             "significance": "Furukawa's OFS subsidiary provides North American fiber supply from Japanese manufacturing.",
             "keyFacts": [
@@ -2446,7 +2446,7 @@
             "country": "JP",
             "sector": "Fiber / Cable",
             "start": 7109,
-            "now": 9104,
+            "now": 9400,
             "role": "Optical fiber, cables, compound semiconductors, and connectivity hardware.",
             "significance": "Part of the Japanese fiber triad with Fujikura and Furukawa, supplying global fiber demand.",
             "keyFacts": [
@@ -2486,7 +2486,7 @@
             "country": "JP",
             "sector": "Subsea Cable",
             "start": 5625,
-            "now": 4023,
+            "now": 4046,
             "role": "One of only three major submarine cable system builders; full pipeline through 2026.",
             "significance": "Only three companies can build submarine cables. NEC is one of them, with a full order pipeline.",
             "keyFacts": [
@@ -2818,7 +2818,7 @@
             "country": "JP",
             "sector": "ABF Film",
             "start": 3468,
-            "now": 4659,
+            "now": 4612,
             "role": "Sole manufacturer of ABF insulation film used in all high-performance CPU substrates.",
             "significance": "Near-monopoly on ABF film. Without this single material, no advanced CPU substrate can be built.",
             "keyFacts": [
@@ -2834,7 +2834,7 @@
             "country": "JP",
             "sector": "ABF Substrates",
             "start": 8257,
-            "now": 7775,
+            "now": 8210,
             "role": "Premium ABF substrate maker for Intel and other leading CPU platforms.",
             "significance": "Cannot route high-speed signals without Ajinomoto film — but Ibiden turns it into finished substrates.",
             "keyFacts": [
@@ -2882,7 +2882,7 @@
             "country": "JP",
             "sector": "Photomasks",
             "start": 4694,
-            "now": 4210,
+            "now": 4301,
             "role": "Japanese photomask leader. Mask counts rise with each new process node, increasing Toppan's content per wafer.",
             "significance": "Photomask quality becomes gating at GAA. Defect-free masks are essential for leading-edge patterning.",
             "keyFacts": [
@@ -2898,7 +2898,7 @@
             "country": "JP",
             "sector": "Photomasks",
             "start": 2756,
-            "now": 2823,
+            "now": 2849.5,
             "role": "Major photomask producer for leading-edge semiconductor manufacturing.",
             "significance": "Part of the Japanese mask triad with Toppan and HOYA. Capacity concentration creates fragility.",
             "keyFacts": [
@@ -2914,7 +2914,7 @@
             "country": "JP",
             "sector": "Mask Blanks / Optics",
             "start": 25485,
-            "now": 27320,
+            "now": 27575,
             "role": "Dominant supplier of EUV mask blanks — the ultra-flat substrates that photomasks are built on.",
             "significance": "EUV mask blanks are the foundation of every EUV mask. HOYA's quality defines patterning capability.",
             "keyFacts": [
@@ -3058,7 +3058,7 @@
             "country": "JP",
             "sector": "Silicon Wafers",
             "start": 4908,
-            "now": 6412,
+            "now": 6450,
             "role": "World's largest silicon wafer manufacturer. Every chip starts on a Shin-Etsu wafer.",
             "significance": "Wafer quality at leading-edge nodes defines what's possible. Shin-Etsu sets the purity floor.",
             "keyFacts": [
@@ -3074,7 +3074,7 @@
             "country": "JP",
             "sector": "Silicon Wafers",
             "start": 1570,
-            "now": 1713.5,
+            "now": 1738,
             "role": "Second-largest silicon wafer maker. Supplies 300mm wafers to all major foundries.",
             "significance": "Wafer supply is concentrated in two Japanese companies. SUMCO duopoly with Shin-Etsu is structural.",
             "keyFacts": [
