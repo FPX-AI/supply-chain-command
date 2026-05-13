@@ -7,6 +7,34 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const JWT_SECRET = process.env.JWT_SECRET;
 const APP_URL = process.env.APP_URL || 'https://command.fpx.world';
 
+function escapeStripeSearchValue(value) {
+  return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
+async function findCustomersByEmail(email) {
+  const customersById = new Map();
+
+  // Stripe's list email filter is exact and case-sensitive. Search is
+  // case-insensitive, but may lag briefly, so keep list as a fallback.
+  try {
+    const searchResults = await stripe.customers.search({
+      query: `email:"${escapeStripeSearchValue(email)}"`,
+      limit: 10,
+    });
+    for (const customer of searchResults.data) customersById.set(customer.id, customer);
+  } catch (err) {
+    console.warn('Stripe customer search failed, falling back to exact lookup:', err);
+  }
+
+  const exactEmails = [...new Set([email, email.toLowerCase()])];
+  for (const exactEmail of exactEmails) {
+    const listResults = await stripe.customers.list({ email: exactEmail, limit: 10 });
+    for (const customer of listResults.data) customersById.set(customer.id, customer);
+  }
+
+  return [...customersById.values()];
+}
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -16,16 +44,17 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const { email } = req.body;
-  if (!email) return res.status(400).json({ error: 'Email required' });
+  const normalizedEmail = typeof email === 'string' ? email.trim() : '';
+  if (!normalizedEmail) return res.status(400).json({ error: 'Email required' });
 
   try {
     // Search Stripe for this email across all customers
-    const customers = await stripe.customers.list({ email: email.toLowerCase(), limit: 10 });
+    const customers = await findCustomersByEmail(normalizedEmail);
 
     let hasActiveSubscription = false;
     let customerId = null;
 
-    for (const customer of customers.data) {
+    for (const customer of customers) {
       const subscriptions = await stripe.subscriptions.list({
         customer: customer.id,
         status: 'active',
@@ -47,7 +76,7 @@ export default async function handler(req, res) {
 
     // Generate a magic link token (short-lived)
     const magicToken = jwt.sign(
-      { email: email.toLowerCase(), customerId },
+      { email: normalizedEmail.toLowerCase(), customerId },
       JWT_SECRET,
       { expiresIn: '15m' }
     );
@@ -57,7 +86,7 @@ export default async function handler(req, res) {
     // Send magic link email
     await resend.emails.send({
       from: 'FPX AI No Reply <noreply@fpx.world>',
-      to: email.toLowerCase(),
+      to: normalizedEmail,
       subject: 'Your FPX AI Supply Chain COMMAND Access Link',
       html: `
         <div style="background:#0a0a0a;color:#00ff41;font-family:monospace;padding:40px;max-width:500px;margin:0 auto;">
