@@ -176,11 +176,11 @@ const SiliconSilkRoad = ({ stages, activeStage, onSelect, color }) => {
         ctx.fillStyle = isA ? color + "22" : "#0d1117"; ctx.strokeStyle = isA ? color : color + "44"; ctx.lineWidth = isA ? 2 : 1; ctx.fill(); ctx.stroke();
         ctx.beginPath(); ctx.arc(nodeX, y, 3, 0, Math.PI * 2);
         ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = isA ? 10 : 4; ctx.fill(); ctx.shadowBlur = 0;
-        ctx.font = `${isA ? "bold " : ""}10px "JetBrains Mono", monospace`;
+        ctx.font = `${isA ? "bold " : ""}10px "Berkeley Mono", monospace`;
         ctx.fillStyle = isA ? color : "#8a9bb0"; ctx.textAlign = "left";
         const lbl = s.name.length > 24 ? s.name.substring(0, 22) + "…" : s.name;
         ctx.fillText(lbl.toUpperCase(), nodeX + 20, y - 2);
-        ctx.font = '8px "JetBrains Mono", monospace'; ctx.fillStyle = "#556070";
+        ctx.font = '8px "Berkeley Mono", monospace'; ctx.fillStyle = "#556070";
         ctx.fillText(`${s.companies.length} ${s.companies.length === 1 ? "node" : "nodes"} · ${s.codename}`, nodeX + 20, y + 11);
         const ag = s.companies.reduce((a, c) => a + parseFloat(pct(c.start, c.now)), 0) / s.companies.length;
         const hc = ag > 200 ? "#ff3344" : ag > 100 ? "#ff6d00" : ag > 30 ? "#ffea00" : "#39ff14";
@@ -1271,9 +1271,8 @@ export default function WarRoom() {
   const bestPickVal = bestPickPct != null ? bestPickPct : parseFloat(pct(bestPick.start, bestPick.now));
 
   return (
-    <div style={{ "--mono": "'Poppins', sans-serif", "--display": "'Poppins', sans-serif", minHeight: "100vh", background: "#05080a", color: "#e0e6ed", fontFamily: "var(--mono)", position: "relative" }}>
+    <div style={{ "--mono": '"Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace', "--display": '"Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace', minHeight: "100vh", background: "#05080a", color: "#e0e6ed", fontFamily: "var(--mono)", position: "relative" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         @keyframes scanMove { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
